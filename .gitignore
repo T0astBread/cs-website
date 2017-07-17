@@ -268,3 +268,6 @@ vendor/
 
 # TypeScript
 scripts/*.js
+
+# Protected files
+*.sensitive.*

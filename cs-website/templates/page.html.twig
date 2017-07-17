@@ -1,0 +1,43 @@
+{% set HOST = constant("HOST") %}
+{% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min"]) %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computer Steiner{{ title is defined ? " >> "~title }}</title>
+    {% block head %}
+    <style>
+        {{ "@font-face{font-family: 'FontAwesome';src: url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.eot?v=4.7.0');src: url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');font-weight: normal;font-style: normal;}" }}
+    </style>
+    {% for style in styles %}
+    <link rel="stylesheet" href="{{ HOST }}/styles/{{ style }}.css" />
+    {% endfor %}
+    {% for script in scripts %}
+    <script src="{{ HOST }}/scripts/{{ style }}.js"></script>
+    {% endfor %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div>
+            <nav>
+                <ul>
+                    {% for item in ["Unternehmen", "Produkte", "News", "Support"] %}
+                        <li class="center-vertically">{{ item }}</item>
+                    {% endfor %}
+                </ul>
+            </nav>
+             <div id="language-selector">
+                  <span id="current-lang" class="center-vertically"><span class="fa fa-globe"></span>DE</span>
+            </div>
+            <div id="logo" class="center-vertically">
+                <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
+            </div>
+        </div>
+    </header>
+   <main>
+       {% block content %}
+       {% endblock %}
+   </main>
+</body>
+</html>

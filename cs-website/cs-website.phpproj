@@ -16,6 +16,32 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="fonts\" />
+    <Folder Include="images\" />
+    <Folder Include="php\" />
+    <Folder Include="php\templating\" />
+    <Folder Include="templates\" />
+    <Folder Include="scripts\" />
+    <Folder Include="styles\" />
+    <Folder Include="templates\components\" />
+    <Folder Include="templates\pages\" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="index.php" />
+    <Compile Include="php\constants.internal.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="images\cs-logo.png" />
+    <Content Include="php\templating\twig-environment.internal.php" />
+    <Content Include="styles\font-awesome.min.css" />
+    <Content Include="styles\frame.css" />
+    <Content Include="templates\page.html.twig" />
+    <Content Include="templates\pages\home.html.twig" />
   </ItemGroup>
 </Project>
