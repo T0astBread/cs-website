@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Computer Steiner{{ title is defined ? " >> "~title }}</title>
     {% block head %}
     <style>
@@ -22,8 +23,21 @@
         <div>
             <nav>
                 <ul>
-                    {% for item in ["Unternehmen", "Produkte", "News", "Support"] %}
-                        <li class="center-vertically">{{ item }}</item>
+                    {% for item in
+                    [
+                        {"title": "Unternehmen", "dropdown": ["Über Uns", "Kontakt"]},
+                        {"title": "Produkte", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                        {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                        {"title": "Support", "dropdown": ["Teamviever", "Fastviewer"]},
+                    ] %}
+                        <li class="center-vertically">
+                            <span>{{ item["title"] }}</span>
+                            <ul class="dropdown-items">
+                                {% for dropdownItem in item["dropdown"] %}
+                                    <li>{{ dropdownItem }}</li>
+                                {% endfor %}
+                            </ul>
+                        </item>
                     {% endfor %}
                 </ul>
             </nav>
