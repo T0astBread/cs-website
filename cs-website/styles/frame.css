@@ -12,6 +12,11 @@ body
    background-color: #fafafa;
 }
 
+a
+{
+   color: #d7e33c;
+}
+
 header
 {
    width: 100%;
@@ -40,7 +45,7 @@ header .header-wrapper
    height: 100%;
 }
 
-main, header .header-content
+header .header-content, #page-body
 {
    margin: auto;
    max-width: 1000px;
@@ -175,4 +180,38 @@ nav ul li:hover
 main
 {
    display: block;
+}
+
+footer
+{
+   border-top: 1px solid #ccc;
+   padding: 1.25em 2em;
+   padding-bottom: 2em;
+   margin-top: 2em;
+}
+
+footer #footer-left
+{
+   display: inline;
+}
+
+#footer-left > *
+{
+   display: inline-block;
+}
+
+#footer-left > *:not(:last-child)
+{
+   border-right: 1px solid #999;
+   padding-right: .5em;
+}
+
+#footer-left > *:not(:first-child)
+{
+   padding-left: .2em;
+}
+
+footer #footer-back-to-top
+{
+   float: right;
 }

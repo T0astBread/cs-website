@@ -52,9 +52,19 @@
             </div>
         </div>
     </header>
-   <main>
-       {% block content %}
-       {% endblock %}
-   </main>
+    <div id="page-body">
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <div id="footer-left">
+                <span>Computer Steiner GmbH &copy; 2017</span>
+                <a href="">Impressum</a>
+                <a href="">AGB</a>
+            </div>
+            <a id="footer-back-to-top" href="#top">Zum Seitenanfang</a>
+        </footer>
+    </div>
 </body>
 </html>
