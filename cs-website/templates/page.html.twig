@@ -1,5 +1,5 @@
 {% set HOST = constant("HOST") %}
-{% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min"]) %}
+{% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "section"]) %}
 
 <!DOCTYPE html>
 <html>
@@ -31,15 +31,21 @@
                             {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
                             {"title": "Support", "dropdown": ["Teamviever", "Fastviewer"]},
                         ] %}
-                            <li class="center-vertically">
-                                <span>{{ item["title"] }}</span>
+                            {% set dropdownLinks = [] %}
+                            {% for dropdownItem in item["dropdown"] %}
+                                {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["title"])]) %}
+                            {% endfor %}
+                            <li>
+                                <a class="center-vertically" href="#{{ dropdownLinks|first }}">
+                                    <span>{{ item["title"] }}</span>
+                                </a>
                                 <ul class="dropdown-items">
                                     <h4>{{ item["title"] }}</h4>
                                     {% for dropdownItem in item["dropdown"] %}
-                                        <li>{{ dropdownItem }}</li>
+                                        <li><a href="#{{ dropdownLinks[loop.index0] }}" >{{ dropdownItem }}</a></li>
                                     {% endfor %}
                                 </ul>
-                            </item>
+                            </li>
                         {% endfor %}
                     </ul>
                 </nav>

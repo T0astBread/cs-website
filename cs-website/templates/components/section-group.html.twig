@@ -1,0 +1,8 @@
+{#
+    A section-group is a group of sections that share the same value for the group variable.
+    A section-group is basically just a more convenient way of writing multiple adjacent sections that are in the same group
+#}
+
+{% for section in sections %}
+    {% include "components/section.html.twig" with {"title": section["title"], "group": name, "content": section["content"]} %}
+{% endfor %}

@@ -7,7 +7,7 @@ body
 {
    padding: 0;
    margin: 0;
-   margin-top: 8em;
+   margin-top: 5em;
    font-family: Calibri, Arial, sans-serif;
    background-color: #fafafa;
 }
@@ -15,6 +15,12 @@ body
 a
 {
    color: #d7e33c;
+   text-decoration: none;
+}
+
+header a
+{
+   color: black;
 }
 
 header
@@ -116,6 +122,13 @@ nav > ul li span
    height: auto;
 }
 
+nav li a
+{
+   width: 100%;
+   height: 100%;
+   display: inline-block;
+}
+
 nav .dropdown-items
 {
    display: block;
@@ -148,6 +161,10 @@ nav li:hover .dropdown-items
 nav .dropdown-items li
 {
    display: block;
+}
+
+nav .dropdown-items li a
+{
    padding: 1em 2em;
 }
 
@@ -180,6 +197,7 @@ nav ul li:hover
 main
 {
    display: block;
+   margin-bottom: 5em;
 }
 
 footer

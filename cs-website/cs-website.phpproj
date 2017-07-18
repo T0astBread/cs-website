@@ -41,6 +41,9 @@
     <Content Include="php\templating\twig-environment.internal.php" />
     <Content Include="styles\font-awesome.min.css" />
     <Content Include="styles\frame.css" />
+    <Content Include="styles\section.css" />
+    <Content Include="templates\components\section.html.twig" />
+    <Content Include="templates\components\section-group.html.twig" />
     <Content Include="templates\page.html.twig" />
     <Content Include="templates\pages\home.html.twig" />
   </ItemGroup>
