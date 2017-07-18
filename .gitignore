@@ -266,9 +266,7 @@ __pycache__/
 composer.phar
 vendor/
 
-# TypeScript
-scripts/*.js
-scripts/lib/*
+# TypeScript - See /cs-website/scripts/.gitignore!
 
 # Protected files
 *.sensitive.*
