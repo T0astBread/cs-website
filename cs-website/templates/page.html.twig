@@ -20,32 +20,35 @@
 </head>
 <body>
     <header>
-        <div>
-            <nav>
-                <ul>
-                    {% for item in
-                    [
-                        {"title": "Unternehmen", "dropdown": ["Über Uns", "Kontakt"]},
-                        {"title": "Produkte", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                        {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                        {"title": "Support", "dropdown": ["Teamviever", "Fastviewer"]},
-                    ] %}
-                        <li class="center-vertically">
-                            <span>{{ item["title"] }}</span>
-                            <ul class="dropdown-items">
-                                {% for dropdownItem in item["dropdown"] %}
-                                    <li>{{ dropdownItem }}</li>
-                                {% endfor %}
-                            </ul>
-                        </item>
-                    {% endfor %}
-                </ul>
-            </nav>
-             <div id="language-selector">
-                  <span id="current-lang" class="center-vertically"><span class="fa fa-globe"></span>DE</span>
-            </div>
-            <div id="logo" class="center-vertically">
-                <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
+        <div class="header-wrapper">
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        {% for item in
+                        [
+                            {"title": "Unternehmen", "dropdown": ["Über Uns", "Kontakt"]},
+                            {"title": "Produkte", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                            {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                            {"title": "Support", "dropdown": ["Teamviever", "Fastviewer"]},
+                        ] %}
+                            <li class="center-vertically">
+                                <span>{{ item["title"] }}</span>
+                                <ul class="dropdown-items">
+                                    <h4>{{ item["title"] }}</h4>
+                                    {% for dropdownItem in item["dropdown"] %}
+                                        <li>{{ dropdownItem }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </item>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                 <div id="language-selector">
+                      <span id="current-lang" class="center-vertically"><span class="fa fa-globe"></span>DE</span>
+                </div>
+                <div id="logo" class="center-vertically">
+                    <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
+                </div>
             </div>
         </div>
     </header>
