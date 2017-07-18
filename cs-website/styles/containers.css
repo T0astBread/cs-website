@@ -26,3 +26,20 @@ section::before
 {
    font-size: 20pt;
 }
+
+.fullwidth
+{
+   max-width: none;
+   width: 100%;
+   background: #d7e33c;
+   text-align: center;
+   color: #a0a92d;
+}
+
+.fullwidth h1
+{
+   font-weight: 100;
+   font-size: 42pt;
+   font-family: "Heebo", sans-serif;
+   padding: .5em 0;
+}
