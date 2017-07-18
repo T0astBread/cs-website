@@ -1,5 +1,6 @@
 {% set HOST = constant("HOST") %}
 {% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "section"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["lib/jquery-3.2.1.min", "onpage-link-scroll"]) %}
 
 <!DOCTYPE html>
 <html>
@@ -11,17 +12,17 @@
         {{ "@font-face{font-family: 'FontAwesome';src: url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.eot?v=4.7.0');src: url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('" }}{{ HOST }}{{ "/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');font-weight: normal;font-style: normal;}" }}
     </style>
     {% for style in styles %}
-    <link rel="stylesheet" href="{{ HOST }}/styles/{{ style }}.css" />
+        <link rel="stylesheet" href="{{ HOST }}/styles/{{ style }}.css" />
     {% endfor %}
     {% for script in scripts %}
-    <script src="{{ HOST }}/scripts/{{ style }}.js"></script>
+        <script src="{{ HOST }}/scripts/{{ script }}.js"></script>
     {% endfor %}
     {% endblock %}
 </head>
 <body>
     <header>
-        <div class="header-wrapper">
-            <div class="header-content">
+        <div id="header-wrapper">
+            <div id="header-content">
                 <nav>
                     <ul>
                         {% for item in
@@ -53,24 +54,26 @@
                       <span id="current-lang" class="center-vertically"><span class="fa fa-globe"></span>DE</span>
                 </div>
                 <div id="logo" class="center-vertically">
-                    <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
+                    <a href="#top">
+                        <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
+                    </a>
                 </div>
             </div>
         </div>
     </header>
-    <div id="page-body">
         <main>
             {% block content %}
             {% endblock %}
         </main>
         <footer>
-            <div id="footer-left">
-                <span>Computer Steiner GmbH &copy; 2017</span>
-                <a href="">Impressum</a>
-                <a href="">AGB</a>
+            <div id="footer-content">
+                <div id="footer-left">
+                    <span>Computer Steiner GmbH &copy; 2017</span>
+                    <a href="">Impressum</a>
+                    <a href="">AGB</a>
+                </div>
+                <a id="footer-back-to-top" href="#top">Zum Seitenanfang</a>
             </div>
-            <a id="footer-back-to-top" href="#top">Zum Seitenanfang</a>
         </footer>
-    </div>
 </body>
 </html>

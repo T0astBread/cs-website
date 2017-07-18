@@ -39,6 +39,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="images\cs-logo.png" />
     <Content Include="php\templating\twig-environment.internal.php" />
+    <TypeScriptCompile Include="scripts\onpage-link-scroll.ts" />
     <Content Include="styles\font-awesome.min.css" />
     <Content Include="styles\frame.css" />
     <Content Include="styles\section.css" />
