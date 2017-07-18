@@ -1,11 +1,9 @@
 {#
-    A section is a part of a website with a title, content and an identifier.
+    A section is a part of a website with an identifier.
     The identifier is automatically generated and can be modified by specifying a group for the section.
-
-    See: super-section
 #}
 
-<section id="{{ identifier is defined ? identifier : title|convert_encoding("UTF-8", "iso-8859-1")|identifier(group) }}">
-    <h1>{{ title|convert_encoding("UTF-8", "iso-8859-1") }}</h1>
-    <div class="section-content">{{ content|convert_encoding("UTF-8", "iso-8859-1")|raw }}</div>
+<section id="{% block identifier %}{% endblock %}" {{ class is defined ? "class="~class }}>
+    {% block content %}
+    {% endblock %}
 </section>

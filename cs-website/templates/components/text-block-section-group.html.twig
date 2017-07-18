@@ -4,5 +4,5 @@
 #}
 
 {% for section in sections %}
-    {% include "components/section.html.twig" with {"title": section["title"], "group": name, "content": section["content"]} %}
+    {% include "components/text-block-section.html.twig" with {"title": section["title"], "group": name, "text": section["text"]} %}
 {% endfor %}

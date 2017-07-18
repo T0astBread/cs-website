@@ -1,0 +1,12 @@
+{% extends "section.html.twig" %}
+
+{% set class = "titled-section" %}
+
+{% block identifier %}{{ identifier is defined ? identifier : title|convert_encoding("UTF-8", "iso-8859-1")|identifier(group) }}{% endblock %}
+{% block content %}
+    <h1>{{ title|convert_encoding("UTF-8", "iso-8859-1") }}</h1>
+    <div class="section-content">
+        {% block sectionBody %}
+        {% endblock %}
+    </div>
+{% endblock %}

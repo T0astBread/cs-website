@@ -4,7 +4,6 @@
 	{
 		let nearestLink = $(evt.target).closest("a");
 		let anchor = nearestLink[0].hash;
-		console.log(anchor);
 		if(anchor === undefined || anchor.length == 0) return;
 		
 		let windowLocationHash = anchor;
