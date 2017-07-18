@@ -13,7 +13,7 @@ section::before
    visibility: hidden;
 }
 
-section h1
+.text-block-section h1
 {
    font-size: 36pt;
    padding: 0;
@@ -22,7 +22,7 @@ section h1
    margin-bottom: .75em;
 }
 
-section .section-content
+.text-block-section .section-content
 {
    font-size: 20pt;
 }

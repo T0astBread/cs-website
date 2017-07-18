@@ -3,7 +3,7 @@
     The identifier is automatically generated and can be modified by specifying a group for the section.
 #}
 
-<section id="{% block identifier %}{% endblock %}" {{ class is defined ? "class="~class }}>
+<section id="{% block identifier %}{% endblock %}" class="{% block classes %}{% endblock %}">
     {% block content %}
     {% endblock %}
 </section>
