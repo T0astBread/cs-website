@@ -1,9 +1,12 @@
 ﻿const DIRECTION_LEFT = 0, DIRECTION_RIGHT = 1;
 
-let slideshowChange = (slideshow: Element, direction: number) =>
+let slide = (slideshow: Element, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined) =>
 {
 	let slideshowList = $(slideshow).find("ul");
+	if(!slideshowList) return;
 	let visible = slideshowList.find("li.visible");
+	
+	fastTransition ? $(slideshow).addClass("fast-transition") : $(slideshow).removeClass("fast-transition");
 	
 	let next = visible[0].nextElementSibling, prev = visible[0].previousElementSibling;
 	let nextVisiblePanel: Element, nextVisiblePanelIsOnLeft: boolean;
@@ -32,20 +35,33 @@ let slideshowChange = (slideshow: Element, direction: number) =>
 	.removeClass("on-right");
 	
 	visible.removeClass("visible");
+	
+	setTimeout(onFinish, fastTransition ? 250 : 500);
+};
+
+let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIRECTION_RIGHT, fastTransition: boolean = true) =>
+{
+	let checkPanel = () => $(slideshow).find(".visible").attr("id") === panelId;
+	let slideAndCheckPanel = () =>
+		slide(slideshow, direction, fastTransition, () =>
+		{
+			if(!checkPanel()) slideAndCheckPanel();
+		});
+	if(!checkPanel()) slideAndCheckPanel();
 };
 
 $(document).ready(() =>
-{	
-	let slideshowChangeOnEvent = (evt: Event, direction: number) =>
-		slideshowChange($(evt.target).closest(".slideshow"), direction);
+{
+	let slideOnEvent = (evt: Event, direction: number) =>
+		slide($(evt.target).closest(".slideshow"), direction);
 		
 	$("button.slideshow-left, button.slideshow-right").click(evt =>
 	{
 		let buttonClass = evt.target.getAttribute("class");
-		slideshowChangeOnEvent(evt, buttonClass === "slideshow-left" ? DIRECTION_LEFT : DIRECTION_RIGHT);
+		slideOnEvent(evt, buttonClass === "slideshow-left" ? DIRECTION_LEFT : DIRECTION_RIGHT);
 	}).keyup(evt =>
 	{
 		if(evt.keyCode !== 37 && evt.keyCode !== 39) return;
-		slideshowChangeOnEvent(evt, evt.keyCode === 37 ? DIRECTION_LEFT : DIRECTION_RIGHT);
+		slideOnEvent(evt, evt.keyCode === 37 ? DIRECTION_LEFT : DIRECTION_RIGHT);
 	});
 });

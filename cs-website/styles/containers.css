@@ -112,6 +112,11 @@ section::before
    transition-property: none!important;
 }
 
+.slideshow.fast-transition .slideshow-panel
+{
+   transition-duration: .25s!important;
+}
+
 .slideshow li.slideshow-panel.visible
 {
    opacity: 1;

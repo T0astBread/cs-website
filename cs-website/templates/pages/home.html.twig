@@ -10,7 +10,28 @@
     ]} %}
     <div class="fullwidth">
         <h1>Fullwidth</h1>
-        {% include "slideshow.html.twig" with {"panels": ["Panel 1", "Panel 2"]} %}
+        {% include "slideshow.html.twig" with {"panels":
+            [
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"id": "panel-2", "content": "Panel 2"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"content": "Panel 1"},
+                {"id": "panel-3", "content": "Panel 3"}
+            ]} %}
     </div>
     {% include "components/text-block-section-group.html.twig" with {"name": "produkte", "sections":
     [
