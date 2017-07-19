@@ -23,12 +23,13 @@ $(document).ready(() =>
 			visible.addClass("on-right");
 		}
 		
-		$(nextVisiblePanel)
-		.addClass("no-transition")
+		let jqNextVisible = $(nextVisiblePanel);
+		jqNextVisible.addClass("no-transition")
 		.removeClass("on-left")
 		.removeClass("on-right")
 		.addClass(nextVisiblePanelIsOnLeft ? "on-left" : "on-right")
-		.removeClass("no-transition")
+		void nextVisiblePanel.offsetWidth;
+		jqNextVisible.removeClass("no-transition")
 		.addClass("visible")
 		.removeClass("on-left")
 		.removeClass("on-right");
