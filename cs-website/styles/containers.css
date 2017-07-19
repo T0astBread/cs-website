@@ -124,7 +124,7 @@ section::before
    opacity: .5;
 }
 
-.slideshow button:hover
+.slideshow button:hover, .slideshow button:focus
 {
    background-color: rgba(0, 0, 0, .1);
 }
