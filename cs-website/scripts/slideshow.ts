@@ -64,4 +64,10 @@ $(document).ready(() =>
 		if(evt.keyCode !== 37 && evt.keyCode !== 39) return;
 		slideOnEvent(evt, evt.keyCode === 37 ? DIRECTION_LEFT : DIRECTION_RIGHT);
 	});
+	
+	addOnPageLinkScrollListener(evt =>
+	{
+		let slideshow = $(evt.target).closest(".slideshow");
+		if(slideshow) slideToPanel(slideshow, evt.anchor.slice(1, evt.anchor.length));
+	}, "finish");
 });
