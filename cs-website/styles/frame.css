@@ -136,6 +136,7 @@ nav .dropdown-items
    z-index: -1;
    padding-top: .75em;
    white-space: nowrap;
+   overflow: hidden;
 
    transition: .5s transform cubic-bezier(0.68,-0.04, 0.62, 0.99);
    -webkit-transform: translate(-50%, calc(-150% - 5em));
