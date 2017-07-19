@@ -1,7 +1,8 @@
 ﻿.size-limited
 {
    max-width: 800px;
-   margin: auto;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .wider, .fullwidth .slideshow
@@ -9,12 +10,18 @@
    max-width: 1000px;
 }
 
+section
+{
+   display: block;
+   margin: 8em 0;
+}
+
 section::before
 {
    display: block;
    content: " ";
-   height: 5em;
-   margin-top: -5em;
+   height: 10em;
+   margin-top: -10em;
    visibility: hidden;
 }
 
@@ -23,7 +30,6 @@ section::before
    font-size: 36pt;
    padding: 0;
    margin: 0;
-   margin-top: 2em;
    margin-bottom: .75em;
 }
 
