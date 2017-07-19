@@ -6,20 +6,35 @@ $(document).ready(() =>
 	{
 		let slideshowList = $(event.target).closest(".slideshow").find("ul");
 		let visible = slideshowList.find("li.visible");
-		visible.removeClass("visible");
+		
 		let next = visible[0].nextElementSibling, prev = visible[0].previousElementSibling;
-		let nextVisiblePanel;
+		let nextVisiblePanel: Element, nextVisiblePanelIsOnLeft: boolean;
 		let buttonClassAttr = event.target.getAttribute("class");
-		if(buttonClassAttr.includes("slideshow-left"))
+		if(buttonClassAttr === "slideshow-left")
 		{
 			nextVisiblePanel = prev ? prev : slideshowList[0].lastElementChild;
+			nextVisiblePanelIsOnLeft = false;
+			visible.addClass("on-left");
 		}
-		else if(buttonClassAttr.includes("slideshow-right"))
+		else if(buttonClassAttr === "slideshow-right")
 		{
 			nextVisiblePanel = next ? next : slideshowList[0].firstElementChild;
+			nextVisiblePanelIsOnLeft = true;
+			visible.addClass("on-right");
 		}
-		console.log(nextVisiblePanel);
-		$(nextVisiblePanel).addClass("visible");
+		
+		let jqNextVisible = $(nextVisiblePanel);
+		jqNextVisible.addClass("no-transition")
+		.removeClass("on-left")
+		.removeClass("on-right")
+		.addClass(nextVisiblePanelIsOnLeft ? "on-left" : "on-right")
+		void nextVisiblePanel.offsetWidth;
+		jqNextVisible.removeClass("no-transition")
+		.addClass("visible")
+		.removeClass("on-left")
+		.removeClass("on-right");
+		
+		setTimeout(() => visible.removeClass("visible"), 500);
 	};
 	
 	$("button.slideshow-left, button.slideshow-right").click(slideshowChange);

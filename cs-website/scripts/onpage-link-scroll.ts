@@ -8,7 +8,7 @@
 		
 		let windowLocationHash = anchor;
 		let newScrollTop = 0;
-		if(anchor.startsWith("#top") && anchor.length == 4)
+		if(anchor === "#top")
 		{
 			windowLocationHash = "";
 		}

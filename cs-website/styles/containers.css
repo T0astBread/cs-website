@@ -76,18 +76,43 @@ section::before
 {
    flex-grow: 1;
    list-style: none;
+   display: block;
+   white-space: nowrap;
+   position: relative;
+   overflow: hidden;
 }
 
 .slideshow li.slideshow-panel
 {
-   display: none;
+   display: inline-block;
+   position: absolute;
+   opacity: 0;
    width: 100%;
    height: 100%;
+   left: 0;
+   transition: .5s ease;
+   transition-property: left, opacity;
+}
+
+.slideshow-panel.on-left
+{
+   left: -100%!important;
+}
+
+.slideshow-panel.on-right
+{
+   left: 100%!important;
+}
+
+.slideshow-panel.no-transition
+{
+   transition: none!important;
+   transition-property: none!important;
 }
 
 .slideshow li.slideshow-panel.visible
 {
-   display: block;
+   opacity: 1;
 }
 
 .slideshow button
