@@ -1,0 +1,9 @@
+<div class="slideshow size-limited">
+    <button class="slideshow-left{{ extraClasses is defined ? " "~extraClasses }}">&lt;</button>
+    <ul>
+        {% for panel in panels %}
+            <li class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}">{{ panel|raw }}</li>
+        {% endfor %}
+    </ul>
+    <button class="slideshow-right">&gt;</button>
+</div>

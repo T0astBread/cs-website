@@ -1,7 +1,12 @@
-﻿section
+﻿.size-limited
 {
    max-width: 800px;
    margin: auto;
+}
+
+.wider, .fullwidth .slideshow
+{
+   max-width: 1000px;
 }
 
 section::before
@@ -34,6 +39,8 @@ section::before
    background: #d7e33c;
    text-align: center;
    color: #a0a92d;
+   padding: 1em 2em;
+   box-sizing: border-box;
 }
 
 .fullwidth h1
@@ -41,5 +48,52 @@ section::before
    font-weight: 100;
    font-size: 42pt;
    font-family: "Heebo", sans-serif;
-   padding: .5em 0;
+   padding: 0;
+   margin: 0;
+   margin-bottom: 1em;
+}
+
+.slideshow
+{
+   display: flex;
+   flex-direction: row;
+   max-width: 800px;
+   margin: auto;
+}
+
+.slideshow > *
+{
+   display: inline-flex;
+}
+
+.slideshow ul
+{
+   flex-grow: 1;
+   list-style: none;
+}
+
+.slideshow li.slideshow-panel
+{
+   display: none;
+   width: 100%;
+   height: 100%;
+}
+
+.slideshow li.slideshow-panel.visible
+{
+   display: block;
+}
+
+.slideshow button
+{
+   background: none;
+   border: none;
+   padding: 1em .25em;
+   font-size: 24pt;
+   opacity: .5;
+}
+
+.slideshow button:hover
+{
+   background-color: rgba(0, 0, 0, .1);
 }

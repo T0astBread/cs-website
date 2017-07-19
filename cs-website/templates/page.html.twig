@@ -1,6 +1,6 @@
 {% set HOST = constant("HOST") %}
 {% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers"]) %}
-{% set scripts = (scripts is defined ? scripts : [])|merge(["lib/jquery-3.2.1.min", "onpage-link-scroll"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["onpage-link-scroll"]) %}
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,7 @@
     {% for style in styles %}
         <link rel="stylesheet" href="{{ HOST }}/styles/{{ style }}.css" />
     {% endfor %}
+    <script src="{{ HOST }}/scripts/lib/jquery-3.2.1.min.js"></script>
     {% for script in scripts %}
         <script src="{{ HOST }}/scripts/{{ script }}.js"></script>
     {% endfor %}
