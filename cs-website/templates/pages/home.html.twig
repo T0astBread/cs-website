@@ -10,7 +10,11 @@
     ]} %}
     <div class="fullwidth">
         <h1>Fullwidth</h1>
-        {% include "slideshow.html.twig" with {"id": "products", "panels": [{"content": "CS-Transport"}, {"content": "CS-Bus"}, {"content": "CS-Routing"}]} %}
+        {% include "slideshow.html.twig" with {"id": "products", "panels": [
+            {"content": "<img src='"~HOST~"/images/TR.png'>"},
+            {"content": "CS-Bus"},
+            {"content": "CS-Routing"}
+        ]} %}
     </div>
     <div class="size-limited">
         {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [{"content": "<h1>CS-Transport</h1>"}, {"content": "<h1>CS-Bus</h1>"}, {"content": "<h1>CS-Routing</h1>"}]} %}

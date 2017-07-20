@@ -93,8 +93,8 @@ header #logo img
 
 .center-vertically
 {
-   display: inline-block;
-   vertical-align: middle;
+   display: inline-block!important;
+   vertical-align: middle!important;
 }
 
 nav

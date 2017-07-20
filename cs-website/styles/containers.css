@@ -82,16 +82,18 @@ section::before
    overflow: hidden;
    padding: 0;
    margin: 0;
+   transition: height .5s ease;
 }
 
 .slideshow ul
 {
    flex-grow: 1;
+   min-height: 6rem;
 }
 
-.slideshow .slideshow-panel
+.slideshow .slideshow-panel::before
 {
-
+   min-height: 6rem;
 }
 
 .slideshow-panel
@@ -100,7 +102,6 @@ section::before
    position: absolute;
    opacity: 0;
    width: 100%;
-   height: 100%;
    left: 0;
    transition: .5s ease;
    transition-property: left, opacity;
@@ -134,24 +135,19 @@ section::before
 
 .slideshow button
 {
+   display: inline-block;
+   vertical-align: middle;
    background: none;
    border: none;
-   padding: 1em .25em;
+   padding: 0 .25em;
    font-size: 24pt;
    opacity: .5;
+   height: 100%;
+   min-height: 6rem;
+   max-height: 10rem;
 }
 
 .slideshow button:hover, .slideshow button:focus
 {
    background-color: rgba(0, 0, 0, .1);
-}
-
-.slide-with
-{
-   transition: height .5s ease;
-}
-
-.slide-with > .slideshow-panel
-{
-   height: auto;
 }

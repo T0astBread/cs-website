@@ -1,9 +1,9 @@
 <div class="slideshow size-limited" id="{{ id }}" {{ attributes is defined ? attributes }}>
-    <button class="slideshow-left">&lt;</button>
+    <span class="center-vertically"><button class="slideshow-left">&lt;</button></span>
     <ul>
         {% for panel in panels %}
             <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}">{{ panel["content"]|raw }}</li>
         {% endfor %}
     </ul>
-    <button class="slideshow-right">&gt;</button>
+    <span class="center-vertically"><button class="slideshow-right">&gt;</button></span>
 </div>
