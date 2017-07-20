@@ -2,27 +2,27 @@
 
 {% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with"]) %}
 
+{% set lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." %}
+
 {% block content %}
     {% include "components/text-block-section-group.html.twig" with {"name": "unternehmen", "sections":
     [
-        {"title": "Über uns", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
-        {"title": "Kontakt", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
+        {"title": "Über uns", "text": lorem},
+        {"title": "Kontakt", "text": lorem},
     ]} %}
     <div class="fullwidth">
         <h1>Fullwidth</h1>
         {% include "slideshow.html.twig" with {"id": "products", "panels": [
-            {"content": "<img src='"~HOST~"/images/TR.png'>"},
-            {"content": "CS-Bus"},
-            {"content": "CS-Routing"}
+            {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/TR.png'>"},
+            {"id": "produkte-cs-bus", "content": "<img src='"~HOST~"/images/BU.png'>"},
+            {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/RO.png'>"}
         ]} %}
     </div>
     <div class="size-limited">
-        {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [{"content": "<h1>CS-Transport</h1>"}, {"content": "<h1>CS-Bus</h1>"}, {"content": "<h1>CS-Routing</h1>"}]} %}
+        {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [
+            {"content": "<h1>CS-Transport</h1>"},
+            {"content": "<h1>CS-Bus</h1>"},
+            {"content": "<h1>CS-Routing</h1>"}
+        ]} %}
     </div>
-    {% include "components/text-block-section-group.html.twig" with {"name": "produkte", "sections":
-    [
-        {"title": "CS-Transport", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
-        {"title": "CS-Bus", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
-        {"title": "CS-Routing", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."},
-    ]} %}
 {% endblock %}

@@ -1,12 +1,24 @@
-﻿class OnPageLinkClickEvent extends Event
+﻿class OnPageLinkClickEvent
 {
+	target: HTMLElement|null;
 	anchor: string;
+
+	constructor(target: HTMLElement|null, anchor: string)
+	{
+		this.target = target;
+		this.anchor = anchor;
+	}
 }
 
-let onPageLinkScrollListenersBefore = [], onPageLinkScrollListenersAfter = [];
-let addOnPageLinkScrollListener = (listener: Function<OnPageLinkClickEvent>, trigger: "start"|"finish" = "start") =>
+let onPageLinkScrollListenersBefore: {(evt: OnPageLinkClickEvent): void}[] = [], onPageLinkScrollListenersAfter: {(evt: OnPageLinkClickEvent): void}[] = [];
+let addOnPageLinkScrollListener = (listener: {(evt: OnPageLinkClickEvent): void}, trigger: "start"|"finish" = "start") =>
 {
 	(trigger === "start" ? onPageLinkScrollListenersBefore : onPageLinkScrollListenersAfter).push(listener);
+};
+
+let fireEventIn = (handlers: {(evt: OnPageLinkClickEvent): void}[], event: OnPageLinkClickEvent) =>
+{
+	handlers.forEach((l: {(evt: OnPageLinkClickEvent): void}) => l(event));
 };
 
 
@@ -15,11 +27,11 @@ $(document).ready(() =>
 	$("a, a *").click(evt =>
 	{
 		let nearestLink = $(evt.target).closest("a");
-		let anchor = nearestLink[0].hash;
+		let anchor = (nearestLink[0] as HTMLAnchorElement).hash;
 		if(anchor === undefined || anchor.length == 0) return;
 		
-		let eventToFire = {target: $(anchor), anchor: anchor};
-		onPageLinkScrollListenersBefore.forEach(l => l(eventToFire));
+		let eventToFire = new OnPageLinkClickEvent(document.querySelector(anchor) as HTMLElement|null, anchor);
+		fireEventIn(onPageLinkScrollListenersBefore, eventToFire);
 		
 		let windowLocationHash = anchor;
 		let newScrollTop = 0;
@@ -38,8 +50,8 @@ $(document).ready(() =>
 			scrollTop: newScrollTop
 		}, 800, () =>
 		{
-			window.location.hash = windowLocationHash);
-			onPageLinkScrollListenersAfter.forEach(l => l(eventToFire));
-		};
+			window.location.hash = windowLocationHash;
+		});
+		setTimeout(() => fireEventIn(onPageLinkScrollListenersAfter, eventToFire), 800);
 	});
 });
