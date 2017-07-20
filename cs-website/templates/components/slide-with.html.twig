@@ -1,0 +1,5 @@
+<ul class="slide-with" x-slideshow="{{ slideshowId }}" {{ attributes is defined ? attributes }}>
+    {% for panel in panels %}
+        <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel {% if loop.first %}visible{% endif %}">{{ panel["content"]|raw }}</li>
+    {% endfor %}
+</ul>

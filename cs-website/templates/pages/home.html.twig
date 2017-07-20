@@ -1,6 +1,6 @@
 {% extends "page.html.twig" %}
 
-{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with"]) %}
 
 {% block content %}
     {% include "components/text-block-section-group.html.twig" with {"name": "unternehmen", "sections":
@@ -10,28 +10,10 @@
     ]} %}
     <div class="fullwidth">
         <h1>Fullwidth</h1>
-        {% include "slideshow.html.twig" with {"panels":
-            [
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"id": "panel-2", "content": "Panel 2"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"content": "Panel 1"},
-                {"id": "news-cs-bus", "content": "CS-Bus"},
-                {"id": "panel-3", "content": "Panel 3"}
-            ]} %}
+        {% include "slideshow.html.twig" with {"id": "products", "panels": [{"content": "CS-Transport"}, {"content": "CS-Bus"}, {"content": "CS-Routing"}]} %}
+    </div>
+    <div class="size-limited">
+        {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [{"content": "<h1>CS-Transport</h1>"}, {"content": "<h1>CS-Bus</h1>"}, {"content": "<h1>CS-Routing</h1>"}]} %}
     </div>
     {% include "components/text-block-section-group.html.twig" with {"name": "produkte", "sections":
     [

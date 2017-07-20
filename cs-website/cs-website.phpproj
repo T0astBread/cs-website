@@ -45,6 +45,7 @@
     <Content Include="styles\frame.css" />
     <Content Include="styles\containers.css" />
     <Content Include="templates\components\section.html.twig" />
+    <Content Include="templates\components\slide-with.html.twig" />
     <Content Include="templates\components\slideshow.html.twig" />
     <Content Include="templates\components\text-block-section-group.html.twig" />
     <Content Include="templates\components\text-block-section.html.twig" />

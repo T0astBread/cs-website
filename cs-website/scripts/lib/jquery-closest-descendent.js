@@ -1,5 +1,7 @@
+//Source: https://stackoverflow.com/a/8962023
+
 (function($) {
-    $.fn.closest_descendent = function(filter) {
+    $.fn.closestChild = function(filter) {
         var $found = $(),
             $currentSet = this; // Current place
         while ($currentSet.length) {

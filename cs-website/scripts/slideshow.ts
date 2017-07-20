@@ -1,12 +1,10 @@
 ﻿const DIRECTION_LEFT = 0, DIRECTION_RIGHT = 1;
 
-let slide = (slideshow: Element, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined) =>
+let slideList = (slideshowList: JQuery, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined)
 {
-	let slideshowList = $(slideshow).find("ul");
-	if(!slideshowList) return;
-	let visible = slideshowList.find("li.visible");
+	let visible = slideshowList.find("> li.visible");
 	
-	fastTransition ? $(slideshow).addClass("fast-transition") : $(slideshow).removeClass("fast-transition");
+	fastTransition ? slideshowList.addClass("fast-transition") : slideshowList.removeClass("fast-transition");
 	
 	let next = visible[0].nextElementSibling, prev = visible[0].previousElementSibling;
 	let nextVisiblePanel: Element, nextVisiblePanelIsOnLeft: boolean;
@@ -36,7 +34,18 @@ let slide = (slideshow: Element, direction: number, fastTransition: boolean = fa
 	
 	visible.removeClass("visible");
 	
+	if(("" + slideshowList.attr("class")).includes("slide-with")) slideshowList.height(jqNextVisible.outerHeight());
+	
 	setTimeout(onFinish, fastTransition ? 250 : 500);
+};
+
+let slide = (slideshow: Element, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined) =>
+{
+	let slideshowList = $(slideshow).find("ul");
+	if(!slideshowList) return;
+	slideList(slideshowList, direction, fastTransition, onFinish);
+	$(slideshow).attr("x-linked-slideshows").split(" ").forEach(l =>
+		slideList($("#" + l).closestChild("ul"), direction, fastTransition));
 };
 
 let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIRECTION_RIGHT, fastTransition: boolean = true) =>
