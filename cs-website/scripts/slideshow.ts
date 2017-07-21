@@ -17,13 +17,13 @@ let slideList = (slideshowList: JQuery, direction: number, fastTransition: boole
 	
 	let next = visible[0].nextElementSibling, prev = visible[0].previousElementSibling;
 	let nextVisiblePanel: Element|null = null, nextVisiblePanelIsOnLeft: boolean = true;
-	if(direction === DIRECTION_LEFT)
+	if(direction === DIRECTION_RIGHT)
 	{
 		nextVisiblePanel = prev ? prev : slideshowList[0].lastElementChild;
 		nextVisiblePanelIsOnLeft = false;
 		visible.addClass("on-left");
 	}
-	else if(direction === DIRECTION_RIGHT)
+	else if(direction === DIRECTION_LEFT)
 	{
 		nextVisiblePanel = next ? next : slideshowList[0].firstElementChild;
 		nextVisiblePanelIsOnLeft = true;
@@ -57,7 +57,7 @@ let slide = (slideshow: Element, direction: number, fastTransition: boolean = fa
 		slideList($("#" + l).closestChild("ul"), direction, fastTransition));
 };
 
-let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIRECTION_RIGHT, fastTransition: boolean = false) =>
+let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIRECTION_RIGHT, fastTransition: boolean = true) =>
 {
 	let checkPanel = () => $(slideshow).find(".visible").attr("id") === panelId;
 	let slideAndCheckPanel = () =>	//This function probably contains the bug; OR MAYBE NOT: apparently, setting overflow to visible on the ul in the slideshow fixes it (but it looks ugly, i have to find a workaround for that)
