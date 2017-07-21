@@ -14,6 +14,13 @@ $identifierFilter = new Twig_SimpleFilter("identifier", function($string, $group
     return mb_strtolower(($group !== "" ? $group."-" : "").str_replace(" ", "-", str_replace("Ä", "ae", str_replace("Ö", "oe", str_replace("Ü", "ue", mb_strtoupper($string))))));
 });
 
+$include = new Twig_Function("include", function($templateName, $variables)
+{
+    global $twig;
+    return $twig->render($templateName, $variables);
+});
+
 $twig = new Twig_Environment($loader);
 $twig->addFilter($identifierFilter);
+$twig->addFunction($include);
 ?>
