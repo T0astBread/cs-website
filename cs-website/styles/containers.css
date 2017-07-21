@@ -32,7 +32,7 @@ section.invisible
     padding: 0;
 }
 
-.text-block-section h1
+.titled-section h1
 {
    font-size: 36pt;
    padding: 0;
@@ -40,7 +40,7 @@ section.invisible
    margin-bottom: .75em;
 }
 
-.text-block-section .section-content
+.titled-section .section-content
 {
    font-size: 16pt;
 }
@@ -49,7 +49,8 @@ section.invisible
 {
    max-width: none;
    width: 100%;
-   background: #d7e33c;
+   /* background: #d7e33c; */
+   background: #eee;
    text-align: center;
    color: #a0a92d;
    padding: 2em;
