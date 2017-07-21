@@ -25,6 +25,13 @@ section::before
    visibility: hidden;
 }
 
+section.invisible
+{
+    display: initial;
+    margin: 0;
+    padding: 0;
+}
+
 .text-block-section h1
 {
    font-size: 36pt;
@@ -105,6 +112,7 @@ section::before
    left: 0;
    transition: .5s ease;
    transition-property: left, opacity;
+   pointer-events: none;
 }
 
 .slideshow-panel.on-left
@@ -131,6 +139,7 @@ section::before
 .slideshow-panel.visible
 {
    opacity: 1;
+   pointer-events: initial;
 }
 
 .slideshow button
@@ -154,5 +163,6 @@ section::before
 
 .slide-with
 {
-    overflow-x: hidden;
+    overflow: hidden;
+    white-space: normal;
 }
