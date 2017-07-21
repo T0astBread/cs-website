@@ -151,3 +151,8 @@ section::before
 {
    background-color: rgba(0, 0, 0, .1);
 }
+
+.slide-with
+{
+    overflow-x: hidden;
+}

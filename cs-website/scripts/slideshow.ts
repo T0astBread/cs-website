@@ -59,13 +59,11 @@ let slide = (slideshow: Element, direction: number, fastTransition: boolean = fa
 
 let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIRECTION_RIGHT, fastTransition: boolean = false) =>
 {
-	console.log("sliding");
 	let checkPanel = () => $(slideshow).find(".visible").attr("id") === panelId;
 	let slideAndCheckPanel = () =>	//This function probably contains the bug; OR MAYBE NOT: apparently, setting overflow to visible on the ul in the slideshow fixes it (but it looks ugly, i have to find a workaround for that)
 	{
 		slide(slideshow, direction, fastTransition, () =>
 		{
-			console.log("onfinish");
 			if(!checkPanel()) slideAndCheckPanel();
 		});
 	};

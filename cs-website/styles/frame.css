@@ -10,6 +10,7 @@ body
    /*margin-top: 16em;*/
    font-family: Calibri, Arial, sans-serif;
    background-color: #fafafa;
+   overflow-x: hidden;
 }
 
 a
