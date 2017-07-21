@@ -1,28 +1,88 @@
 {% extends "page.html.twig" %}
 
+{% set styles = (styles is defined ? styles : [])|merge(["products", "misc"]) %}
 {% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with"]) %}
-
 {% set lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." %}
 
 {% block content %}
+    {% set about %}
+        <p>Die Computer Steiner GmbH wurde 1978 gegründet, und war damals einer der ersten Computerhändler in Österreich. Gleichzeitig wurden auch Branchensoftwarelösungen entwickelt - wir hatten schon nach kurzer Zeit Software für fast 20 verschiedene Branchen im Angebot.</p>
+        <p>Aus dieser sehr breit gefächerten Angebotspalette haben sich 2 Branchen deutlich hervorgehoben, die wir heute sehr erfolgreich mit unseren Softwarelösungen betreuen:</p>
+        <ul>
+            <li><b>Transport &amp; Logistik</b></li>
+            <li><b>Busunternehmen &amp; Touristik</b></li>
+        </ul>
+        <p>Unsere Software ist modular aufgebaut, deckt aber schon in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar.</p>
+        <p>Ihre Investition ist außerdem absolut zukunftssicher - unsere Produkte sollen für Sie genau das leisten, was Sie brauchen - dazu gehört auch, dass sich unsere Software an Ihren Betrieb anpasst und mit Ihnen gemeinsam wachsen kann.</p>
+        <p><b>Profitieren auch Sie von unserer über 35-jährigen Erfahrung und unserem Know-How!</b></p>
+    {% endset %}
+    {% set contact %}
+        <address>
+            <div class="postal">
+                Computer Steiner GmbH<br>
+                Seyring 3<br>
+                4971 Aurolzmünster<br>
+                Österreich
+            </div>
+            <div class="digital">
+                <div><span class="fa fa-phone">&nbsp;</span><a href="tel:+43-7752-870710">+43 7752 870710</a></div>
+                <div><span class="fa fa-envelope">&nbsp;</span> <a href="mailto:office@computer-steiner.com">office@computer-steiner.com</a></div>
+                <div><span class="fa fa-facebook">&nbsp;</span> <a href="https://www.facebook.com/computersteiner?fref=ts" target="_blank">Facebook</a></div>
+            </div>
+        </address>
+    {% endset %}
     {% include "components/text-block-section-group.html.twig" with {"name": "unternehmen", "sections":
     [
-        {"title": "�ber uns", "text": lorem},
-        {"title": "Kontakt", "text": lorem},
+        {"title": "Über uns", "text": about},
+        {"title": "Kontakt", "text": contact},
     ]} %}
-    <div class="fullwidth">
-        <h1>Fullwidth</h1>
-        {% include "slideshow.html.twig" with {"id": "products", "panels": [
-            {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/TR.png'>"},
-            {"id": "produkte-cs-bus", "content": "<img src='"~HOST~"/images/BU.png'>"},
-            {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/RO.png'>"}
-        ]} %}
-    </div>
-    <div class="size-limited">
-        {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [
-            {"content": "<h1>CS-Transport</h1>"},
-            {"content": "<h1>CS-Bus</h1>"},
-            {"content": "<h1>CS-Routing</h1>"}
-        ]} %}
-    </div>
+    <section class="products invisible">
+        <div class="fullwidth">
+            <h1>Produkte</h1>
+            {% include "slideshow.html.twig" with {"id": "products", "panels": [
+                {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/TR.png'><h2>CS-Transport</h2>"},
+                {"id": "produkte-cs-bus", "content": "<img src='"~HOST~"/images/BU.png'><h2>CS-Bus</h2>"},
+                {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/RO.png'><h2>CS-Routing</h2>"}
+            ]} %}
+        </div>
+        <div class="size-limited">
+            {% set csTr %}
+                <article>
+                    <p>Haben Sie es satt, Ihre gesamte Organisation in Papierstapeln und unübersichtlichen Tabellenkalkulationen zu verwalten?</p>
+                    <p>Wäre es Ihnen nicht lieber, alle Informationen zu Kunden, Aufträgen, Terminen, offenen Posten, etc. mit einem Mausklick übersichtlich präsentiert zu erhalten?</p>
+                    <p>Haben Sie Angst vor Datenverlusten oder falsch zugeordneten Informationen?</p>
+                    <p>Wir können Ihnen mit unserem Programm <b>CS-TRANSPORT</b> eine auf Ihre Branche zugeschnittene und praxisgeprüfte Software anbieten, welche bereits von über 500 zufriedenen Kunden in Österreich, Deutschland, Schweiz, Slowenien, Tschechien, Slowakei und Ungarn eingesetzt wird!</p>
+                    <p>Unser System deckt bereits in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar, wobei durch den modularen Aufbau jede erdenkliche Konfiguration möglich ist!</p>
+                    <p><b>CS-TRANSPORT</b> wird seit 1978 durch Computer Steiner entwickelt, vertrieben, gewartet und natürlich betreut - dadurch ergibt sich ein großer Vorteil:</p>
+                    <p><b>Egal um welches Anliegen es sich handelt - Sie erhalten alles aus einer Hand!</b></p>
+                </article>
+            {% endset %}
+            {% set csBu %}
+                <article>
+                    <p>Haben Sie es satt, Ihre gesamte Organisation in unhandlichen Papierstapeln und unübersichtlichen Tabellenkalkulationen oder veralteten Systemen zu verwalten?</p>
+                    <p>Wäre es Ihnen nicht lieber, alle Informationen zu Kunden, Angeboten / Aufträgen, Buchungen, Terminen sowie Linien- und Fahrzeugdispositionen, etc. auf Knopfdruck übersichtlich präsentiert zu erhalten, ohne mit der Angst vor Datenverlusten oder falsch zugeordneten Informationen leben zu müssen?</p>
+                    <p>Wir können Ihnen mit unserem Programm CS-BUS eine auf Ihre Branche zugeschnittene und praxisgeprüfte Software anbieten, welche bereits von vielen zufriedenen Kunden im In- und Ausland eingesetzt wird!</p>
+                    <p>Unser System deckt bereits in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar, wobei durch den modularen Aufbau jede erdenkliche Konfiguration möglich ist!</p>
+                    <p>Ihr Vorteil: Herstellung, Installation, Schulung und Betreuung der Software erfolgt aus einer Hand!</p>
+                    <p><b>CS-BUS - DAS leistungsstarke Programm für Bus- und Reiseunternehmen</b></p>
+                </article>
+            {% endset %}
+            {% set csRo %}
+                <article>
+                    <p><b>ROUTENPLANER GIBT ES WIE SAND AM MEER, ABER...</b></p>
+                    <p>... Sie suchen eine Routenplanungssoftware, die speziell auf die Bedürfnisse von Transport- und Busunternehmen zugeschnitten ist?</p>
+                    <p>Eine Software, die eine für LKWs oder Busse optimierte Routenberechnung mit den aktuellsten Kartendaten durchführt?</p>
+                    <p>Eine Software, die verlässliche Ergebnisse in Sachen Distanz, Dauer, Kosten, Routenführung sowie Maut liefert und das zu einem vernünftigen und fairen Preis?</p>
+                    <p>Während die meisten anderen Routenplaner hauptsächlich auf den Bereich PKW-Routing abzielen, wurde CS-ROUTING ausschließlich für die Transport- und Reisebranche entwickelt. Deshalb gehören Features wie Berücksichtigung von Fahrverboten und Beschränkungen, europaweite Mautberechnung, Leerkilometer- und Leerkostenermittlung, Emissionsberechnung, uvm. in CS-ROUTING zum Standardfunktionsumfang.</p>
+                    <p>Außerdem können Sie auf der Karte die <b>GPS-POSITION</b> ihrer <b>LKWs</b> und <b>Busse</b> darstellen - d.h. unabhängig davon, welches oder wie viele unterschiedliche Telematik-Systeme Sie in Ihren Fahrzeugen verwenden - Ihre Disposition hat den gesamten Fuhrpark im Blick!</p>
+                    <p><b>CS-ROUTING BIETET IHNEN GENAU DIESE UND VIELE WEITERE VORTEILE!</b></p>
+                </article>
+            {% endset %}
+            {% include "slide-with.html.twig" with {"slideshowId": "products", "panels": [
+                {"content": csTr},
+                {"content": csBu},
+                {"content": csRo}
+            ]} %}
+        </div>
+    </section>
 {% endblock %}

@@ -2,4 +2,4 @@
 
 {% block classes %}{{ parent() }} text-block-section{% endblock %}
 
-{% block sectionBody %}{{ text }}{% endblock %}
+{% block sectionBody %}{{ text|raw }}{% endblock %}

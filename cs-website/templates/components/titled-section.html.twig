@@ -1,11 +1,11 @@
 {% extends "section.html.twig" %}
 
-{% block identifier %}{{ identifier is defined ? identifier : title|convert_encoding("UTF-8", "iso-8859-1")|identifier(group) }}{% endblock %}
+{% block identifier %}{{ identifier is defined ? identifier : title|identifier(group) }}{% endblock %}
 
 {% block classes %}{{ parent() }} titled-section{% endblock %}
 
 {% block content %}
-    <h1>{{ title|convert_encoding("UTF-8", "iso-8859-1") }}</h1>
+    <h1>{{ title }}</h1>
     <div class="section-content">
         {% block sectionBody %}
         {% endblock %}
