@@ -9,3 +9,13 @@ let generateRandomId = (elem: Element) =>
 };
 
 let getIdentifier = (elem: Element) => elem.getAttribute("id") ? elem.getAttribute("id") as string : generateRandomId(elem);
+
+
+const toggleHandler = (evt: JQueryEventObject) => $(evt.currentTarget).toggleClass("active");
+
+let rebindToggleListeners = () =>
+{
+	$(".toggleable").unbind("click", toggleHandler).click(toggleHandler);
+};
+
+$(document).ready(rebindToggleListeners);

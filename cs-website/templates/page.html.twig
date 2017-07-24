@@ -1,6 +1,6 @@
 {% set HOST = constant("HOST") %}
 {% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers"]) %}
-{% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/details-element-polyfill"]) %}
 
 <!DOCTYPE html>
 <html>
@@ -44,8 +44,7 @@
                                 </a>
                                 <ul class="dropdown-items">
                                     <h4>{{ item["title"] }}</h4>
-                                    {% for dropdownItem in item["dropdown"] %}
-                                        <li><a href="#{{ dropdownLinks[loop.index0] }}" >{{ dropdownItem }}</a></li>
+                                    {% for dropdownItem in item["dropdown"] %}<li><a href="#{{ dropdownLinks[loop.index0] }}" >{{ dropdownItem }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </li>

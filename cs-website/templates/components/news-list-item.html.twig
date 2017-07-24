@@ -1,4 +1,13 @@
-<li x-article-id="{{ id }}">
-    <h4>{{ title }}</h4>
-    <div>{{ textPreview }}</div>
+<li class="news-list-item toggleable" x-news-article-id="{{ id }}">
+    <div class="news-list-item-container center-vertically-children">
+        <div class="news-list-item-inner">
+            <h4>{{ title }}</h4>
+            <div>{{ textPreview }}</div>
+        </div>
+    </div>
+    <article>
+        <h4>{{ title }}</h4>
+        <div class="news-article-content" unloaded>
+        </div>
+    </article>
 </li>

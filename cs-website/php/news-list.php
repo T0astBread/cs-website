@@ -19,6 +19,6 @@ include "templating/twig-environment.internal.php";
 
 for($i = 0; $i < $limit; $i++)
 {
-    echo $twig->render("components/news-list-item.html.twig", ["id" => 4, "title" => "Title", "textPreview" => "This is the text preview."]);
+    echo $twig->render("components/news-list-item.html.twig", ["id" => 4, "title" => "Title", "textPreview" => "This is the text preview. This is the text preview. This is the text preview. This is the text preview. This is the text preview."]);
 }
 ?>

@@ -32,3 +32,8 @@ address span.fa
 {
     font-size: 16pt;
 }
+
+.shadowed
+{
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
+}

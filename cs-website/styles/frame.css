@@ -20,6 +20,11 @@ a
    text-decoration: none;
 }
 
+button:disabled
+{
+    cursor: auto;
+}
+
 header a
 {
    color: black;
@@ -85,7 +90,7 @@ header #logo img
    vertical-align: middle;
 }
 
-.center-vertically::before
+.center-vertically::before, .center-vertically-children::before
 {
    content: " ";
    display: inline-block;
@@ -93,7 +98,7 @@ header #logo img
    vertical-align: middle;
 }
 
-.center-vertically
+.center-vertically, .center-vertically-children > *
 {
    display: inline-block!important;
    vertical-align: middle!important;

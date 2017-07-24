@@ -1,0 +1,11 @@
+{% extends "components/section.html.twig" %}
+
+{% block classes %}{{ parent() }} titled-section news-explorer{% endblock %}
+
+{% block content %}
+    <div class="section-content">
+        <h1>News</h1>
+        {% include "news-list.html.twig" %}
+        <button title="Mehr laden"><span class="fa fa-angle-down"></span></button>
+    </div>
+{% endblock %}
