@@ -1,11 +1,13 @@
 <?php
-if(!isset($pathToRoot)) die("You need to set the variable pathToRoot before including this file!");
+include_once "utils.internal.php";
+
+if(!isset($pathToRoot)) respond(510, "The variable pathToRoot must be set before including this file!");
 include $pathToRoot."vendor/autoload.php";
 
-$loader = new Twig_Loader_Filesystem("templates/");
-$loader->addPath("templates/components/");
-$loader->addPath("templates/components/assembled-components");
-$loader->addPath("templates/pages/");
+$loader = new Twig_Loader_Filesystem($pathToRoot."templates/");
+$loader->addPath($pathToRoot."templates/components/");
+$loader->addPath($pathToRoot."templates/components/assembled-components");
+$loader->addPath($pathToRoot."templates/pages/");
 
 $identifierFilter = new Twig_SimpleFilter("identifier", function($string, $group)
 {
