@@ -1,5 +1,5 @@
 <?php
-include_once "utils.internal.php";
+include_once realpath(__DIR__)."/../utils.internal.php";
 
 if(!isset($pathToRoot)) respond(510, "The variable pathToRoot must be set before including this file!");
 include $pathToRoot."vendor/autoload.php";
