@@ -15,7 +15,7 @@ body
 
 a
 {
-   /* color: #d7e33c; */
+    /* color: #d7e33c;  */
    color: #a0a92d;
    text-decoration: none;
 }
@@ -25,12 +25,12 @@ button:disabled
     cursor: auto;
 }
 
-header a
+body > header a
 {
    color: black;
 }
 
-header
+body > header
 {
    width: 100%;
    margin-bottom: 2em;
@@ -49,7 +49,7 @@ header
    box-shadow: 0 0 20px 0px rgba(0, 0, 0, .4);
 }
 
-header *
+body > header *
 {
    height: 100%;
 }
@@ -65,7 +65,7 @@ header *
    display: inline-block;
 }
 
-header img
+body > header img
 {
    height: 75%;
    padding: 0;
@@ -79,12 +79,12 @@ nav, nav ul
    /*overflow-y: hidden;*/
 }
 
-header #logo
+body > header #logo
 {
    float: right;
 }
 
-header #logo img
+body > header #logo img
 {
    display: inline-block;
    vertical-align: middle;

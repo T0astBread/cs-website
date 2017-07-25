@@ -19,3 +19,27 @@ let rebindToggleListeners = () =>
 };
 
 $(document).ready(rebindToggleListeners);
+
+
+const bodyScrollingPreventer = (evt: JQueryEventObject) =>
+{
+	let t = evt.currentTarget, jqT = $(t);
+	let scrollTop = jqT.scrollTop();
+	
+	let o = evt.originalEvent as any;
+	let delta = o.wheelDelta||-o.detail;
+
+	if(t.scrollHeight > jqT.height() &&
+		((scrollTop <= 0 && delta > 0) || (Math.abs(scrollTop - jqT.height()) <= 5 && delta < 0))) evt.preventDefault();
+
+	evt.stopPropagation();
+};
+
+let rebindScrollingPreventers = () =>
+{
+	$(".isolated-scroll")
+	.unbind("mousewheel DOMMouseScroll", bodyScrollingPreventer)
+	.on("mousewheel DOMMouseScroll", bodyScrollingPreventer);
+}
+
+$(document).ready(rebindScrollingPreventers);

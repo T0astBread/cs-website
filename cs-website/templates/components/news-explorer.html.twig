@@ -4,8 +4,40 @@
 
 {% block content %}
     <div class="section-content">
-        <h1>News</h1>
-        {% include "news-list.html.twig" %}
-        <button title="Mehr laden"><span class="fa fa-angle-down"></span></button>
+        <header>
+            <div class="row row-1">
+                <h1>News</h1>
+                <span>zu</span>
+                <select class="product-selector">
+                    <option>CS-Transport</option>
+                    <option>CS-Bus</option>
+                    <option>CS-Routing</option>
+                </select>
+                <div class="search center-vertically-children">
+                    <input type="text" placeholder="Suchen...">
+                    <button><span class="fa fa-search"></span></button>
+                </div>
+            </div>
+            <div class="row row-2">
+                <button class="toggle-additional-filters">Zusätzliche Filter</button>
+            </div>
+            <div class="row row-3">
+                <div class="additional-filters">
+                    <span class="filter">
+                        <span class="filter-label">Autor: </span>
+                        <select>
+                            <option>Computer Steiner</option>
+                        </select>
+                    </span>
+                    {# <span class="filter">
+                        <span class="filter-label">Datum: </span>
+                        <span class="filter-label">Von </span><input class="datepicker"><span class="filter-label"> bis </span><input class="datepicker">
+                    </span> #}
+                </div>
+            </div>
+        </header>
+        <ul class="news-list isolated-scroll">
+        </ul> 
+        <button class="load-more" title="Mehr laden"><span class="fa fa-angle-down"></span></button>
     </div>
 {% endblock %}

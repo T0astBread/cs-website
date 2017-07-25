@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/14fb8ef5369738d45b6c50b61dad08aeb42f3fc3/pikaday/index.d.ts",
+    "raw": "registry:dt/pikaday#0.0.0+20160812215354",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/14fb8ef5369738d45b6c50b61dad08aeb42f3fc3/pikaday/index.d.ts"
+  }
+}
