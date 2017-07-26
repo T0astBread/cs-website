@@ -3,10 +3,10 @@
 /**
  * Loads news-list.php with the given parameters
  */
-let loadNewsArticles = (onFinish: {(request: XMLHttpRequest): void}, product: string, offset: number, limit: number) =>
+let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, product: string, offset: number, limit: number) =>
 {
     let request = new XMLHttpRequest();
-    request.onload = () => onFinish(request);
+    request.onload = () => finishCallback(request);
     request.open("get", getWindowHost() + "/php/news-list.php?product=" + product + "&offset=" + offset + "&limit=" + limit, true);
     request.send(null);
 }
@@ -25,11 +25,23 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
 
         if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.css("height", newsListUl.children().length * 5 + "rem");
 
-        $(".news-list-item[just-loaded]").click(evt => loadNewsText(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
+        $(".news-list-item[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
     }, newsExplorer.find(".product-selector").val(), newsListUl.children().length, 7);
 }
 
-let loadNewsText = (id: number) => $("[x-news-article-id='" + id + "'] .news-article-content").html("Beim Selektieren der noch nicht verrechneten Rechnungen gibt es die Möglichkeit, gleich alle Rechnungen auszuwählen bzw. alle Markierungen der Rechnungen aufzuheben.").removeAttr("unloaded");
+let loadNewsText = (articleId: number, finishCallback: (request: XMLHttpRequest) => any) =>
+{
+    let request = new XMLHttpRequest();
+    request.onload = () => finishCallback(request);
+    request.open("get", getWindowHost() + "/php/news-text.php?id=" + articleId, true);
+    request.send(null);
+}
+
+let loadNewsTextIntoArticles = (id: number) =>
+{
+    let jqArticles = $("[x-news-article-id='" + id + "'] .news-article-content");
+    if(jqArticles.is("[unloaded]")) loadNewsText(id, request => jqArticles.html(request.responseText).removeAttr("unloaded"));
+}
 
 $(document).ready(() =>
 {
