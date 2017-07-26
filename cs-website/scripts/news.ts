@@ -1,4 +1,4 @@
-/// <reference path="lib/pikaday.ts"/>
+//// <reference path="lib/pikaday.ts"/>
 
 /**
  * Loads news-list.php with the given parameters
@@ -6,8 +6,8 @@
 let loadNewsArticles = (onFinish: {(request: XMLHttpRequest): void}, product: string, offset: number, limit: number) =>
 {
     let request = new XMLHttpRequest();
-    request.onloadend = () => onFinish(request);
-    request.open("get", window.location.origin + "/php/news-list.php?product=" + product + "&offset=" + offset + "&limit=" + limit, true);
+    request.onload = () => onFinish(request);
+    request.open("get", getWindowHost() + "/php/news-list.php?product=" + product + "&offset=" + offset + "&limit=" + limit, true);
     request.send(null);
 }
 

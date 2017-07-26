@@ -43,6 +43,11 @@ hr
     border-bottom: 2px solid #fff;
 }
 
+img
+{
+    border: none;
+}
+
 body > header a
 {
    color: black;
@@ -230,10 +235,10 @@ footer
    margin-top: 2em;
 }
 
-#footer-content
+/* #footer-content
 {
    max-width: 
-}
+} */
 
 footer #footer-left
 {

@@ -54,3 +54,5 @@ let animateToAutoHeight = (element: Element, options: {duration: number, finishC
 	jqElem.height(heightBefore)
 	.animate({height: autoHeight}, options.duration, () => options.finishCallback ? options.finishCallback(element) : null);
 }
+
+let getWindowHost = () => (window.location.origin||window.location.protocol + "//" + window.location.host);
