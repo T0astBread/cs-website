@@ -42,13 +42,14 @@
 
 .news-explorer header .row-3
 {
-    height: 0;
-    transition: height .5s ease;
+    max-height: 0;
+    transition: .5s ease; 
+    transition-property: max-height, padding;
 }
 
 .news-explorer header .row-3.visible
 {
-    height: auto;
+    max-height: 5em; /* You have to adjust this when adding content to row 3 */
     padding-top: .25em;
     padding-bottom: .8rem; 
 }

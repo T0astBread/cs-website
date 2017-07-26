@@ -43,3 +43,14 @@ let rebindScrollingPreventers = () =>
 }
 
 $(document).ready(rebindScrollingPreventers);
+
+//Currently not used anywhere
+let animateToAutoHeight = (element: Element, options: {duration: number, finishCallback: ((elem: Element) => any)|undefined} = {duration: 1000, finishCallback: undefined}) =>
+{
+	let jqElem = $(element);
+	let heightBefore = jqElem.height();
+	jqElem.css("height", "auto");
+	let autoHeight = jqElem.height();
+	jqElem.height(heightBefore)
+	.animate({height: autoHeight}, options.duration, () => options.finishCallback ? options.finishCallback(element) : null);
+}

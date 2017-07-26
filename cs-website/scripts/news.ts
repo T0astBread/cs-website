@@ -44,7 +44,8 @@ $(document).ready(() =>
         });
         jqExp.find(".toggle-additional-filters").click(evt =>
         {
-            jqExp.find("header .row-3").toggleClass("visible");
+            let row3 = jqExp.find("header .row-3");
+            row3.toggleClass("visible");
         });
 
         // jqExp.data("datepicker-from", new Pikaday(
