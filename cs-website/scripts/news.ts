@@ -16,7 +16,7 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
     let newsListUl = newsExplorer.find("ul.news-list");
     loadNewsArticles(request =>
     {
-        newsListUl.html(newsListUl.html() + request.responseText);
+        newsListUl.append(request.responseText);
         rebindToggleListeners();
         rebindScrollingPreventers();
         $(".news-list-item[just-loaded] .news-article-container").click(evt => evt.stopPropagation());
@@ -26,10 +26,10 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
         if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.css("height", newsListUl.children().length * 5 + "rem");
 
         $(".news-list-item[just-loaded]").click(evt => loadNewsText(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
-    }, newsExplorer.find(".product-selector").val(), newsListUl.children().length, 5);
+    }, newsExplorer.find(".product-selector").val(), newsListUl.children().length, 7);
 }
 
-let loadNewsText = (id: number) => $("[x-news-article-id='" + id + "'] .news-article-content").html("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.").removeAttr("unloaded");
+let loadNewsText = (id: number) => $("[x-news-article-id='" + id + "'] .news-article-content").html("Beim Selektieren der noch nicht verrechneten Rechnungen gibt es die Möglichkeit, gleich alle Rechnungen auszuwählen bzw. alle Markierungen der Rechnungen aufzuheben.").removeAttr("unloaded");
 
 $(document).ready(() =>
 {

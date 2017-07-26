@@ -131,7 +131,7 @@ ul.news-list
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 25rem;
+    height: 35rem;
     overflow-x: visible;
     overflow-y: auto; 
     transition: height 1s ease;
@@ -154,12 +154,12 @@ ul.news-list
     background-color: white;
 }
 
-.news-list-item-container:hover
+.news-list-item-container:hover, .news-list-item:hover
 {
     background-color: #dedede!important;
 }
 
-li:nth-child(2n - 1) .news-list-item-container
+li:nth-child(2n - 1) .news-list-item-container, .news-list-item:nth-child(2n - 1)
 {
     background-color: #f8f8f8;
 }
@@ -212,10 +212,24 @@ li:nth-child(2n - 1) .news-list-item-inner::after
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#dedede',GradientType=1 ); /* IE6-9 */
 }
 
+.news-list-item.active, .news-list-item.active .news-list-item-container
+{
+    background-color: #d7e33c!important;
+}
+
+.news-list-item.active .news-list-item-inner::after
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d7e33c+80&0+0,1+85 */
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(215,227,60,0.94) 80%, rgba(215,227,60,1) 85%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(215,227,60,0.94) 80%,rgba(215,227,60,1) 85%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(215,227,60,0.94) 80%,rgba(215,227,60,1) 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#d7e33c',GradientType=1 ); /* IE6-9 */
+}
+
 .news-list-item.active .news-list-item-container
 {
     /* transform: scale(1.2); */
-    box-shadow: 0 3px 11px 0px rgba(0, 0, 0, 0.12); 
+    /* box-shadow: 0 3px 11px 0px rgba(0, 0, 0, 0.12);  */
     z-index: 2;
 }
 
@@ -231,25 +245,25 @@ li:nth-child(2n - 1) .news-list-item-inner::after
 
 .news-list-item.active .news-article-container
 {
-    max-height: 10em;
-}
-
-.news-list-item.active .news-article-container
-{
+    max-height: 15em;
     border-bottom: 1px solid #eaeaea;
 }
 
 .news-list-item article
 {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); 
     margin: 1em;
-    margin-top: 0;
+    margin-left: 2rem;
     padding: 2rem;
-    padding-top: 0;
-    max-height: 9em;
+    max-height: 14em;
     box-sizing: border-box;
     overflow: auto;
     background-color: white;
+}
+
+.news-list-item article h4
+{
+    margin-top: 0;
 }
 
 .news-explorer .section-content button.load-more
