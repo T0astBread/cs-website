@@ -1,27 +1,20 @@
+let ghostSelect: JQuery;
+const PADDING_RIGHT = 5;
+
 $(document).ready(() =>
 {
-    $("select").click(evt =>
+    $("select").change(evt =>
     {
         let target = $(evt.target);
-        target.data("prev", target);
-    }).change(evt =>
-    {
-        let target = $(evt.target);
-        // let clone = target.clone(false, false);
-        // $("body").append(clone);
-        // clone.attr("id", "resize-select-clone");
+        ghostSelect.copyCSS(target, null, ["width"]);
 
-        // // resizeSelectOption.html(target.val());
-        // clone.html("<option>" + target.val() + "</option>");
-        // let toWidth = clone.outerWidth();
+        ghostSelect.html("<option>" + target.val() + "</option>");
+        let toWidth = ghostSelect.outerWidth();
 
-        // target.animate({width: toWidth}, 1000);
-        // $("body").children().remove("#resize-select-clone");
+        target.animate({width: toWidth + PADDING_RIGHT}, 750);
+    })
+    .each((i, elem) => void $(elem).width(elem.clientWidth + PADDING_RIGHT)); //Initially applies the padding without the need for a change event
 
-        let val = target.val();
-        let toWidth = target.outerWidth();
-        target.val(target.data("prev"));
-
-        target.animate({width: toWidth}, 1000);
-    });
+    ghostSelect = $("<select id='ghost-select'><option></option></select>");
+    $("body").append(ghostSelect);
 });

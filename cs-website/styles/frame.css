@@ -25,6 +25,13 @@ button:disabled
     cursor: auto;
 }
 
+select
+{
+    border: none;
+    background: none;
+    border-bottom: 2px solid #d7e33c;
+}
+
 body > header a
 {
    color: black;
