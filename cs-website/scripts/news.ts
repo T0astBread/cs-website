@@ -33,7 +33,7 @@ let loadNewsText = (articleId: number, finishCallback: (request: XMLHttpRequest)
 {
     let request = new XMLHttpRequest();
     request.onload = () => finishCallback(request);
-    request.open("get", getWindowHost() + "/php/news-text.php?id=" + articleId, true);
+    request.open("get", getWindowHost() + "/php/news-text.php?lang=de&id=" + articleId, true);
     request.send(null);
 }
 
