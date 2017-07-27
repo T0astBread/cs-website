@@ -131,7 +131,7 @@ ul.news-list
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 35rem;
+    min-height: 25rem;
     overflow-x: visible;
     overflow-y: auto; 
     transition: height 1s ease;
