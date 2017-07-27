@@ -270,3 +270,4 @@ vendor/
 
 # Protected files
 *.sensitive.*
+*.secure.*

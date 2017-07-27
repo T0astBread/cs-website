@@ -7,7 +7,7 @@ let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, produc
 {
     let request = new XMLHttpRequest();
     request.onload = () => finishCallback(request);
-    request.open("get", getWindowHost() + "/php/news-list.php?product=" + product + "&offset=" + offset + "&limit=" + limit, true);
+    request.open("get", getWindowHost() + "/php/news-list.php?lang=de&product=" + product + "&offset=" + offset + "&limit=" + limit, true);
     request.send(null);
 }
 
