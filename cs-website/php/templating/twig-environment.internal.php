@@ -25,4 +25,8 @@ $include = new Twig_Function("include", function($templateName, $variables)
 $twig = new Twig_Environment($loader);
 $twig->addFilter($identifierFilter);
 $twig->addFunction($include);
+
+// $twig->addExtension(new Twig_Extension_I18n());
+// putenv("LC_ALL=de_DE");
+// setlocale(LC_ALL, "de_DE");
 ?>
