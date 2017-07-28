@@ -131,7 +131,7 @@ ul.news-list
     list-style: none;
     padding: 0;
     margin: 0;
-    min-height: 25rem;
+    min-height: 40rem;
     overflow-x: visible;
     overflow-y: auto; 
     transition: height 1s ease;
@@ -143,15 +143,38 @@ ul.news-list
     margin: 0;
     display: block;
 }
-
 .news-list-item-container
 {
-    height: 5rem;
-    padding: 0 2rem; 
-    cursor: pointer;
+    padding: 1rem 3rem;
     transition: transform .5s ease;
     transform-origin: center;
     background-color: white;
+    position: relative;
+}
+
+.news-list-item.long-text .news-list-item-container
+{
+    cursor: pointer;
+}
+
+.news-list-item.long-text .news-list-item-container::before
+{
+    display: inline-block;
+    font: normal normal normal 8px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f0da";
+    position: absolute;
+    left: 1.1em;
+     margin-top: .1em; 
+    transition: .5s cubic-bezier(0.84,-0.63, 0, 2.02);
+}
+
+.news-list-item.long-text.active .news-list-item-container::before
+{
+    transform: rotateZ(90deg);
 }
 
 .news-list-item-container:hover, .news-list-item:hover
@@ -168,17 +191,28 @@ li:nth-child(2n - 1) .news-list-item-container, .news-list-item:nth-child(2n - 1
 {
     padding: 0;
     margin: 0;
+    position: relative;
 }
 
 .news-list-item-inner
 {
-    white-space: nowrap;
     overflow: hidden;
     width: 85%;
     position: relative;
+    line-height: 1.3em;
 }
 
-.news-list-item-inner::after
+.news-list-item-inner .preview-wrapper
+{
+    max-height: 2.6em;
+}
+
+.news-list-item.long-text .news-list-item-inner
+{
+    white-space: nowrap;
+}
+
+.news-list-item.long-text .news-list-item-inner::after
 {
     position: absolute;
     right: 0;
@@ -194,7 +228,7 @@ li:nth-child(2n - 1) .news-list-item-container, .news-list-item:nth-child(2n - 1
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 }
 
-li:nth-child(2n - 1) .news-list-item-inner::after
+.news-list-item.long-text:nth-child(2n - 1) .news-list-item-inner::after
 {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f8f8f8+80&0+0,1+85 */
     background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(248,248,248,0.94) 80%, rgba(248,248,248,1) 85%); /* FF3.6-15 */
@@ -203,7 +237,7 @@ li:nth-child(2n - 1) .news-list-item-inner::after
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f8f8f8',GradientType=1 ); /* IE6-9 */
 }
 
-.news-list-item-container:hover .news-list-item-inner::after
+.news-list-item.long-text .news-list-item-container:hover .news-list-item-inner::after
 {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,dedede+80&0+0,1+85 */
     background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(222,222,222,0.94) 80%, rgba(222,222,222,1) 85%); /* FF3.6-15 */
@@ -217,7 +251,7 @@ li:nth-child(2n - 1) .news-list-item-inner::after
     background-color: #d7e33c!important;
 }
 
-.news-list-item.active .news-list-item-inner::after
+.news-list-item.long-text.toggleable.active .news-list-item-inner::after
 {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d7e33c+80&0+0,1+85 */
     background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(215,227,60,0.94) 80%, rgba(215,227,60,1) 85%); /* FF3.6-15 */
@@ -254,7 +288,7 @@ li:nth-child(2n - 1) .news-list-item-inner::after
 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); 
     margin: 1em;
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-bottom: 0;
     padding: 2rem;
     max-height: 14em;

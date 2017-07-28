@@ -17,15 +17,23 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
     loadNewsArticles(request =>
     {
         newsListUl.append(request.responseText);
-        rebindToggleListeners();
-        rebindScrollingPreventers();
         $(".news-list-item[just-loaded] .news-article-container").click(evt => evt.stopPropagation());
+
+        let inner = $(".news-list-item[just-loaded] .news-list-item-inner .preview-wrapper");
+        inner.each((i, elem) =>
+        {
+            let jqElem = $(elem);
+            if(jqElem.find("> div").height() > jqElem.height())
+                jqElem.closest(".news-list-item").addClass("long-text toggleable");
+        });
         
         newsExplorer.find("button.load-more").removeAttr("disabled");
 
-        if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.css("height", newsListUl.children().length * 5 + "rem");
+        if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(newsListUl[0].scrollHeight);
 
-        $(".news-list-item[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
+        // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
+        rebindToggleListeners();
+        $(".news-list-item[just-loaded]").removeAttr("just-loaded");
     }, newsExplorer.find(".product-selector").val(), newsListUl.children().length, 7);
 }
 
@@ -37,6 +45,11 @@ let loadNewsText = (articleId: number, finishCallback: (request: XMLHttpRequest)
     request.send(null);
 }
 
+
+/**
+ * Deprecated since the whole news article is loaded immediately instead of just a preview.
+ * @param id 
+ */
 let loadNewsTextIntoArticles = (id: number) =>
 {
     let jqArticles = $("[x-news-article-id='" + id + "'] .news-article-content");

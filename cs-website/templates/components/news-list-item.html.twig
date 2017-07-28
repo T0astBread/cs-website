@@ -1,14 +1,15 @@
-<li class="news-list-item toggleable" x-news-article-id="{{ id }}" just-loaded>
-    <div class="news-list-item-container center-vertically-children">
+<li class="news-list-item" x-news-article-id="{{ id }}" just-loaded>
+    <div class="news-list-item-container">
         <div class="news-list-item-inner">
             <h4>{{ title }}</h4>
-            <div>{{ textPreview }}</div>
+            <div class="preview-wrapper"><div>{{ textPreview }}</div></div>
         </div>
     </div>
     <div class="news-article-container">
         <article>
             <h4>{{ title }}</h4>
-            <div class="news-article-content" unloaded>
+            <div class="news-article-content">
+                {{ textPreview }}
             </div>
         </article>
     </div>
