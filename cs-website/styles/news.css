@@ -247,6 +247,7 @@ li:nth-child(2n - 1) .news-list-item-inner::after
 {
     max-height: 15em;
     border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1em;
 }
 
 .news-list-item article
@@ -254,6 +255,7 @@ li:nth-child(2n - 1) .news-list-item-inner::after
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); 
     margin: 1em;
     margin-left: 2rem;
+    margin-bottom: 0;
     padding: 2rem;
     max-height: 14em;
     box-sizing: border-box;
