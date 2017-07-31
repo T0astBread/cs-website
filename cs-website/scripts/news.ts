@@ -3,11 +3,14 @@
 /**
  * Loads news-list.php with the given parameters
  */
-let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, product: string, offset: number, limit: number) =>
+let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criteria: {product: string, offset: number, limit: number, query: string|undefined}) =>
 {
     let request = new XMLHttpRequest();
     request.onload = () => finishCallback(request);
-    request.open("get", getWindowHost() + "/php/news-list.php?lang=de&product=" + product + "&offset=" + offset + "&limit=" + limit, true);
+    let requestUrl = getWindowHost() + "/php/news-list.php?lang=de&product=" + criteria.product + "&offset=" + criteria.offset + "&limit=" + criteria.limit;
+    if(criteria.query) requestUrl += "&query=" + criteria.query;
+    console.log(requestUrl);
+    request.open("get", requestUrl, true);
     request.send(null);
 }
 
@@ -34,9 +37,20 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
         // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
         rebindToggleListeners();
         $(".news-list-item[just-loaded]").removeAttr("just-loaded");
-    }, newsExplorer.find(".product-selector").val(), newsListUl.children().length, 7);
+    }, {product: newsExplorer.find(".product-selector").val(), offset: newsListUl.children().length, limit: 7, query: newsExplorer.find(".search input").val()});
 }
 
+let reloadNewsArticlesInNewsExplorer = (newsExplorer: JQuery) =>
+{
+    newsExplorer.find("ul").html("");
+    loadNewsArticlesIntoNewsExplorer(newsExplorer);
+}
+
+/**
+ * @deprecated Deprecated since the whole news article is loaded immediately instead of just a preview.
+ * @param articleId 
+ * @param finishCallback 
+ */
 let loadNewsText = (articleId: number, finishCallback: (request: XMLHttpRequest) => any) =>
 {
     let request = new XMLHttpRequest();
@@ -47,7 +61,7 @@ let loadNewsText = (articleId: number, finishCallback: (request: XMLHttpRequest)
 
 
 /**
- * Deprecated since the whole news article is loaded immediately instead of just a preview.
+ * @deprecated Deprecated since the whole news article is loaded immediately instead of just a preview.
  * @param id 
  */
 let loadNewsTextIntoArticles = (id: number) =>
@@ -55,6 +69,8 @@ let loadNewsTextIntoArticles = (id: number) =>
     let jqArticles = $("[x-news-article-id='" + id + "'] .news-article-content");
     if(jqArticles.is("[unloaded]")) loadNewsText(id, request => jqArticles.html(request.responseText).removeAttr("unloaded"));
 }
+
+let currentReloadTimeout: number;
 
 $(document).ready(() =>
 {
@@ -82,5 +98,16 @@ $(document).ready(() =>
         // {
         //     field: jqExp.find(".datepicker")[1],
         // }));
+
+        jqExp.find(".search").keyup(evt =>
+        {
+            let target = $(evt.currentTarget).find("input");
+            if(target.data("lastVal") === target.val()) return;
+            target.data("lastVal", target.val());
+
+            clearTimeout(currentReloadTimeout);
+            currentReloadTimeout = setTimeout(() => reloadNewsArticlesInNewsExplorer(jqExp), 300);
+        });
+        jqExp.find(".product-selector").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
     });
 });
