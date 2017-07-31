@@ -37,12 +37,12 @@
                             {% for dropdownItem in item["dropdown"] %}
                                 {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["title"])]) %}
                             {% endfor %}
-                            <li>
+                            <li class="dropdown-root drop-on-hover">
                                 <a class="center-vertically" href="#{{ dropdownLinks|first }}">
                                     <span>{{ item["title"] }}</span>
                                 </a>
-                                <ul class="dropdown-items">
-                                    <h4>{{ item["title"] }}</h4>
+                                <ul class="dropdown-menu">
+                                    <h2>{{ item["title"] }}</h2>
                                     {% for dropdownItem in item["dropdown"] %}<li><a href="#{{ dropdownLinks[loop.index0] }}" >{{ dropdownItem }}</a></li>
                                     {% endfor %}
                                 </ul>
@@ -50,9 +50,16 @@
                         {% endfor %}
                     </ul>
                 </nav>
-                 <div id="language-selector">
-                      <span id="current-lang" class="center-vertically"><span class="fa fa-globe"></span>DE</span>
-                </div>
+                {% set langs = ["de", "en"] %}
+                 <div id="language-selector" class="dropdown-root drop-on-hover" tabindex="0">
+                     <span id="current-lang" class="center-vertically toggleable"><span class="fa fa-globe"></span>DE</span>
+                     <ul id="language-dropdown" class="dropdown-menu">
+                         <h2>Sprache</h2>
+                         {% for lang in langs %}
+                            <li><a>{{ lang }}</a></li>
+                         {% endfor %}
+                     </ul>
+                 </div>
                 <div id="logo" class="center-vertically">
                     <a href="#top">
                         <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />

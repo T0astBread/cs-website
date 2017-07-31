@@ -43,6 +43,8 @@ $stmt = $mysqli->prepare(
  (isset($query) ? "AND (news_article_localizations.title LIKE ? OR news_article_localizations.text LIKE ? OR news_articles.product_version LIKE ? OR news_articles.date LIKE ?)" : "").
 "AND news_article_localizations.article_id = news_articles.id
  LIMIT ? OFFSET ?");
+ 
+// $stmt->bind_param("ssii", $lang, $product, $limit, $offset) or die("bind param");
 
 $params = ["ss", $product, $lang];
 
@@ -74,7 +76,6 @@ if(isset($query))
 $params[0] .= "ii";
 $params = array_merge($params, [$limit, $offset]);
 call_user_func_array([$stmt, "bind_param"], $params);
-
 $stmt->execute();
 $stmt->bind_result($id, $version, $date, $title, $text);
 while($stmt->fetch())
