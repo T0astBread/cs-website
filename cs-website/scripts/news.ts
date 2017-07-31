@@ -1,14 +1,29 @@
 //// <reference path="lib/pikaday.ts"/>
 
+class RequestParams
+{
+    product: string;
+    offset: number;limit: number;
+    versionFrom: string|undefined;
+    versionTo: string|undefined;
+    dateFrom: string|undefined;
+    dateTo: string|undefined;
+    query: string|undefined;
+}
+
 /**
  * Loads news-list.php with the given parameters
  */
-let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criteria: {product: string, offset: number, limit: number, query: string|undefined}) =>
+let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criteria: RequestParams) =>
 {
     let request = new XMLHttpRequest();
     request.onload = () => finishCallback(request);
     let requestUrl = getWindowHost() + "/php/news-list.php?lang=de&product=" + criteria.product + "&offset=" + criteria.offset + "&limit=" + criteria.limit;
     if(criteria.query) requestUrl += "&query=" + criteria.query;
+    if(criteria.versionFrom) requestUrl += "&versionFrom=" + criteria.versionFrom;
+    if(criteria.versionTo) requestUrl += "&versionTo=" + criteria.versionTo;
+    if(criteria.dateFrom) requestUrl += "&dateFrom=" + criteria.dateFrom;
+    if(criteria.dateTo) requestUrl += "&dateTo=" + criteria.dateTo;
     console.log(requestUrl);
     request.open("get", requestUrl, true);
     request.send(null);
@@ -37,7 +52,17 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
         // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
         rebindToggleListeners();
         $(".news-list-item[just-loaded]").removeAttr("just-loaded");
-    }, {product: newsExplorer.find(".product-selector").val(), offset: newsListUl.children().length, limit: 7, query: newsExplorer.find(".search input").val()});
+    },
+    {
+        product: newsExplorer.find(".product-selector").val(),
+        offset: newsListUl.children().length,
+        limit: 7,
+        versionFrom: newsExplorer.find(".version.from").val(),
+        versionTo: newsExplorer.find(".version.to").val(),
+        dateFrom: newsExplorer.find(".date.from").val(),
+        dateTo: newsExplorer.find(".date.to").val(),
+        query: newsExplorer.find(".search input").val()
+    });
 }
 
 let reloadNewsArticlesInNewsExplorer = (newsExplorer: JQuery) =>
@@ -83,11 +108,16 @@ $(document).ready(() =>
             $(evt.target).attr("disabled", "");
             loadNewsArticlesIntoNewsExplorer(jqExp);
         });
+
         jqExp.find(".toggle-additional-filters").click(evt =>
         {
             let row3 = jqExp.find("header .row-3");
             row3.toggleClass("visible");
         });
+        jqExp.find(".reset-additional-filters").click(() =>
+        {
+            $(jqExp.find(".additional-filters input").val("")[0]).change();
+        })
 
         // jqExp.data("datepicker-from", new Pikaday(
         // {
@@ -108,6 +138,6 @@ $(document).ready(() =>
             clearTimeout(currentReloadTimeout);
             currentReloadTimeout = setTimeout(() => reloadNewsArticlesInNewsExplorer(jqExp), 300);
         });
-        jqExp.find(".product-selector").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
+        jqExp.find(".product-selector, .additional-filters").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
     });
 });
