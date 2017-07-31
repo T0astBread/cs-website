@@ -10,14 +10,19 @@
 
 .products .slideshow
 {
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
 }
 
-.products .slideshow img
+.products .slideshow ul
+{
+    min-height: 12.5rem; /*Dirty workaround for a bug where the updateLayout function wouldn't run on page load */
+}
+
+.products img
 {
     /* display: inline-block; */
-    max-height: 10em;
-    margin-top: .2em;
+    /* max-height: 10em; */
+    /* margin-top: .2em; */
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
@@ -37,19 +42,30 @@
 .products .slide-with
 {
     background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    z-index: -1;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+    /* z-index: -1; */
+    margin-top: 1em;
     padding-bottom: .33em;
 }
 
 .products .slide-with .slideshow-panel
 {
-    padding: 0 2em;
+    /* padding: 0 2em; */
     box-sizing: border-box;
 }
 
 .products article
 {
     font-size: 16pt;
-    margin-top: 3em;
+}
+
+.products article h2, .products article h3
+{
+    display: none;
+}
+
+.products article *:first-child
+{
+    padding-top: 0;
+    margin-top: 0;
 }

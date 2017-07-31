@@ -19,20 +19,19 @@
                 </div>
             </div>
             <div class="row row-2">
-                <button class="toggle-additional-filters">Zusätzliche Filter</button>
+                <button class="link-button toggle-additional-filters">Zusätzliche Filter</button>
+                <button class="link-button reset-additional-filters"><span class="fa fa-undo"></span></button>
             </div>
             <div class="row row-3">
                 <div class="additional-filters">
-                    <span class="filter">
-                        <span class="filter-label">Autor: </span>
-                        <select>
-                            <option>Computer Steiner</option>
-                        </select>
+                    <span class="filter full-row">
+                        <span class="filter-label">Versionsnummer: </span>
+                        <span class="filter-label">Von </span><input class="version from" type="text"><span class="filter-label"> bis </span><input class="version to" type="text">
                     </span>
-                    {# <span class="filter">
+                    <span class="filter full-row">
                         <span class="filter-label">Datum: </span>
-                        <span class="filter-label">Von </span><input class="datepicker"><span class="filter-label"> bis </span><input class="datepicker">
-                    </span> #}
+                        <span class="filter-label">Von </span><input class="date from"><span class="filter-label"> bis </span><input class="date to">
+                    </span>
                 </div>
             </div>
         </header>

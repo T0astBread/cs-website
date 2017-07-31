@@ -52,7 +52,8 @@ section.invisible
    /* background: #d7e33c; */
    background: #eee;
    text-align: center;
-   color: #a0a92d;
+   /* color: #a0a92d; */
+   color: #9a9a9d;
    padding: 2em;
    box-sizing: border-box;
     /* box-shadow: inset 0 20px 20px -24px black, inset 0px -20px 15px -24px black;  */
@@ -63,7 +64,6 @@ section.invisible
 {
    font-weight: 100;
    font-size: 42pt;
-   font-family: "Heebo", sans-serif;
    padding: 0;
    margin: 0;
    margin-bottom: .5em;
@@ -168,4 +168,9 @@ section.invisible
 {
     overflow: hidden;
     white-space: normal;
+}
+
+.slideshow-panel hr
+{
+    margin: 2em 0;
 }

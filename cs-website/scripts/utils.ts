@@ -6,7 +6,7 @@ let generateRandomId = (elem: Element) =>
 		id = elem.tagName + "-" + Math.floor(Math.random() * 1000);
 	} while($("#" + id).length > 0);
 	return id;
-};
+}
 
 let getIdentifier = (elem: Element) => elem.getAttribute("id") ? elem.getAttribute("id") as string : generateRandomId(elem);
 
@@ -16,7 +16,7 @@ const toggleHandler = (evt: JQueryEventObject) => $(evt.currentTarget).toggleCla
 let rebindToggleListeners = () =>
 {
 	$(".toggleable").unbind("click", toggleHandler).click(toggleHandler);
-};
+}
 
 $(document).ready(rebindToggleListeners);
 
@@ -33,7 +33,7 @@ const bodyScrollingPreventer = (evt: JQueryEventObject) =>
 		((scrollTop <= 0 && delta > 0) || (Math.abs(scrollTop - jqT.height()) <= 5 && delta < 0))) evt.preventDefault();
 
 	evt.stopPropagation();
-};
+}
 
 let rebindScrollingPreventers = () =>
 {
@@ -56,3 +56,14 @@ let animateToAutoHeight = (element: Element, options: {duration: number, finishC
 }
 
 let getWindowHost = () => (window.location.origin||window.location.protocol + "//" + window.location.host);
+
+let convertStringToDBVersionTag = (str: string) =>
+{
+	let tokens = str.split(".");
+	tokens = tokens.map(t =>
+	{
+		while(t.length < 3) t = "0" + t;
+		return t;
+	});
+    return tokens.join("");
+}

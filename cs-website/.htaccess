@@ -1,0 +1,12 @@
+<Files "*.internal.*">
+    Deny from all
+</Files>
+<Files "composer.*">
+    Deny from all
+</Files>
+<Files "tsconfig.json">
+    Deny from all
+</Files>
+<Files "*.phpproj">
+    Deny from all
+</Files>

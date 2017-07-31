@@ -1,14 +1,9 @@
-﻿html, body
-{
-   /*height: 100%;*/
-}
-
-body
+﻿body
 {
    padding: 0;
    margin: 0;
    /*margin-top: 16em;*/
-   font-family: "Segoe UI", Arial, sans-serif;
+   font-family: "Segoe UI", Calibri, sans-serif;
    /* background-color: #fafafa; */
    overflow-x: hidden;
 }
@@ -64,17 +59,23 @@ body > header
    z-index: 10;
 }
 
+.link-button
+{
+    color: #a0a92d;
+    /* text-decoration: underline; */
+    background: none;
+    border: none;
+    font-size: 12pt;
+    padding: 0;
+    margin: 0;
+}
+
 #header-wrapper
 {
    width: 100%;
    height: 100%;
    background-color: white;
    /* box-shadow: 0 0 20px 0px rgba(0, 0, 0, .4); */
-}
-
-#header-wrapper:hover
-{
-    /* box-shadow: 0 0 20px 0px rgba(0, 0, 0, .4); */
 }
 
 body > header *
@@ -100,7 +101,7 @@ body > header img
    margin: 0;
 }
 
-nav, nav ul
+nav, nav ul, .dropdown-menu
 {
    padding: 0;
    margin: 0;
@@ -160,7 +161,7 @@ nav li a
    display: inline-block;
 }
 
-nav .dropdown-items
+.dropdown-menu
 {
    display: block;
    background-color: white;
@@ -181,7 +182,7 @@ nav .dropdown-items
    transform: translate(-50%, calc(-150% - 5em));
 }
 
-nav li:hover .dropdown-items
+.dropdown-root.drop-on-hover:hover .dropdown-menu, .dropdown-root.drop-on-focus:focus .dropdown-menu
 {
    -webkit-transform: translate(-50%, 0);
    -moz-transform: translate(-50%, 0);
@@ -190,25 +191,39 @@ nav li:hover .dropdown-items
    transform: translate(-50%, 0);
 }
 
-nav .dropdown-items li
+.dropdown-menu li
 {
    display: block;
 }
 
-nav .dropdown-items li a
+header .dropdown-menu li a
 {
-   padding: 1em 2em;
+   padding: 1em 2.25rem;
+   display: block;
 }
 
-.dropdown-items h4
+.dropdown-menu h2
 {
-   padding: 0 2em;
+   padding: 0 2.25rem;
    margin: 0;
    margin-top: 1em;
    margin-bottom: .75em;
+   font-size: 16pt;
 }
 
-nav ul li:hover
+#language-selector
+{
+    position: relative;
+    text-transform: uppercase;
+    margin-left: 1em;
+}
+
+#language-selector:focus
+{
+    outline: none;
+}
+
+.dropdown-menu li:hover, nav ul li:hover, #language-selector:hover #current-lang
 {
    background-color: #eee;
 }
@@ -217,8 +232,8 @@ nav ul li:hover
 {
    display: inline-block;
    padding: 0 .5em;
-   margin-left: 1em;
-   background-color: #eee;
+   transition: .4s ease;
+   /* background-color: #eee; */
 }
 
 #current-lang span:first-child

@@ -2,16 +2,16 @@
     <div class="fullwidth">
         <h1>Produkte</h1>
         {% include "components/slideshow.html.twig" with {"id": "products", "panels": [
-            {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/TR.png'><h2>CS-Transport</h2>"},
-            {"id": "produkte-cs-bus", "content": "<img src='"~HOST~"/images/BU.png'><h2>CS-Bus</h2>"},
-            {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/RO.png'><h2>CS-Routing</h2>"}
+            {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/transport.png'>"},
+            {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/routing.png'>"},
+            {"id": "produkte-cs-bus", "content": "<img src='"~HOST~"/images/bus.png'>"}
         ]} %}
     </div>
     <div class="size-limited">
         {% include "components/slide-with.html.twig" with {"slideshowId": "products", "panels": [
             {"content": include("products-description-cs-transport.html.twig", [])},
-            {"content": include("products-description-cs-bus.html.twig", [])},
-            {"content": include("products-description-cs-routing.html.twig", [])}
+            {"content": include("products-description-cs-routing.html.twig", [])},
+            {"content": include("products-description-cs-bus.html.twig", [])}
         ]} %}
     </div>
 </section>
