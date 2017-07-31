@@ -26,7 +26,10 @@ $twig = new Twig_Environment($loader);
 $twig->addFilter($identifierFilter);
 $twig->addFunction($include);
 
-// $twig->addExtension(new Twig_Extension_I18n());
-// putenv("LC_ALL=de_DE");
-// setlocale(LC_ALL, "de_DE");
+$twig->addExtension(new Twig_Extensions_Extension_I18n());
+putenv("LC_ALL=de_DE");
+setlocale(LC_ALL, "de_DE");
+bindtextdomain("cs-website", $pathToRoot."/locale");
+bind_textdomain_codeset("cs-website", "UTF-8");
+textdomain("cs-website");
 ?>
