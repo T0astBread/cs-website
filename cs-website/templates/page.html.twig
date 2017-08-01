@@ -28,9 +28,9 @@
                     <ul>
                         {% for item in
                         [
-                            {"title": "Unternehmen", "dropdown": ["Über Uns", "Kontakt"]},
-                            {"title": "Produkte", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                            {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                            {"title": "Unternehmen"|bundle, "dropdown": ["Über Uns"|bundle, "Kontakt"|bundle]},
+                            {"title": "Produkte"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                            {"title": "News"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
                         ] %}
                             {% set dropdownLinks = [] %}
                             {% for dropdownItem in item["dropdown"] %}
@@ -49,26 +49,25 @@
                         {% endfor %}
                         <li class="dropdown-root drop-on-hover">
                             <a class="center-vertically" href="https://get.teamviewer.com/Tvw_k">
-                                <span>Support</span>
+                                <span>{{ "Support"|bundle }}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <h2>Support</h2>
+                                <h2>{{ "Support"|bundle }}</h2>
                                 <li><a href="https://get.teamviewer.com/Tvw_k" target="_blank">Teamviever</a></li>
                                 <li><a href="{{ HOST }}/downloads/Fvw_k.exe">Fastviewer</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
-                {% set langs = ["de", "en"] %}
-                 <div id="language-selector" class="dropdown-root drop-on-hover" tabindex="0">
-                     <span id="current-lang" class="center-vertically toggleable"><span class="fa fa-globe"></span>DE</span>
-                     <ul id="language-dropdown" class="dropdown-menu">
-                         <h2>Sprache</h2>
-                         {% for lang in langs %}
-                            <li><a>{{ lang }}</a></li>
-                         {% endfor %}
-                     </ul>
-                 </div>
+                <div id="language-selector" class="dropdown-root drop-on-hover" tabindex="0">
+                    <span id="current-lang" class="center-vertically toggleable"><span class="fa fa-globe"></span>{{ "DE"|bundle }}</span>
+                    <ul id="language-dropdown" class="dropdown-menu">
+                        <h2>{{ "Sprache"|bundle }}</h2>
+                        {% for lang in langs %}
+                           <li><a href="?lang={{ lang }}">{{ lang }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <div id="logo" class="center-vertically">
                     <a href="#top">
                         <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
@@ -85,10 +84,10 @@
             <div id="footer-content">
                 <div id="footer-left">
                     <span>Computer Steiner GmbH &copy; 2017</span>
-                    <a href="">{% trans "Impressum" %}</a>
-                    <a href="">AGB</a>
+                    <a href="">{{ "Impressum"|bundle }}</a>
+                    <a href="">{{ "AGB"|bundle }}</a>
                 </div>
-                <a id="footer-back-to-top" href="#top">Zum Seitenanfang</a>
+                <a id="footer-back-to-top" href="#top">{{ "Zum Seitenanfang"|bundle }}</a>
             </div>
         </footer>
 </body>

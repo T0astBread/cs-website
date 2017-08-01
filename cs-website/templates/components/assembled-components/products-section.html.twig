@@ -9,9 +9,9 @@
     </div>
     <div class="size-limited">
         {% include "components/slide-with.html.twig" with {"slideshowId": "products", "panels": [
-            {"content": include("products-description-cs-transport.html.twig", [])},
-            {"content": include("products-description-cs-routing.html.twig", [])},
-            {"content": include("products-description-cs-bus.html.twig", [])}
+            {"content": "cs-transport"|bundle|raw},
+            {"content": "cs-bus"|bundle|raw},
+            {"content": "cs-routing"|bundle|raw}
         ]} %}
     </div>
 </section>

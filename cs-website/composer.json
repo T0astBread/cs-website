@@ -1,7 +1,6 @@
 {
     "require": {
         "twig/twig": "~2.0",
-        "twig/extensions": "^1.5",
         "gettext/gettext": "^4.4"
     }
 }

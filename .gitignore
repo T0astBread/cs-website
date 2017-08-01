@@ -271,3 +271,6 @@ vendor/
 # Protected files
 *.sensitive.*
 *.secure.*
+
+# Twig
+cs-website/twigcache/

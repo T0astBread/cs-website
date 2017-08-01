@@ -1,16 +1,8 @@
 {% extends "components/titled-section.html.twig" %}
 
 {% set group = "unternehmen" %}
-{% set title = "Über uns" %}
+{% set title = "Über uns"|bundle %}
 
 {% block sectionBody %}
-    <p>Die Computer Steiner GmbH wurde 1978 gegründet, und war damals einer der ersten Computerhändler in Österreich. Gleichzeitig wurden auch Branchensoftwarelösungen entwickelt - wir hatten schon nach kurzer Zeit Software für fast 20 verschiedene Branchen im Angebot.</p>
-    <p>Aus dieser sehr breit gefächerten Angebotspalette haben sich 2 Branchen deutlich hervorgehoben, die wir heute sehr erfolgreich mit unseren Softwarelösungen betreuen:</p>
-    <ul>
-        <li><b>Transport &amp; Logistik</b></li>
-        <li><b>Busunternehmen &amp; Touristik</b></li>
-    </ul>
-    <p>Unsere Software ist modular aufgebaut, deckt aber schon in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar.</p>
-    <p>Ihre Investition ist außerdem absolut zukunftssicher - unsere Produkte sollen für Sie genau das leisten, was Sie brauchen - dazu gehört auch, dass sich unsere Software an Ihren Betrieb anpasst und mit Ihnen gemeinsam wachsen kann.</p>
-    <p><b>Profitieren auch Sie von unserer über 35-jährigen Erfahrung und unserem Know-How!</b></p>
+{{ "aboutText"|bundle|raw }}
 {% endblock %}

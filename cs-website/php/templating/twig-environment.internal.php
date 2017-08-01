@@ -26,10 +26,20 @@ $twig = new Twig_Environment($loader);
 $twig->addFilter($identifierFilter);
 $twig->addFunction($include);
 
-$twig->addExtension(new Twig_Extensions_Extension_I18n());
-putenv("LC_ALL=de_DE");
-setlocale(LC_ALL, "de_DE");
-bindtextdomain("cs-website", $pathToRoot."/locale");
-bind_textdomain_codeset("cs-website", "UTF-8");
-textdomain("cs-website");
+
+$lang = isset($_GET["lang"]) ? $_GET["lang"] : "de";
+
+$availableLangs = array_filter(scandir($pathToRoot."bundles/"), function($element)
+{
+    return pathinfo($element, PATHINFO_EXTENSION) === "bundle";
+});
+$availableLangs = array_map(function($element)
+{
+    return str_replace(".bundle", "", $element);
+}, $availableLangs);
+if(!in_array($lang, $availableLangs)) $lang = "de";
+
+include "bundle-loader-ext.internal.php";
+$bundleLoader = (new BundleLoader($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
+$twig->addExtension($bundleLoader);
 ?>
