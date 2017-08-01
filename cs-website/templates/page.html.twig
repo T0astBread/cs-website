@@ -31,7 +31,6 @@
                             {"title": "Unternehmen", "dropdown": ["Über Uns", "Kontakt"]},
                             {"title": "Produkte", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
                             {"title": "News", "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                            {"title": "Support", "dropdown": ["Teamviever", "Fastviewer"]},
                         ] %}
                             {% set dropdownLinks = [] %}
                             {% for dropdownItem in item["dropdown"] %}
@@ -48,6 +47,16 @@
                                 </ul>
                             </li>
                         {% endfor %}
+                        <li class="dropdown-root drop-on-hover">
+                            <a class="center-vertically" href="https://get.teamviewer.com/Tvw_k">
+                                <span>Support</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <h2>Support</h2>
+                                <li><a href="https://get.teamviewer.com/Tvw_k" target="_blank">Teamviever</a></li>
+                                <li><a href="{{ HOST }}/downloads/Fvw_k.exe">Fastviewer</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 {% set langs = ["de", "en"] %}
