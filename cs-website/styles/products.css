@@ -18,6 +18,15 @@
     min-height: 12.5rem; /*Dirty workaround for a bug where the updateLayout function wouldn't run on page load */
 }
 
+.products .slideshow .slideshow-panel::before
+{
+    display: block;
+    content: " ";
+    visibility: hidden;
+    height: 8em;
+    margin-top: -8em;
+}
+
 .products img
 {
     /* display: inline-block; */

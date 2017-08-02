@@ -31,6 +31,9 @@ let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criter
 
 let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
 {
+    if(newsExplorer.is("[is-loading]")) return;
+    newsExplorer.attr("is-loading", "true");
+
     let newsListUl = newsExplorer.find("ul.news-list");
     loadNewsArticles(request =>
     {
@@ -52,6 +55,8 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
         // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
         rebindToggleListeners();
         $(".news-list-item[just-loaded]").removeAttr("just-loaded");
+        
+        newsExplorer.removeAttr("is-loading");
     },
     {
         product: newsExplorer.find(".product-selector").val(),
@@ -139,5 +144,14 @@ $(document).ready(() =>
             currentReloadTimeout = setTimeout(() => reloadNewsArticlesInNewsExplorer(jqExp), 300);
         });
         jqExp.find(".product-selector, .additional-filters").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
+    });
+
+    addOnPageLinkScrollListener(evt =>
+    {
+        if(!(evt.anchor.substr(0, 6) === "#news-")) return;
+        let ref = $(evt.anchor);
+        smoothScrollTo(ref.closest("section").offset().top, () =>
+            ref.parent("select").val("CS-" + evt.anchor.substr(9, 1).toUpperCase() + evt.anchor.slice(10, evt.anchor.length)).change()); //Turns #news-cs-transport into CS-Transport
+        evt.preventScrolling();
     });
 });

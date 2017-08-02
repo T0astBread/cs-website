@@ -1,6 +1,6 @@
 {% extends "components/section.html.twig" %}
 
-{% block identifier %}{{ identifier is defined ? identifier : title|identifier(group) }}{% endblock %}
+{% block identifier %}{{ identifier is defined ? identifier : title|identifier(group is defined ? group) }}{% endblock %}
 
 {% block classes %}{{ parent() }} titled-section{% endblock %}
 

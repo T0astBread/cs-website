@@ -2,6 +2,8 @@
 
 {% block classes %}{{ parent() }} titled-section news-explorer{% endblock %}
 
+{% block identifier %}{{ id }}{% endblock %}
+
 {% block content %}
     <div class="section-content">
         <header>
@@ -9,9 +11,9 @@
                 <h1>{{ "news"|bundle }}</h1>
                 <span>{{ "for"|bundle }}</span>
                 <select class="product-selector">
-                    <option>CS-Transport</option>
-                    <option>CS-Bus</option>
-                    <option>CS-Routing</option>
+                    {% for product in ["CS-Transport", "CS-Bus", "CS-Routing"] %}
+                        <option id="{{ product|identifier("news") }}">{{ product }}</option>
+                    {% endfor %}
                 </select>
                 <div class="search center-vertically-children">
                     <input type="text" placeholder='{{ "searchPlaceholder"|bundle }}'>

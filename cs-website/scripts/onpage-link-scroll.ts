@@ -2,12 +2,17 @@
 {
 	target: HTMLElement|null;
 	anchor: string;
+	source: HTMLElement|null;
+	noScroll: boolean = false;
 
-	constructor(target: HTMLElement|null, anchor: string)
+	constructor(target: HTMLElement|null, anchor: string, source: HTMLElement|null = null)
 	{
 		this.target = target;
 		this.anchor = anchor;
+		this.source = source;
 	}
+
+	preventScrolling = () => this.noScroll = true;
 }
 
 let onPageLinkScrollListenersBefore: {(evt: OnPageLinkClickEvent): void}[] = [], onPageLinkScrollListenersAfter: {(evt: OnPageLinkClickEvent): void}[] = [];
@@ -21,6 +26,13 @@ let fireEventIn = (handlers: {(evt: OnPageLinkClickEvent): void}[], event: OnPag
 	handlers.forEach((l: {(evt: OnPageLinkClickEvent): void}) => l(event));
 };
 
+let smoothScrollTo = (y: number, finishCallback: (() => any)|undefined = undefined) =>
+{
+	$("html, body").animate(
+	{
+		scrollTop: y
+	}, 800, finishCallback);
+}
 
 $(document).ready(() =>
 {
@@ -30,7 +42,7 @@ $(document).ready(() =>
 		let anchor = (nearestLink[0] as HTMLAnchorElement).hash;
 		if(anchor === undefined || anchor.length == 0) return;
 		
-		let eventToFire = new OnPageLinkClickEvent(document.querySelector(anchor) as HTMLElement|null, anchor);
+		let eventToFire = new OnPageLinkClickEvent(document.querySelector(anchor) as HTMLElement|null, anchor, evt.originalEvent.target as HTMLElement);
 		fireEventIn(onPageLinkScrollListenersBefore, eventToFire);
 		
 		let windowLocationHash = anchor;
@@ -45,10 +57,7 @@ $(document).ready(() =>
 		}
 		
 		evt.preventDefault();
-		$("html, body").animate(
-		{
-			scrollTop: newScrollTop
-		}, 800, () =>
+		if(!eventToFire.noScroll) smoothScrollTo(newScrollTop, () =>
 		{
 			window.location.hash = windowLocationHash;
 		});
