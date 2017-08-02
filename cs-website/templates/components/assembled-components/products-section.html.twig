@@ -1,6 +1,6 @@
 <section class="products invisible">
     <div class="fullwidth">
-        <h1>Produkte</h1>
+        <h1>{{ "products"|bundle }}</h1>
         {% include "components/slideshow.html.twig" with {"id": "products", "panels": [
             {"id": "produkte-cs-transport", "content": "<img src='"~HOST~"/images/transport.png'>"},
             {"id": "produkte-cs-routing", "content": "<img src='"~HOST~"/images/routing.png'>"},
@@ -9,9 +9,9 @@
     </div>
     <div class="size-limited">
         {% include "components/slide-with.html.twig" with {"slideshowId": "products", "panels": [
-            {"content": include("products-description-cs-transport.html.twig", [])},
-            {"content": include("products-description-cs-routing.html.twig", [])},
-            {"content": include("products-description-cs-bus.html.twig", [])}
+            {"content": "cs-transport"|bundle|raw},
+            {"content": "cs-routing"|bundle|raw},
+            {"content": "cs-bus"|bundle|raw}
         ]} %}
     </div>
 </section>

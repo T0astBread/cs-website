@@ -1,14 +1,11 @@
 {% extends "components/titled-section.html.twig" %}
 
-{% set title = "Kontakt" %}
+{% set title = "contact"|bundle %}
 
 {% block sectionBody %}
     <address>
         <div class="postal">
-            Computer Steiner GmbH<br>
-            Seyring 3<br>
-            4971 Aurolzmünster<br>
-            Österreich
+            {{ "address"|bundle|raw }}
         </div>
         <div class="digital">
             <div><span class="fa fa-phone">&nbsp;</span><a href="tel:+43-7752-870710">+43 7752 870710</a></div>

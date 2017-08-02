@@ -6,31 +6,31 @@
     <div class="section-content">
         <header>
             <div class="row row-1">
-                <h1>News</h1>
-                <span>zu</span>
+                <h1>{{ "news"|bundle }}</h1>
+                <span>{{ "for"|bundle }}</span>
                 <select class="product-selector">
                     <option>CS-Transport</option>
                     <option>CS-Bus</option>
                     <option>CS-Routing</option>
                 </select>
                 <div class="search center-vertically-children">
-                    <input type="text" placeholder="Suchen...">
+                    <input type="text" placeholder='{{ "searchPlaceholder"|bundle }}'>
                     <button><span class="fa fa-search"></span></button>
                 </div>
             </div>
             <div class="row row-2">
-                <button class="link-button toggle-additional-filters">Zusätzliche Filter</button>
+                <button class="link-button toggle-additional-filters">{{ "additionalFilters"|bundle }}</button>
                 <button class="link-button reset-additional-filters"><span class="fa fa-undo"></span></button>
             </div>
             <div class="row row-3">
                 <div class="additional-filters">
                     <span class="filter full-row">
-                        <span class="filter-label">Versionsnummer: </span>
-                        <span class="filter-label">Von </span><input class="version from" type="text"><span class="filter-label"> bis </span><input class="version to" type="text">
+                        <span class="filter-label">{{ "filterVersionTag"|bundle }} </span>
+                        <span class="filter-label">{{ "filterFrom"|bundle }} </span><input class="version from" type="text"><span class="filter-label"> {{ "filterTo"|bundle }} </span><input class="version to" type="text">
                     </span>
                     <span class="filter full-row">
-                        <span class="filter-label">Datum: </span>
-                        <span class="filter-label">Von </span><input class="date from"><span class="filter-label"> bis </span><input class="date to">
+                        <span class="filter-label">{{ "filterDate"|bundle }}</span>
+                        <span class="filter-label">{{ "filterFrom"|bundle }} </span><input class="date from"><span class="filter-label"> {{ "filterTo"|bundle }} </span><input class="date to">
                     </span>
                 </div>
             </div>
