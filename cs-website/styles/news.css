@@ -64,11 +64,12 @@
 {
     padding: 0;
     margin: 0;
+    font-size: 2em;
 }
 
 .news-explorer header .row-1 span, .news-explorer header select
 {
-    font-size: 20pt;
+    font-size: 1.25em;
 }
 
 .news-explorer header .row-1 span
@@ -100,7 +101,7 @@
 
 .news-explorer .additional-filters .filter
 {
-    font-size: 14pt;
+    font-size: .9em;
     display: inline-block;
     width: 49%;
     margin-bottom: .5em;
@@ -156,6 +157,7 @@ ul.news-list
     display: block;
     position: relative;
 }
+
 .news-list-item-container
 {
     padding: 1rem 3rem;
@@ -222,7 +224,7 @@ li:nth-child(2n - 1) .news-list-item-container, .news-list-item:nth-child(2n - 1
     margin-top: 1rem;
     padding-top: .25rem;
     margin-right: 2rem;
-    font-size: 11pt;
+    font-size: .7em;
     opacity: .7;
 }
 

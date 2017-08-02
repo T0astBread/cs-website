@@ -22,7 +22,7 @@ address span.fa
 
 #welcome h1
 {
-    font-size: 64pt;
+    font-size: 5.45em;
     padding: 0;
     margin: 0;
     margin-bottom: .25em;
@@ -30,7 +30,7 @@ address span.fa
 
 #welcome p
 {
-    font-size: 16pt;
+    font-size: 1.25em;
 }
 
 .shadowed
@@ -57,7 +57,7 @@ address span.fa
 
 .search input
 {
-    font-size: 16pt;
+    font-size: 1em;
     width: 6.5em;
 }
 
