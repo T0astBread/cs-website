@@ -1,13 +1,26 @@
+company=Unternehmen
+about=Über Uns
+contact=Kontakt
+products=Produkte
+news=News
+support=Support
+
+language=Sprache
+currentLang=DE
+
+welcome=Willkommen...
+welcomeSubHeading=... bei <strong>COMPUTER STEINER</strong>, ihrem kompetenten Partner für Branchensoftware
+
 aboutText
 <p>Die Computer Steiner GmbH wurde 1978 gegründet, und war damals einer der ersten Computerhändler in Österreich. Gleichzeitig wurden auch Branchensoftwarelösungen entwickelt - wir hatten schon nach kurzer Zeit Software für fast 20 verschiedene Branchen im Angebot.</p>
 <p>Aus dieser sehr breit gefächerten Angebotspalette haben sich 2 Branchen deutlich hervorgehoben, die wir heute sehr erfolgreich mit unseren Softwarelösungen betreuen:</p>
 <ul>
-    <li><b>Transport &amp; Logistik</b></li>
-    <li><b>Busunternehmen &amp; Touristik</b></li>
+    <li><strong>Transport &amp; Logistik</strong></li>
+    <li><strong>Busunternehmen &amp; Touristik</strong></li>
 </ul>
 <p>Unsere Software ist modular aufgebaut, deckt aber schon in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar.</p>
 <p>Ihre Investition ist außerdem absolut zukunftssicher - unsere Produkte sollen für Sie genau das leisten, was Sie brauchen - dazu gehört auch, dass sich unsere Software an Ihren Betrieb anpasst und mit Ihnen gemeinsam wachsen kann.</p>
-<p><b>Profitieren auch Sie von unserer über 35-jährigen Erfahrung und unserem Know-How!</b></p>
+<p><strong>Profitieren auch Sie von unserer über 35-jährigen Erfahrung und unserem Know-How!</strong></p>
 =
 
 address
@@ -22,10 +35,10 @@ cs-transport
     <p>Haben Sie es satt, Ihre gesamte Organisation in Papierstapeln und unübersichtlichen Tabellenkalkulationen zu verwalten?</p>
     <p>Wäre es Ihnen nicht lieber, alle Informationen zu Kunden, Aufträgen, Terminen, offenen Posten, etc. mit einem Mausklick übersichtlich präsentiert zu erhalten?</p>
     <p>Haben Sie Angst vor Datenverlusten oder falsch zugeordneten Informationen?</p>
-    <p>Wir können Ihnen mit unserem Programm <b>CS-TRANSPORT</b> eine auf Ihre Branche zugeschnittene und praxisgeprüfte Software anbieten, welche bereits von über 500 zufriedenen Kunden in Österreich, Deutschland, Schweiz, Slowenien, Tschechien, Slowakei und Ungarn eingesetzt wird!</p>
+    <p>Wir können Ihnen mit unserem Programm <strong>CS-TRANSPORT</strong> eine auf Ihre Branche zugeschnittene und praxisgeprüfte Software anbieten, welche bereits von über 500 zufriedenen Kunden in Österreich, Deutschland, Schweiz, Slowenien, Tschechien, Slowakei und Ungarn eingesetzt wird!</p>
     <p>Unser System deckt bereits in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar, wobei durch den modularen Aufbau jede erdenkliche Konfiguration möglich ist!</p>
-    <p><b>CS-TRANSPORT</b> wird seit 1978 durch Computer Steiner entwickelt, vertrieben, gewartet und natürlich betreut - dadurch ergibt sich ein großer Vorteil:</p>
-    <p><b>Egal um welches Anliegen es sich handelt - Sie erhalten alles aus einer Hand!</b></p>
+    <p><strong>CS-TRANSPORT</strong> wird seit 1978 durch Computer Steiner entwickelt, vertrieben, gewartet und natürlich betreut - dadurch ergibt sich ein großer Vorteil:</p>
+    <p><strong>Egal um welches Anliegen es sich handelt - Sie erhalten alles aus einer Hand!</strong></p>
 </article>
 =
 
@@ -37,7 +50,7 @@ cs-bus
     <p>Wir können Ihnen mit unserem Programm CS-BUS eine auf Ihre Branche zugeschnittene und praxisgeprüfte Software anbieten, welche bereits von vielen zufriedenen Kunden im In- und Ausland eingesetzt wird!</p>
     <p>Unser System deckt bereits in der Grundversion sehr viele Bereiche des täglichen Geschäftslebens ab und ist sowohl durch Standardmodule als auch speziell auf Ihren Betrieb angepasste Programmpunkte individuell erweiterbar, wobei durch den modularen Aufbau jede erdenkliche Konfiguration möglich ist!</p>
     <p>Ihr Vorteil: Herstellung, Installation, Schulung und Betreuung der Software erfolgt aus einer Hand!</p>
-    <p><b>CS-BUS - DAS leistungsstarke Programm für Bus- und Reiseunternehmen</b></p>
+    <p><strong>CS-BUS - DAS leistungsstarke Programm für Bus- und Reiseunternehmen</strong></p>
     <hr>
     <h3>CS-Mobile</h3>
     <img src="images/mobile.png">
@@ -54,12 +67,24 @@ cs-bus
 
 cs-routing
 <article>
-    <p><b>ROUTENPLANER GIBT ES WIE SAND AM MEER, ABER...</b></p>
+    <p><strong>ROUTENPLANER GIBT ES WIE SAND AM MEER, ABER...</strong></p>
     <p>... Sie suchen eine Routenplanungssoftware, die speziell auf die Bedürfnisse von Transport- und Busunternehmen zugeschnitten ist?</p>
     <p>Eine Software, die eine für LKWs oder Busse optimierte Routenberechnung mit den aktuellsten Kartendaten durchführt?</p>
     <p>Eine Software, die verlässliche Ergebnisse in Sachen Distanz, Dauer, Kosten, Routenführung sowie Maut liefert und das zu einem vernünftigen und fairen Preis?</p>
     <p>Während die meisten anderen Routenplaner hauptsächlich auf den Bereich PKW-Routing abzielen, wurde CS-ROUTING ausschließlich für die Transport- und Reisebranche entwickelt. Deshalb gehören Features wie Berücksichtigung von Fahrverboten und Beschränkungen, europaweite Mautberechnung, Leerkilometer- und Leerkostenermittlung, Emissionsberechnung, uvm. in CS-ROUTING zum Standardfunktionsumfang.</p>
-    <p>Außerdem können Sie auf der Karte die <b>GPS-POSITION</b> ihrer <b>LKWs</b> und <b>Busse</b> darstellen - d.h. unabhängig davon, welches oder wie viele unterschiedliche Telematik-Systeme Sie in Ihren Fahrzeugen verwenden - Ihre Disposition hat den gesamten Fuhrpark im Blick!</p>
-    <p><b>CS-ROUTING BIETET IHNEN GENAU DIESE UND VIELE WEITERE VORTEILE!</b></p>
+    <p>Außerdem können Sie auf der Karte die <strong>GPS-POSITION</strong> ihrer <strong>LKWs</strong> und <strong>Busse</strong> darstellen - d.h. unabhängig davon, welches oder wie viele unterschiedliche Telematik-Systeme Sie in Ihren Fahrzeugen verwenden - Ihre Disposition hat den gesamten Fuhrpark im Blick!</p>
+    <p><strong>CS-ROUTING BIETET IHNEN GENAU DIESE UND VIELE WEITERE VORTEILE!</strong></p>
 </article>
 =
+
+for=zu
+searchPlaceholder=Suchen...
+additionalFilters=Zusätzliche Filter
+filterVersionTag=Versionsnummer:
+filterDate=Datum:
+filterFrom=Von
+filterTo=bis
+
+imprint=Impressum
+terms=AGB
+backToTop=Zurück zum Seitenanfang
