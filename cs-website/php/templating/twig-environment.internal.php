@@ -9,10 +9,11 @@ $loader->addPath($pathToRoot."templates/components/");
 $loader->addPath($pathToRoot."templates/components/assembled-components");
 $loader->addPath($pathToRoot."templates/pages/");
 
-$identifierFilter = new Twig_SimpleFilter("identifier", function($string, $group)
+$identifierFilter = new Twig_SimpleFilter("identifier", function($string, $group = "")
 {
     // $string = mb_convert_encoding($string, "iso-8859-1", "UTF-8");
     // $group = mb_convert_encoding($group, "iso-8859-1", "UTF-8");
+    
     return mb_strtolower(($group !== "" ? $group."-" : "").str_replace(" ", "-", str_replace("Ä", "ae", str_replace("Ö", "oe", str_replace("Ü", "ue", mb_strtoupper($string))))));
 });
 
@@ -39,7 +40,6 @@ $availableLangs = array_map(function($element)
 }, $availableLangs);
 if(!in_array($lang, $availableLangs)) $lang = "de";
 
-include "bundle-loader-ext.internal.php";
-$bundleLoader = (new BundleLoader($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
+$bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
 $twig->addExtension($bundleLoader);
 ?>

@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "~2.0",
-        "gettext/gettext": "^4.4"
+        "gettext/gettext": "^4.4",
+        "t0astbread/xbundle": "^1.0"
     }
 }
