@@ -81,8 +81,14 @@ body > header #logo
 
 body > header #logo img
 {
-   display: inline-block;
-   vertical-align: middle;
+    /* display: inline-block;
+    vertical-align: middle;  */
+    height: 7em;
+    padding-top: 0.7em;
+    /* background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    padding: 1em;
+    padding-top: 2em; */
 }
 
 .center-vertically::before, .center-vertically-children::before
