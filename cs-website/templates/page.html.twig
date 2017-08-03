@@ -24,49 +24,51 @@
     <header>
         <div id="header-wrapper">
             <div id="header-content">
-                <nav>
-                    <ul>
-                        {% for item in
-                        [
-                            {"title": "company"|bundle, "dropdown": ["about"|bundle, "contact"|bundle]},
-                            {"title": "products"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                            {"title": "news"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"], "isGroup": true, "class": "news-link", "href": "#news"},
-                        ] %}
-                            {% set dropdownLinks = [] %}
-                            {% for dropdownItem in item["dropdown"] %}
-                                {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["isGroup"] ? item["title"])]) %}
+                <div id="header-left">
+                    <nav>
+                        <ul>
+                            {% for item in
+                            [
+                                {"title": "company"|bundle, "dropdown": ["about"|bundle, "contact"|bundle]},
+                                {"title": "products"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
+                                {"title": "news"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"], "isGroup": true, "class": "news-link", "href": "#news"},
+                            ] %}
+                                {% set dropdownLinks = [] %}
+                                {% for dropdownItem in item["dropdown"] %}
+                                    {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["isGroup"] ? item["title"])]) %}
+                                {% endfor %}
+                                <li class="dropdown-root drop-on-hover">
+                                    <a class="center-vertically" href="{{ HOST~'#'~dropdownLinks|first }}">
+                                        <span>{{ item["title"] }}</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <h2>{{ item["title"] }}</h2>
+                                        {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
                             {% endfor %}
                             <li class="dropdown-root drop-on-hover">
-                                <a class="center-vertically" href="{{ HOST~'#'~dropdownLinks|first }}">
-                                    <span>{{ item["title"] }}</span>
+                                <a class="center-vertically" href="https://get.teamviewer.com/Tvw_k" target="_blank">
+                                    <span>{{ "support"|bundle }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <h2>{{ item["title"] }}</h2>
-                                    {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
-                                    {% endfor %}
+                                    <h2>{{ "support"|bundle }}</h2>
+                                    <li><a href="https://get.teamviewer.com/Tvw_k" target="_blank">Teamviever</a></li>
+                                    <li><a href="{{ HOST }}/downloads/Fvw_k.exe">Fastviewer</a></li>
                                 </ul>
                             </li>
-                        {% endfor %}
-                        <li class="dropdown-root drop-on-hover">
-                            <a class="center-vertically" href="https://get.teamviewer.com/Tvw_k" target="_blank">
-                                <span>{{ "support"|bundle }}</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <h2>{{ "support"|bundle }}</h2>
-                                <li><a href="https://get.teamviewer.com/Tvw_k" target="_blank">Teamviever</a></li>
-                                <li><a href="{{ HOST }}/downloads/Fvw_k.exe">Fastviewer</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="language-selector" class="dropdown-root drop-on-hover" tabindex="0">
-                    <span id="current-lang" class="center-vertically toggleable"><span class="fa fa-globe"></span>{{ "currentLang"|bundle }}</span>
-                    <ul id="language-dropdown" class="dropdown-menu">
-                        <h2>{{ "language"|bundle }}</h2>
-                        {% for lang in langs %}
-                           <li><a href="?lang={{ lang }}">{{ lang }}</a></li>
-                        {% endfor %}
-                    </ul>
+                        </ul>
+                    </nav>
+                    <div id="language-selector" class="dropdown-root drop-on-hover" tabindex="0">
+                        <span id="current-lang" class="center-vertically toggleable"><span class="fa fa-globe"></span>{{ "currentLang"|bundle }}</span>
+                        <ul id="language-dropdown" class="dropdown-menu">
+                            <h2>{{ "language"|bundle }}</h2>
+                            {% for lang in langs %}
+                               <li><a href="?lang={{ lang }}">{{ lang }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
                 <div id="logo" class="center-vertically">
                     <a href="{{ HOST }}?lang={{ lang }}">

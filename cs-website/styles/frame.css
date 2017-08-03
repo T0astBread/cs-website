@@ -20,9 +20,10 @@ body > header a
 body > header
 {
    width: 100%;
-   height: 6em;
+   height: 10rem;
    z-index: 10;
    font-size: 12pt;
+   position: absolute;
 }
 
 .link-button
@@ -55,6 +56,12 @@ body > header *
    max-width: 1000px;
 }
 
+#header-content
+{
+    padding: 0 1em;
+    position: relative;
+}
+
 #header-content > *
 {
    display: inline-block;
@@ -81,10 +88,10 @@ body > header #logo
 
 body > header #logo img
 {
-    /* display: inline-block;
-    vertical-align: middle;  */
-    height: 7em;
-    padding-top: 0.7em;
+    display: inline-block;
+    vertical-align: middle;  
+    /* height: 7em;
+    padding-top: 0.7em; */
     /* background-color: white;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
     padding: 1em;
@@ -105,9 +112,17 @@ body > header #logo img
    vertical-align: middle!important;
 }
 
+#header-left
+{
+    height: 60%!important;
+    position: absolute;
+    bottom: 0;
+}
+
 nav
 {
-   vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
 }
 
 nav > ul li
@@ -185,6 +200,7 @@ header .dropdown-menu li a
 
 #language-selector
 {
+    display: inline-block;
     position: relative;
     text-transform: uppercase;
     margin-left: 1em;
@@ -216,13 +232,13 @@ header .dropdown-menu li a
 main
 {
    display: block;
-   /* margin-bottom: 5em; */
+   margin-top: 10rem;
    flex-grow: 1;
 }
 
 main > :first-child
 {
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 main > :last-child
