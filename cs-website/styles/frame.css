@@ -216,7 +216,12 @@ main
 
 main > :first-child
 {
-    margin-top: 3em;
+    margin-top: 3rem;
+}
+
+main > :last-child
+{
+    margin-bottom: 5rem;
 }
 
 footer

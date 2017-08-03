@@ -1,5 +1,5 @@
 {% set HOST = constant("HOST") %}
-{% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers"]) %}
+{% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers", "misc"]) %}
 {% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/jquery.copycss"]) %}
 
 <!DOCTYPE html>
@@ -37,12 +37,12 @@
                                 {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["isGroup"] ? item["title"])]) %}
                             {% endfor %}
                             <li class="dropdown-root drop-on-hover">
-                                <a class="center-vertically" href="#{{ dropdownLinks|first }}">
+                                <a class="center-vertically" href="{{ HOST~'#'~dropdownLinks|first }}">
                                     <span>{{ item["title"] }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <h2>{{ item["title"] }}</h2>
-                                    {% for dropdownItem in item["dropdown"] %}<li><a href="{{ '#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
+                                    {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </li>
@@ -69,7 +69,7 @@
                     </ul>
                 </div>
                 <div id="logo" class="center-vertically">
-                    <a href="#top">
+                    <a href="{{ HOST }}">
                         <img src="{{ HOST }}/images/cs-logo.png" alt="Logo" />
                     </a>
                 </div>
@@ -84,8 +84,8 @@
             <div id="footer-content">
                 <div id="footer-left">
                     <span>Computer Steiner GmbH &copy; 2017</span>
-                    <a href="">{{ "imprint"|bundle }}</a>
-                    <a href="">{{ "terms"|bundle }}</a>
+                    <a href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
+                    <a href="{{ HOST }}/downloads/agbs.pdf">{{ "terms"|bundle }}</a>
                 </div>
                 <a id="footer-back-to-top" href="#top">{{ "backToTop"|bundle }}</a>
             </div>

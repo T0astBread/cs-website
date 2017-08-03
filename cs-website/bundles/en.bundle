@@ -83,3 +83,23 @@ filterTo=to
 imprint=Imprint
 terms=Terms
 backToTop=Go back to the top
+
+
+legalNotice=Legal Notice
+legalNoticeText
+<p>This website may contain information about property rights of third persons as well as information about copyrights, which have to be regarded and obeyed. We should like to point out that information on this site might contain technical imprecision or typographic errors.</p>
+<p>We reserve the right to alter or delete any information on this website without any previous notice. This also applies to all products described on this website.</p>
+<p>Do not send us any confidential or copyrighted data via this website. Please note that any information or data sent via this website will NOT be regarded confidential, unless otherwise noted. If you send us confidential information or data via this website, you agree to grant Computer Steiner GmbH an unlimited and irrevocable right to use, replicate, display, execute and modify the information or data as well as to forward and share it, unless otherwise noted.</p>
+=
+
+links=Links
+linksText
+<p><strong>The following applies to all links on this website:</strong></p>
+<p>Computer Steiner GmbH has no influence on the content and / or the design of the linked website. Computer Steiner GmbH does not take any responsibility for the content and / or design of the websites linked on our website.</p>
+<p>All links to other websites are a service for our visitors. Computer Steiner GmbH reserves the right to alter or delete any link on this website without any previous notice.</p>
+=
+
+copyright=Copyright
+copyrightText
+<p>All content (including texts, images, files, etc.) on this website is © by Computer Steiner GmbH unless otherwise noted. All rights reserved.</p>
+=

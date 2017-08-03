@@ -96,3 +96,22 @@ filterTo=bis
 imprint=Impressum
 terms=AGB
 backToTop=Zurück zum Seitenanfang
+
+legalNotice=Rechtliche Hinweise
+legalNoticeText
+<p>Diese Website kann Hinweise auf andere Eigentumsrechte und Informationen zu Urheberrechten enthalten, die beachtet und befolgt werden müssen. Wir weisen auch darauf hin, dass die Informationen auf dieser Site technische Ungenauigkeiten oder typografische Fehler enthalten können.</p>
+<p>Wir behalten uns vor, die Informationen dieser Site jederzeit und ohne vorherige Ankündigung zu ändern oder zu aktualisieren. Das gilt auch für Verbesserungen und/oder Änderungen an den auf dieser Site beschriebenen Produkten.</p>
+<p>Die Computer Steiner GmbH bittet Sie, keine vertraulichen oder urheberrechtlich geschützten Informationen über diese Website an uns zu schicken. Bitte beachten Sie, dass wir jede Information oder jedes Material, das uns auf diesem Wege erreicht, als NICHT vertraulich betrachten, sofern nicht anders angegeben. Wenn Sie uns trotzdem vertrauliche Informationen oder Material schicken, räumen Sie der Computer Steiner GmbH ein unbeschränktes, unwiderrufliches Recht ein, dieses zu nutzen, zu reproduzieren, darzustellen, auszuführen, zu modifizieren, weiter zu versenden und zu verteilen, sofern nicht anders angegeben.</p>
+=
+
+links=Links
+linksText
+<strong>Für alle Links gilt:</strong>
+<p>Die Computer Steiner GmbH hat keinen Einfluss auf die Seiten-Inhalte oder die Gestaltung der gelinkten Seite. Die Computer Steiner GmbH übernimmt keinerlei Verantwortung für den Inhalt der Internetseiten, auf deren URL in unseren Seiten verwiesen wird. Diese Erklärung gilt für alle auf unseren Seiten angebrachten Links und für die Inhalte aller Seiten, zu denen die angebrachten Links führen.</p>
+<p>Die Aufnahme von Links auf andere URLs ist ein Service für unsere Internet-Besucher und jederzeit widerrufbar. Sie beinhalten keinen Rechtsanspruch auf Beibehalt.</p>
+=
+
+copyright=Copyright
+copyrightText
+<p>Alle Rechte, auch die der fotomechanischen Wiedergabe, der Vervielfältigung und der Verbreitung mittels besonderer Verfahren (zum Beispiel Datenverarbeitung, Datenträger, Datennetze), auch teilweise, behält sich die Computer Steiner GmbH vor.</p>
+=

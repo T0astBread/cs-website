@@ -17,16 +17,12 @@
             </div>
         </address>
         <div>
-            <p>
-                <strong>{{ "management"|bundle }}</strong><br>
-                Berndt Steiner<br>
-                Thomas Linseder<br>
-            </p>
+            {% include "assembled-components/management-snippet.html.twig" %}
             <p>
                 <strong>{{ "openingHours"|bundle }}</strong><br>
                 {{ "openingHoursTimes"|bundle }}
             </p>
         </div>
     </div>
-    <a class="fullwidth-link" href="">{{ "imprint"|bundle }}</a>
+    <a class="fullwidth-link" href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
 {% endblock %}

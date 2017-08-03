@@ -1,0 +1,30 @@
+{% extends "page.html.twig" %}
+
+{% set styles = (styles is defined ? styles : [])|merge(["imprint"]) %}    
+
+{% block content %}
+<div class="imprint size-limited">
+    <h1>{{ "imprint"|bundle }}</h1>
+    {% include "assembled-components/management-snippet.html.twig" %}
+    <p>
+        {{ "vat"|bundle }}: ATU23705300<br>
+        {{ "dvr"|bundle }}: 0640344<br>
+        {{ "commercialRegistry"|bundle }}.: FN111983G/Ried im Innkreis
+    </p>
+    <a href="https://www.wkoecg.at/Web/Ecg.aspx?FirmaID=55c06dfe-0ba8-4955-a085-458301ce131f&AspxAutoDetectCookieSupport=1" target="_blank">
+        <img src="{{ HOST }}/images/ecg.gif" alt="Informationspflicht lt. ECG und Mediengesetz - WKO">
+    </a>
+    <section>
+        <h2>{{ "legalNotice"|bundle }}</h2>
+        {{ "legalNoticeText"|bundle|raw }}
+    </section>
+    <section>
+        <h2>{{ "links"|bundle }}</h2>
+        {{ "linksText"|bundle|raw }}
+    </section>
+    <section>
+        <h2>{{ "copyright"|bundle }}</h2>
+        {{ "copyrightText"|bundle|raw }}
+    </section>
+</div>
+{% endblock %}
