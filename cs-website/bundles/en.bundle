@@ -9,7 +9,12 @@ language=Language
 currentLang=EN
 
 welcome=Welcome...
-welcomeSubHeading=...to <b>COMPUTER STEINER</b>, your experienced partner for business software solutions
+welcomeSubHeading
+<p>...to COMPUTER STEINER, your experienced partner for business software solutions!</p>
+<p>Take advantage of our 30 years of experience and our know-how to find the perfect software for your company’s needs.</p>
+<p>We offer a wide range of software, which has been developed by experts from the respective branches, as well as tailor-made individual software.</p>
+<p>Our experienced and motivated team is looking forward to advising you!<p>
+=
 
 aboutText
 <p>Founded in 1978, Computer Steiner GmbH was one of the first computer and hardware dealers in Austria. At that time, we also started developing software solutions for different branches. After a short period of time, we were able to offer software for almost 20 different branches.</p>

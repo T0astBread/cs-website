@@ -64,11 +64,30 @@ address span.fa
     width: 1.52em;
 }
 
+#welcome .slide-with
+{
+    max-width: 1000px; 
+    margin: auto;
+    margin-bottom: 3em;
+}
+
+#welcome img
+{
+    height: 15.6em;
+    width: auto;
+}
+
+#welcome p, #welcome h1
+{
+    text-align: left;
+}
+
 #welcome h1
 {
-    font-size: 5.45em;
+    font-size: 3em;
     padding: 0;
-    margin: 0;
+    max-width: 1000px;
+    margin: auto;
     margin-bottom: .25em;
 }
 

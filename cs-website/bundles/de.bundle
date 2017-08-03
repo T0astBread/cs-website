@@ -9,7 +9,11 @@ language=Sprache
 currentLang=DE
 
 welcome=Willkommen...
-welcomeSubHeading=... bei <strong>COMPUTER STEINER</strong>, ihrem kompetenten Partner für Branchensoftware
+welcomeSubHeading
+<p>...bei COMPUTER STEINER, Ihrem kompetenten Partner für Branchensoftware!</p>
+<p>Nutzen auch Sie unsere über 40-jährige Erfahrung und unser Know-How, um die perfekte Software für Ihr Unternehmen zu finden.</p>
+<p>Unser kompetentes und erfahrenes Team berät Sie gerne!</p>
+=
 
 aboutText
 <p>Die Computer Steiner GmbH wurde 1978 gegründet, und war damals einer der ersten Computerhändler in Österreich. Gleichzeitig wurden auch Branchensoftwarelösungen entwickelt - wir hatten schon nach kurzer Zeit Software für fast 20 verschiedene Branchen im Angebot.</p>

@@ -10,11 +10,13 @@
    display: flex;
    flex-direction: column;
    min-height: 100vh;
+
+   color: rgb(154, 154, 157);
 }
 
 body > header a
 {
-   color: black;
+    color: rgb(154, 154, 157);
 }
 
 body > header

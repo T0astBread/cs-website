@@ -1,4 +1,13 @@
-<section id="welcome" class="fullwidth">
-    <h1>{{ "welcome"|bundle }}</h1>
-    <p>{{ "welcomeSubHeading"|bundle|raw }}</p>
+<section id="welcome">
+    {% include "components/slide-with.html.twig" with {"panels":
+    [
+        {"content": "<img src='"~HOST~"/images/transport.png'>"},
+        {"content": "<img src='"~HOST~"/images/bus.png'>"},
+        {"content": "<img src='"~HOST~"/images/routing.png'>"},
+        {"content": "<img src='"~HOST~"/images/mobile.png'>"}
+    ]} %}
+    <div  class="fullwidth">
+        <h1>{{ "welcome"|bundle }}</h1>
+        <div class="size-limited">{{ "welcomeSubHeading"|bundle|raw }}</div>
+    </div>
 </section>
