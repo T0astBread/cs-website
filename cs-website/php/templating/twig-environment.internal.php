@@ -40,6 +40,7 @@ $availableLangs = array_map(function($element)
 }, $availableLangs);
 if(!in_array($lang, $availableLangs)) $lang = "de";
 
+include $pathToRoot."php/lib/XBundle_Extension.php";
 $bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
 $twig->addExtension($bundleLoader);
 ?>

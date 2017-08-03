@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5a60e15935a397c06f5270c7ef7b74a",
+    "content-hash": "9c1273c7bcd223c43aa2cab7d50c6fd8",
     "packages": [
         {
             "name": "gettext/gettext",
@@ -187,54 +187,6 @@
                 "shim"
             ],
             "time": "2017-06-09T14:24:12+00:00"
-        },
-        {
-            "name": "t0astbread/xbundle",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/T0astBread/XBundle.git",
-                "reference": "3a7e3187b8b78bfa1abdb66252891c5b2b0e7826"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/T0astBread/XBundle/zipball/3a7e3187b8b78bfa1abdb66252891c5b2b0e7826",
-                "reference": "3a7e3187b8b78bfa1abdb66252891c5b2b0e7826",
-                "shasum": ""
-            },
-            "require": {
-                "twig/twig": ">1.26"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "XBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "T0astBread",
-                    "email": "m.briedl1+packagist@gmail.com",
-                    "homepage": "https://t0astbread.github.io",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple resource bundle loader for the Twig template engine",
-            "keywords": [
-                "bundle",
-                "engine",
-                "i18n",
-                "internationalization",
-                "resource",
-                "resources",
-                "template",
-                "twig"
-            ],
-            "time": "2017-08-02T09:33:33+00:00"
         },
         {
             "name": "twig/twig",
