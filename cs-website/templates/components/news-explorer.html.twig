@@ -11,7 +11,7 @@
                 <h1>{{ "news"|bundle }}</h1>
                 <span>{{ "for"|bundle }}</span>
                 <select class="product-selector">
-                    {% for product in ["CS-Transport", "CS-Bus", "CS-Routing"] %}
+                    {% for product in products %}
                         <option id="{{ product|identifier("news") }}">{{ product }}</option>
                     {% endfor %}
                 </select>
