@@ -146,12 +146,26 @@ $(document).ready(() =>
         jqExp.find(".product-selector, .additional-filters").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
     });
 
+    let convertToSelectOption = (anchor: string) =>
+    {
+        if(anchor.slice(6, 9) === "cs-")
+        {
+            return "CS-" + anchor.substr(9, 1).toUpperCase() + anchor.slice(10, anchor.length).replace("-v", " V");
+        }
+        else
+        {
+            let crop = anchor.replace("#news-", "");
+            return crop.substr(0, 1).toUpperCase() + crop.slice(1, crop.length).toLowerCase();
+        }
+    }
+
     addOnPageLinkScrollListener(evt =>
     {
         if(!(evt.anchor.substr(0, 6) === "#news-")) return;
         let ref = $(evt.anchor);
+        console.log(convertToSelectOption(evt.anchor))
         smoothScrollTo(ref.closest("section").offset().top, () =>
-            ref.parent("select").val("CS-" + evt.anchor.substr(9, 1).toUpperCase() + evt.anchor.slice(10, evt.anchor.length)).change()); //Turns #news-cs-transport into CS-Transport
+            ref.parent("select").val(convertToSelectOption(evt.anchor)).change()); //Turns #news-cs-transport into CS-Transport
         evt.preventScrolling();
     });
 });

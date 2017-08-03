@@ -31,7 +31,7 @@
                             [
                                 {"title": "company"|bundle, "dropdown": ["about"|bundle, "contact"|bundle]},
                                 {"title": "products"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
-                                {"title": "news"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"], "isGroup": true, "class": "news-link", "href": "#news"},
+                                {"title": "news"|bundle, "dropdown": products, "isGroup": true},
                             ] %}
                                 {% set dropdownLinks = [] %}
                                 {% for dropdownItem in item["dropdown"] %}

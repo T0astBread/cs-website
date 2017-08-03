@@ -1,9 +1,11 @@
 <?php
+require_once "db/db.internal.php";
+
 function load_products()
 {
     $products = [];
 
-    include "db/db.internal.php";
+    $mysqli = build_mysqli();
     $results = $mysqli->query("SELECT name FROM products ORDER BY name");
     while($row = $results->fetch_assoc())
     {

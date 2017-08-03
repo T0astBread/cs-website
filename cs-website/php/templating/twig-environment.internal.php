@@ -44,9 +44,13 @@ include $pathToRoot."php/lib/XBundle_Extension.php";
 $bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
 $twig->addExtension($bundleLoader);
 
+
+require_once $pathToRoot."php/products-loader.internal.php";
+$products = load_products();
+
 function render(string $template, $variables = [])
 {
-    global $twig, $lang, $availableLangs;
-    return $twig->render($template, array_merge(["langs" => $availableLangs, "lang" => $lang], $variables));
+    global $twig, $lang, $availableLangs, $products;
+    return $twig->render($template, array_merge(["langs" => $availableLangs, "lang" => $lang, "products" => $products], $variables));
 }
 ?>

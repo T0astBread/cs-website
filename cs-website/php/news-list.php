@@ -34,6 +34,7 @@ include "templating/twig-environment.internal.php";
 
 
 require_once "db/db.internal.php";
+$mysqli = build_mysqli();
 
 if(isset($query))
 {

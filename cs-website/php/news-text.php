@@ -9,6 +9,7 @@ if($id < 0) bad_request("The id must be bigger than 0!");
 
 
 require_once "db/db.internal.php";
+$mysqli = build_mysqli();
 
 $stmt = $mysqli->prepare("SELECT text FROM news_article_localizations, languages WHERE article_id = ? AND languages.abbreviation = ? AND news_article_localizations.language_id = languages.id");
 $stmt->bind_param("is", $id, $lang);
