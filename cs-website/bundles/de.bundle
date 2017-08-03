@@ -30,6 +30,14 @@ Seyring 3<br>
 Österreich<br>
 =
 
+management=Geschäftsführer
+vat=USt-ID-Nr
+dvr=DVR
+commercialRegistry=Firmenbuch
+
+openingHours=Öffnungszeiten
+openingHoursTimes=Montag bis Freitag, 8:30 - 17:00
+
 cs-transport
 <article>
     <p>Haben Sie es satt, Ihre gesamte Organisation in Papierstapeln und unübersichtlichen Tabellenkalkulationen zu verwalten?</p>

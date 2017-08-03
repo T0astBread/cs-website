@@ -2,16 +2,31 @@
 
 {% set title = "contact"|bundle %}
 {% set identifier = "contact"|bundle|lower %}
+{#% set attributes = "x-anchor-offset=-.35"%#}
 
 {% block sectionBody %}
-    <address>
-        <div class="postal">
-            {{ "address"|bundle|raw }}
+    <div class="two-column">
+        <address>
+            <div class="postal">
+                {{ "address"|bundle|raw }}
+            </div>
+            <div class="digital">
+                <div><span class="fa fa-phone">&nbsp;</span><a href="tel:+43-7752-870710">+43 7752 870710</a></div>
+                <div><span class="fa fa-envelope">&nbsp;</span> <a href="mailto:office@computer-steiner.com">office@computer-steiner.com</a></div>
+                <div><span class="fa fa-facebook">&nbsp;</span> <a href="https://www.facebook.com/computersteiner?fref=ts" target="_blank">Facebook</a></div>
+            </div>
+        </address>
+        <div>
+            <p>
+                <strong>{{ "management"|bundle }}</strong><br>
+                Berndt Steiner<br>
+                Thomas Linseder<br>
+            </p>
+            <p>
+                <strong>{{ "openingHours"|bundle }}</strong><br>
+                {{ "openingHoursTimes"|bundle }}
+            </p>
         </div>
-        <div class="digital">
-            <div><span class="fa fa-phone">&nbsp;</span><a href="tel:+43-7752-870710">+43 7752 870710</a></div>
-            <div><span class="fa fa-envelope">&nbsp;</span> <a href="mailto:office@computer-steiner.com">office@computer-steiner.com</a></div>
-            <div><span class="fa fa-facebook">&nbsp;</span> <a href="https://www.facebook.com/computersteiner?fref=ts" target="_blank">Facebook</a></div>
-        </div>
-    </address>
+    </div>
+    <a class="fullwidth-link" href="">{{ "imprint"|bundle }}</a>
 {% endblock %}

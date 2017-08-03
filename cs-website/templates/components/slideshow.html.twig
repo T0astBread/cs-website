@@ -2,7 +2,7 @@
     <span class="center-vertically"><button class="slideshow-left">&lt;</button></span>
     <ul>
          {% for panel in panels %}
-            <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}">{{ panel["content"]|raw }}</li>
+            <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}" x-anchor-offset="-1">{{ panel["content"]|raw }}</li>
         {% endfor %} 
         {% block panels %}
         {% endblock %}

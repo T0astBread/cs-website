@@ -1,3 +1,47 @@
+/******************/
+/***GENERAL TAGS***/
+/******************/
+
+a
+{
+    /* color: #d7e33c;  */
+   color: #a0a92d;
+   text-decoration: none;
+}
+
+button:disabled
+{
+    cursor: auto;
+}
+
+select
+{
+    border: none;
+    background: none;
+    border-bottom: 2px solid #d7e33c;
+}
+
+hr
+{
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 8em;
+    margin-bottom: 2em;
+    border: none;
+    border-top: 1px solid #bbb;
+    border-bottom: 2px solid #fff;
+}
+
+img
+{
+    border: none;
+}
+
+
+/********************/
+/***SPECIFIC STUFF***/
+/********************/
+
 address div
 {
     padding: 0;
@@ -102,4 +146,14 @@ address span.fa
     position: absolute!important;
     bottom: 0!important;
     left: 0!important;
+}
+
+.fullwidth-link
+{
+    display: block;
+    width: 100%;
+    padding: .4em;
+    margin-top: .5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    text-align: center;
 }

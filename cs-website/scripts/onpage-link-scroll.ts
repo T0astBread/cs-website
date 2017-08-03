@@ -53,7 +53,10 @@ $(document).ready(() =>
 		}
 		else
 		{
-			newScrollTop = $(anchor).offset().top;
+			let target = $(anchor);
+			newScrollTop = target.offset().top;
+			let offset = target.attr("x-anchor-offset");
+			if(offset) newScrollTop += target.height() * parseFloat(offset);
 		}
 		
 		evt.preventDefault();

@@ -9,41 +9,6 @@
    font-size: 100%;
 }
 
-a
-{
-    /* color: #d7e33c;  */
-   color: #a0a92d;
-   text-decoration: none;
-}
-
-button:disabled
-{
-    cursor: auto;
-}
-
-select
-{
-    border: none;
-    background: none;
-    border-bottom: 2px solid #d7e33c;
-}
-
-hr
-{
-    max-width: 1000px;
-    margin: auto;
-    margin-top: 8em;
-    margin-bottom: 2em;
-    border: none;
-    border-top: 1px solid #bbb;
-    border-bottom: 2px solid #fff;
-}
-
-img
-{
-    border: none;
-}
-
 body > header a
 {
    color: black;

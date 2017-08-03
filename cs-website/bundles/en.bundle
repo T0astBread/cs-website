@@ -24,6 +24,21 @@ aboutText
 <p><strong>Take advantage of our 35+ years of experience and know-how!</strong></p>
 =
 
+address
+Computer Steiner GmbH<br>
+Seyring 3<br>
+4971 Aurolzmünster<br>
+Austria
+=
+
+management=Management
+vat=VAT
+dvr=DVR
+commercialRegistry=Commercial Registry File No
+
+openingHours=Opening Hours
+openingHoursTimes=Monday to Friday, 8.30AM - 5.00PM
+
 cs-transport
 <article>
     <p>Are you fed up with your paper organisation, confusing spreadsheets or dealing with your tax consultant?</p>
@@ -56,13 +71,6 @@ cs-routing
     <p>Furthermore, you can see the GPS-position of your trucks and busses on the map – no matter which or how many different telematic systems you are using – your scheduling department has a simultaneous view on all your different vehicles! </p>
     <p><strong>CS-ROUTING is offering these and several other benefits!</strong></p>
 </article>
-=
-
-address
-Computer Steiner GmbH<br>
-Seyring 3<br>
-4971 Aurolzmünster<br>
-Austria
 =
 
 searchPlaceholder=Search...

@@ -20,8 +20,8 @@ section::before
 {
    display: block;
    content: " ";
-   height: 10em;
-   margin-top: -10em;
+   height: 6em;
+   margin-top: -6em;
    visibility: hidden;
 }
 
@@ -173,4 +173,17 @@ section.invisible
 .slideshow-panel hr
 {
     margin: 2em 0;
+}
+
+.two-column > *
+{
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+}
+
+.two-column :first-child
+{
+    padding-top: 0;
+    margin-top: 0;
 }
