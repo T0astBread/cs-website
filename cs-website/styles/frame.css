@@ -20,11 +20,7 @@ body > header a
 body > header
 {
    width: 100%;
-   margin-bottom: 2em;
    height: 6em;
-   position: absolute; 
-   top: 0;
-   left: 0;
    z-index: 10;
    font-size: 12pt;
 }
@@ -216,6 +212,11 @@ main
    display: block;
    /* margin-bottom: 5em; */
    flex-grow: 1;
+}
+
+main > :first-child
+{
+    margin-top: 3em;
 }
 
 footer
