@@ -7,6 +7,9 @@
    /* background-color: #fafafa; */
    overflow-x: hidden;
    font-size: 100%;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
 }
 
 body > header a
@@ -211,7 +214,8 @@ header .dropdown-menu li a
 main
 {
    display: block;
-   margin-bottom: 5em;
+   /* margin-bottom: 5em; */
+   flex-grow: 1;
 }
 
 footer
@@ -219,7 +223,7 @@ footer
    border-top: 1px solid #ccc;
    padding: 1.25em 2em;
    padding-bottom: 2em;
-   margin-top: 2em;
+   /* margin-top: 2em; */
 }
 
 /* #footer-content
