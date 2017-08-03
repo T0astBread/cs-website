@@ -62,7 +62,8 @@ $(document).ready(() =>
 		evt.preventDefault();
 		if(!eventToFire.noScroll) smoothScrollTo(newScrollTop, () =>
 		{
-			window.location.hash = windowLocationHash;
+			if(history.pushState) history.pushState(null, $("title").html(), windowLocationHash);
+			else window.location.hash = windowLocationHash;
 		});
 		setTimeout(() => fireEventIn(onPageLinkScrollListenersAfter, eventToFire), 800);
 	});
