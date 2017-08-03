@@ -43,4 +43,10 @@ if(!in_array($lang, $availableLangs)) $lang = "de";
 include $pathToRoot."php/lib/XBundle_Extension.php";
 $bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
 $twig->addExtension($bundleLoader);
+
+function render(string $template, $variables = [])
+{
+    global $twig, $lang, $availableLangs;
+    return $twig->render($template, array_merge(["langs" => $availableLangs, "lang" => $lang], $variables));
+}
 ?>
