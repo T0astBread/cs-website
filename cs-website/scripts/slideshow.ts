@@ -9,7 +9,9 @@ let updateLayout = (slideshowList: JQuery, visible: JQuery) =>
 	void slideshowList.offsetWidth;
 };
 
-let slideList = (slideshowList: JQuery, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined) =>
+let updateLayoutFor = (slideshow: JQuery) => updateLayout($(slideshow), $(slideshow).find("> .visible"));
+
+let slideList = (slideshowList: JQuery, direction: number, fastTransition: boolean = false, finishCallback: Function|undefined = undefined) =>
 {
 	let visible = slideshowList.find("> li.visible");
 	
@@ -42,17 +44,18 @@ let slideList = (slideshowList: JQuery, direction: number, fastTransition: boole
 	.addClass("visible")
 	.removeClass("on-left")
 	.removeClass("on-right");
-	visible.removeClass("visible");
+	slideshowList.find("> .priority-two").removeClass("priority-two");
+	visible.addClass("priority-two").removeClass("visible");
 	
 	updateLayout(slideshowList, jqNextVisible);
-	if(onFinish) setTimeout(onFinish, fastTransition ? 250 : 500);
+	if(finishCallback) setTimeout(finishCallback, fastTransition ? 250 : 500);
 };
 
-let slide = (slideshow: Element, direction: number, fastTransition: boolean = false, onFinish: Function|undefined = undefined) =>
+let slide = (slideshow: Element, direction: number, fastTransition: boolean = false, finishCallback: Function|undefined = undefined) =>
 {
 	let slideshowList = $(slideshow).find("ul");
 	if(!slideshowList) return;
-	slideList(slideshowList, direction, fastTransition, onFinish);
+	slideList(slideshowList, direction, fastTransition, finishCallback);
 	$(slideshow).attr("x-linked-slideshows").split(" ").forEach(l =>
 		slideList($("#" + l).closestChild("ul"), direction, fastTransition));
 };
@@ -69,6 +72,25 @@ let slideToPanel = (slideshow: Element, panelId: string, direction: number = DIR
 	};
 	if(!checkPanel()) slideAndCheckPanel();
 };
+
+let shouldAutoSlide = (slideshow: Element) =>
+{
+	let jqSlideshow = $(slideshow);
+	let linkedVisible = false;
+	if(jqSlideshow.is("[x-linked-slideshows]")) jqSlideshow.attr("x-linked-slideshows").split(" ").forEach(s => linkedVisible = linkedVisible ? true : $("#" + s).visible(true));
+	return jqSlideshow.visible(true) || linkedVisible;
+}
+
+let setAutoSlide = (slideshow: Element, interval: number, direction: number = DIRECTION_RIGHT, fastTransition: boolean = false, afterSlideCallback: Function|undefined = undefined) =>
+{
+	let jqSlideshow = $(slideshow);
+	clearInterval(jqSlideshow.data("autoSlideInterval"));
+	jqSlideshow.data("autoSlideInterval", setInterval(() => shouldAutoSlide(slideshow) ? jqSlideshow.is(".slideshow") ?
+		slide(slideshow, direction, fastTransition, afterSlideCallback) :
+		slideList(jqSlideshow, direction, fastTransition, afterSlideCallback) : console.log("out of viewport"), interval));
+}
+
+let clearAutoSlide = (slideshow: Element) => clearInterval($(slideshow).data("autoSlideInterval"));
 
 $(document).ready(() =>
 {
@@ -92,5 +114,11 @@ $(document).ready(() =>
 		if(slideshow.length > 0) slideToPanel(slideshow[0], evt.anchor.slice(1, evt.anchor.length));
 	}, "finish");
 	
-	$(".slideshow > ul, .slide-with").each((i, e) => updateLayout($(e), $(e).find("> .visible")));
+	let resizeTimeout: number;
+	$(".slideshow > ul, .slide-with").each((i, e) => updateLayoutFor($(e))).resize(evt =>
+		{
+			clearTimeout(resizeTimeout);
+			let target = $(evt.currentTarget);
+			resizeTimeout = setTimeout(() => target.css("opactiy", ".25"), 300);
+		});
 });

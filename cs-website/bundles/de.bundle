@@ -1,3 +1,10 @@
+languageSpecificStyles
+.opening-hours .time-part
+{
+    width: 3.5rem;
+}
+=
+
 company=Unternehmen
 about=Über Uns
 contact=Kontakt
@@ -28,7 +35,7 @@ aboutText
 =
 
 address
-Computer Steiner GmbH<br>
+<strong>Computer Steiner GmbH</strong><br>
 Seyring 3<br>
 4971 Aurolzmünster<br>
 Österreich<br>
@@ -40,7 +47,11 @@ dvr=DVR
 commercialRegistry=Firmenbuch
 
 openingHours=Öffnungszeiten
-openingHoursTimes=Montag bis Freitag, 8:30 - 17:00
+openingDays=Montag bis Freitag
+openingTimesMorningFrom=08:30
+openingTimesMorningTo=12:00
+openingTimesAfternoonFrom=13:00
+openingTimesAfternoonTo=17:00
 
 cs-transport
 <article>

@@ -13,16 +13,23 @@
             <div class="digital">
                 <div><span class="fa fa-phone">&nbsp;</span><a href="tel:+43-7752-870710">+43 7752 870710</a></div>
                 <div><span class="fa fa-envelope">&nbsp;</span> <a href="mailto:office@computer-steiner.com">office@computer-steiner.com</a></div>
-                <div><span class="fa fa-facebook">&nbsp;</span> <a href="https://www.facebook.com/computersteiner?fref=ts" target="_blank">Facebook</a></div>
             </div>
         </address>
         <div>
-            {% include "assembled-components/management-snippet.html.twig" %}
-            <p>
+            <p class="opening-hours">
                 <strong>{{ "openingHours"|bundle }}</strong><br>
-                {{ "openingHoursTimes"|bundle }}
+                {{ "openingDays"|bundle }}
+                {% for time in ["Morning", "Afternoon"] %}
+                    <span class="opening-time">
+                        <span class="time-part">{{ ("openingTimes"~time~"From")|bundle }}</span>
+                        <span class="delimeter">-</span>
+                        <span class="time-part">{{ ("openingTimes"~time~"To")|bundle }}</span>
+                    </span>
+                    {% if not loop.last %}<br>{% endif %}
+                {% endfor %}
             </p>
+            <span class="fa fa-facebook">&nbsp;</span> <a href="https://www.facebook.com/computersteiner?fref=ts" target="_blank">Facebook</a><br>
+            <span class="fa fa-info-circle">&nbsp;</span><a href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
         </div>
     </div>
-    <a class="fullwidth-link" href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
 {% endblock %}

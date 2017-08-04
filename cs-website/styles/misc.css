@@ -4,9 +4,19 @@
 
 a
 {
-    /* color: #d7e33c;  */
-   color: #a0a92d;
+   color: #799AFF;
    text-decoration: none;
+   transition: .25s ease;
+}
+
+a:hover
+{
+    color: #566DB5;
+}
+
+address
+{
+    font-style: normal;
 }
 
 button:disabled
@@ -64,17 +74,51 @@ address span.fa
     width: 1.52em;
 }
 
+.opening-hours
+{
+    position: relative;
+    height: 5.2em;
+}
+
+.opening-hours .opening-time
+{
+    display: inline-block;  
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 10em;
+}
+
+.opening-hours span
+{
+    display: inline-block;
+    text-align: right;
+}
+
+.opening-hours .opening-time .delimeter
+{
+    width: 1rem;
+    left: 6rem;
+}
+
 #welcome .slide-with
 {
-    max-width: 1000px; 
-    margin: auto;
-    margin-bottom: 3em;
+    max-width: none;
+    margin: 0;
+    /* margin-bottom: 3em; */
+}
+
+#welcome .slide-with .slideshow-panel
+{
+    transition-duration: 1.5s;
 }
 
 #welcome img
 {
-    height: 15.6em;
-    width: auto;
+    /* height: 15.6em;
+    width: auto; */
+    width: 100vw;
+    height: auto;
 }
 
 #welcome p, #welcome h1

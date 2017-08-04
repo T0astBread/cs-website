@@ -11,12 +11,13 @@
    flex-direction: column;
    min-height: 100vh;
 
-   color: rgb(154, 154, 157);
+   color: #808080;
 }
 
-body > header a
+body > header a, body > header a:hover
 {
-    color: rgb(154, 154, 157);
+    /* color: rgb(154, 154, 157); */
+    color: #9a9a9d;
 }
 
 body > header

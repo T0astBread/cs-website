@@ -38,6 +38,7 @@ section.invisible
    padding: 0;
    margin: 0;
    margin-bottom: .75em;
+   color: rgb(222,221,58);
 }
 
 .titled-section .section-content
@@ -62,7 +63,7 @@ section.invisible
 
 .fullwidth h1
 {
-   font-weight: 100;
+   font-weight: 400;
    font-size: 42pt;
    padding: 0;
    margin: 0;
@@ -111,12 +112,14 @@ section.invisible
 {
    display: inline-block;
    position: absolute;
-   opacity: 0;
+   /* opacity: 0; */
+   visibility: hidden;
    width: 100%;
    left: 0;
    transition: .5s ease;
    transition-property: left, opacity;
    pointer-events: none;
+   z-index: -1;
 }
 
 .slideshow-panel.on-left
@@ -127,6 +130,16 @@ section.invisible
 .slideshow-panel.on-right
 {
    left: 100%!important;
+}
+
+.slideshow .slideshow-panel.on-left
+{
+   left: -110%!important;
+}
+
+.slideshow .slideshow-panel.on-right
+{
+   left: 110%!important;
 }
 
 .slideshow-panel.no-transition
@@ -140,10 +153,21 @@ section.invisible
    transition-duration: .25s!important;
 }
 
+.slideshow-panel.visible, .slideshow-panel.priority-two
+{
+    visibility: visible;
+}
+
 .slideshow-panel.visible
 {
    opacity: 1;
    pointer-events: initial;
+   z-index: 1;
+}
+
+.slideshow-panel.priority-two
+{
+    z-index: 0;
 }
 
 .slideshow button

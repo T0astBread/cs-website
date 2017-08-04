@@ -11,11 +11,18 @@
 .products .slideshow
 {
     margin-bottom: 1em;
+    max-width: 1100px!important; 
 }
 
 .products .slideshow ul
 {
     min-height: 12.5rem; /*Dirty workaround for a bug where the updateLayout function wouldn't run on page load */
+}
+
+.products .slideshow .slideshow-panel img
+{
+    width: 1000px;
+    height: auto;
 }
 
 .products .slideshow .slideshow-panel::before
@@ -33,7 +40,7 @@
     /* max-height: 10em; */
     /* margin-top: .2em; */
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .products .slideshow h2
@@ -77,4 +84,12 @@
 {
     padding-top: 0;
     margin-top: 0;
+}
+
+.products article img
+{
+    /* display: block;
+    margin: auto;
+    margin-bottom: 2em; */
+    width: 1000px;
 }

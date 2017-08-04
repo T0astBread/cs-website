@@ -2,7 +2,7 @@
     <div class="news-list-item-container">
         <div class="news-list-item-inner">
             <span class="version-tag">{{ version }}: </span><h4>{{ title }}</h4>
-            <div class="preview-wrapper"><div>{{ textPreview }}</div></div>
+            <div class="preview-wrapper"><div>{{ textPreview|raw }}</div></div>
         </div>
         <span class="date">{{ date }}</span>
     </div>
@@ -10,7 +10,7 @@
         <article>
             <h4>{{ title }}</h4>
             <div class="news-article-content">
-                {{ textPreview }}
+                {{ textPreview|raw }}
             </div>
         </article>
     </div>
