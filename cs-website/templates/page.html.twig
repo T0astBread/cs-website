@@ -15,6 +15,9 @@
     {% for style in styles %}
         <link rel="stylesheet" href="{{ HOST }}/styles/{{ style }}.css" />
     {% endfor %}
+    <script type="text/javascript">
+        window.language = "{{ lang }}";
+    </script>
     <script src="{{ HOST }}/scripts/lib/jquery-3.2.1.min.js"></script>
     {% for script in scripts %}
         <script src="{{ HOST }}/scripts/{{ script }}.js"></script>
@@ -44,11 +47,12 @@
                                         <span>{{ item["title"] }}</span>
                                     </a>
                                 {% if item["dropdown"] is defined %}
-                                        <ul class="dropdown-menu">
-                                            <h2>{{ item["title"] }}</h2>
-                                            {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
-                                            {% endfor %}
-                                        </ul>
+                                    <ul class="dropdown-menu">
+                                        <h2>{{ item["title"] }}</h2>
+                                        {% for dropdownItem in item["dropdown"] %}
+                                            {% if dropdownItem != "Jobs" %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>{% endif %}
+                                        {% endfor %}
+                                    </ul>
                                 {% endif %}
                                 </li>
                             {% endfor %}

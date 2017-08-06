@@ -18,7 +18,7 @@ let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criter
 {
     let request = new XMLHttpRequest();
     request.onload = () => finishCallback(request);
-    let requestUrl = getWindowHost() + "/php/news-list.php?lang=de&product=" + criteria.product + "&offset=" + criteria.offset + "&limit=" + criteria.limit;
+    let requestUrl = getWindowHost() + "/php/news-list.php?lang=" + window.language + "&product=" + criteria.product + "&offset=" + criteria.offset + "&limit=" + criteria.limit;
     if(criteria.query) requestUrl += "&query=" + criteria.query;
     if(criteria.versionFrom) requestUrl += "&versionFrom=" + criteria.versionFrom;
     if(criteria.versionTo) requestUrl += "&versionTo=" + criteria.versionTo;
@@ -34,6 +34,9 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
     if(newsExplorer.is("[is-loading]")) return;
     newsExplorer.attr("is-loading", "true");
 
+    let loadMoreButton = newsExplorer.find("button.load-more");
+    loadMoreButton.attr("disabled", "");
+    
     let newsListUl = newsExplorer.find("ul.news-list");
     loadNewsArticles(request =>
     {
@@ -48,9 +51,11 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
                 jqElem.closest(".news-list-item").addClass("long-text toggleable");
         });
         
-        newsExplorer.find("button.load-more").removeAttr("disabled");
-
-        if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(newsListUl[0].scrollHeight);
+        if(newsListUl.children("li").length > 0)
+        {
+            if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(newsListUl[0].scrollHeight);
+            loadMoreButton.removeAttr("disabled");
+        }
 
         // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
         rebindToggleListeners();
@@ -108,11 +113,7 @@ $(document).ready(() =>
     {
         let jqExp = $(exp);
         loadNewsArticlesIntoNewsExplorer(jqExp);
-        jqExp.find("button.load-more").click(evt =>
-        {
-            $(evt.target).attr("disabled", "");
-            loadNewsArticlesIntoNewsExplorer(jqExp);
-        });
+        jqExp.find("button.load-more").click(evt => loadNewsArticlesIntoNewsExplorer(jqExp));
 
         jqExp.find(".toggle-additional-filters").click(evt =>
         {

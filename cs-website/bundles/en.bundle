@@ -95,6 +95,8 @@ filterDate=Date:
 filterFrom=From
 filterTo=to
 
+empty=No results
+
 imprint=Imprint
 terms=Terms
 backToTop=Go back to the top

@@ -42,10 +42,13 @@ if(isset($query))
     $query = "'%".$mysqli->real_escape_string($query)."%'";
 }
 
+$actualLang = $lang; //Small trick to disable multilingual news
+$lang = "de";
+
 $sqlVersionCast = "CAST(news_articles.product_version AS CHAR(12))"; //This is ugly code, but I'm not aware of any workarounds in mysqli
 $sqlQuery =
-"SELECT DISTINCT news_articles.id, {$sqlVersionCast}, news_articles.date, news_article_localizations.title, news_article_localizations.text FROM news_articles, news_article_localizations, products, languages, authors
- WHERE products.name = '".$mysqli->real_escape_string($product)."' AND news_articles.product_id = products.id
+"SELECT DISTINCT news_articles.id, {$sqlVersionCast}, news_articles.date, news_article_localizations.title, news_article_localizations.text FROM news_articles, news_article_localizations, news_categories, languages, authors
+ WHERE news_categories.name = '".$mysqli->real_escape_string($product)."' AND news_articles.category_id = news_categories.id
  AND languages.abbreviation = '".$mysqli->real_escape_string($lang)."' AND news_article_localizations.language_id = languages.id ".
  (isset($author) ? "AND authors.name = '".$mysqli->real_escape_string($author)."' AND news_articles.author_id = authors.id " : "").
  (isset($versionFrom) ? "AND news_articles.product_version >= CAST('".$mysqli->real_escape_string($versionFrom)."' AS UNSIGNED INTEGER)" : "").
@@ -56,13 +59,13 @@ $sqlQuery =
 "AND news_article_localizations.article_id = news_articles.id
  LIMIT ".$mysqli->real_escape_string($limit)." OFFSET ".$mysqli->real_escape_string($offset);
 
-// echo $sqlQuery;
+$lang = $actualLang;
 
 $result = $mysqli->query($sqlQuery);
-
+$listItems = [];
 while($row = $result->fetch_assoc())
 {
-    echo $twig->render("components/news-list-item.html.twig",
+    array_push($listItems,
     [
         "id" => $row["id"],
         "version" => convert_db_string_response_to_version_number($row[$sqlVersionCast]),
@@ -71,6 +74,7 @@ while($row = $result->fetch_assoc())
         "textPreview" => $row["text"]
     ]);
 }
+echo $twig->render("components/news-list-items.html.twig", ["items" => $listItems, "offset" => $offset]);
 
 $result->close();
 $mysqli->close();

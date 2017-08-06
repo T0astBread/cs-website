@@ -108,6 +108,8 @@ filterDate=Datum:
 filterFrom=Von
 filterTo=bis
 
+empty=Nichts anzuzeigen
+
 imprint=Impressum
 terms=AGB
 backToTop=Zurück zum Seitenanfang

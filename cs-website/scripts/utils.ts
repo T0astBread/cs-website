@@ -1,3 +1,8 @@
+interface Window
+{
+	language: string;
+}
+
 let generateRandomId = (elem: Element) =>
 {
 	let id;

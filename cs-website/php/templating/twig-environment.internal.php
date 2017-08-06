@@ -45,7 +45,7 @@ $bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBun
 $twig->addExtension($bundleLoader);
 
 
-require_once $pathToRoot."php/products-loader.internal.php";
+require_once $pathToRoot."php/categories-loader.internal.php";
 $products = load_products();
 
 function render(string $template, $variables = [])

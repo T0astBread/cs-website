@@ -1,0 +1,4 @@
+{{ items is empty and offset == 0 ? ("<span class='no-results'>"~"empty"|bundle~"</span>")|raw }}
+{% for item in items %}
+    {% include "components/news-list-item.html.twig" with item %}
+{% endfor %}
