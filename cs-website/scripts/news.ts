@@ -105,6 +105,29 @@ let loadNewsTextIntoArticles = (id: number) =>
     if(jqArticles.is("[unloaded]")) loadNewsText(id, request => jqArticles.html(request.responseText).removeAttr("unloaded"));
 }
 
+let convertToSelectOption = (anchor: string) =>
+{
+    if(anchor.slice(6, 9) === "cs-")
+    {
+        return "CS-" + anchor.substr(9, 1).toUpperCase() + anchor.slice(10, anchor.length).replace("-v", " V");
+    }
+    else
+    {
+        let crop = anchor.replace("#news-", "");
+        return crop.substr(0, 1).toUpperCase() + crop.slice(1, crop.length).toLowerCase();
+    }
+}
+
+let scrollToNewsCategory = (category: string) =>
+{
+    if(!(category.substr(0, 6) === "#news-")) return false;
+    let ref = $(category);
+    console.log(convertToSelectOption(category))
+    smoothScrollTo(ref.closest("section").offset().top, () =>
+        ref.parent("select").val(convertToSelectOption(category)).change()); //Turns #news-cs-transport into CS-Transport
+    return true;
+}
+
 let currentReloadTimeout: number;
 
 $(document).ready(() =>
@@ -147,26 +170,9 @@ $(document).ready(() =>
         jqExp.find(".product-selector, .additional-filters").change(() => reloadNewsArticlesInNewsExplorer(jqExp));
     });
 
-    let convertToSelectOption = (anchor: string) =>
-    {
-        if(anchor.slice(6, 9) === "cs-")
-        {
-            return "CS-" + anchor.substr(9, 1).toUpperCase() + anchor.slice(10, anchor.length).replace("-v", " V");
-        }
-        else
-        {
-            let crop = anchor.replace("#news-", "");
-            return crop.substr(0, 1).toUpperCase() + crop.slice(1, crop.length).toLowerCase();
-        }
-    }
-
     addOnPageLinkScrollListener(evt =>
     {
-        if(!(evt.anchor.substr(0, 6) === "#news-")) return;
-        let ref = $(evt.anchor);
-        console.log(convertToSelectOption(evt.anchor))
-        smoothScrollTo(ref.closest("section").offset().top, () =>
-            ref.parent("select").val(convertToSelectOption(evt.anchor)).change()); //Turns #news-cs-transport into CS-Transport
-        evt.preventScrolling();
+        if(scrollToNewsCategory(evt.anchor)) evt.preventScrolling();
     });
+    scrollToNewsCategory(window.location.hash);
 });
