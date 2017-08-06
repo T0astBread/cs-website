@@ -1,7 +1,10 @@
 <li class="news-list-item" x-news-article-id="{{ id }}" just-loaded>
     <div class="news-list-item-container">
         <div class="news-list-item-inner">
-            <span class="version-tag">{{ version }}: </span><h4>{{ title }}</h4>
+            {% if version != "0.0.0.0" %}
+                <span class="version-tag">{{ version }}: </span>
+            {% endif %}
+            <h4>{{ title }}</h4>
             <div class="preview-wrapper"><div>{{ textPreview|raw }}</div></div>
         </div>
         <span class="date">{{ date }}</span>
