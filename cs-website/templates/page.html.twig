@@ -33,21 +33,23 @@
                                 {"title": "company"|bundle, "dropdown": ["about"|bundle, "contact"|bundle]},
                                 {"title": "products"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
                                 {"title": "news"|bundle, "dropdown": products, "isGroup": true},
-                                {"title": "jobs"}
+                                {"title": "jobs", "link": "#news-jobs"}
                             ] %}
                                 {% set dropdownLinks = [] %}
                                 {% for dropdownItem in item["dropdown"] %}
                                     {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["isGroup"] ? item["title"])]) %}
                                 {% endfor %}
                                 <li class="dropdown-root drop-on-hover">
-                                    <a class="center-vertically" href="{{ HOST~'#'~dropdownLinks|first }}">
+                                    <a class="center-vertically" href="{{ item["link"] is defined ? item["link"] : HOST~'#'~dropdownLinks|first }}">
                                         <span>{{ item["title"] }}</span>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <h2>{{ item["title"] }}</h2>
-                                        {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
-                                        {% endfor %}
-                                    </ul>
+                                {% if item["dropdown"] is defined %}
+                                        <ul class="dropdown-menu">
+                                            <h2>{{ item["title"] }}</h2>
+                                            {% for dropdownItem in item["dropdown"] %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                {% endif %}
                                 </li>
                             {% endfor %}
                             <li class="dropdown-root drop-on-hover">
