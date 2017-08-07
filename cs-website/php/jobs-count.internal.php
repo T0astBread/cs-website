@@ -1,5 +1,5 @@
 <?php
-require_once "db/db.internal.php";
+require_once realpath(__DIR__)."/db/db.internal.php";
 
 function get_jobs_count()
 {

@@ -1,4 +1,5 @@
 {% set HOST = constant("HOST") %}
+{% set LANG_PARAM = "?lang="~lang %}
 {% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers", "misc"]) %}
 {% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/jquery.copycss"]) %}
 
@@ -36,25 +37,25 @@
                                 {"title": "company"|bundle, "dropdown": ["about"|bundle, "contact"|bundle]},
                                 {"title": "products"|bundle, "dropdown": ["CS-Transport", "CS-Bus", "CS-Routing"]},
                                 {"title": "news"|bundle, "dropdown": products, "isGroup": true},
-                                {"title": "jobs"|bundle, "link": "#news-jobs"}
+                                {"title": "jobs"|bundle, "link": HOST~LANG_PARAM~"#news-jobs"}
                             ] %}
-                                {% if not (item["link"] == "#news-jobs" and jobsCount <= 0) %}
+                                {% if not (item["title"] == "jobs"|bundle and jobsCount <= 0) %}
                                     {% set dropdownLinks = [] %}
                                     {% for dropdownItem in item["dropdown"] %}
                                         {% set dropdownLinks = dropdownLinks|merge([dropdownItem|identifier(item["isGroup"] ? item["title"])]) %}
                                     {% endfor %}
-                                    <li class="dropdown-root drop-on-hover  {{ item["title"] == 'jobs' and jobsCount > 0 ? 'badge-padding'}}">
-                                        <a class="center-vertically" href="{{ item["link"] is defined ? item["link"] : HOST~'#'~dropdownLinks|first }}">
+                                    <li class="dropdown-root drop-on-hover  {{ item["title"] == 'jobs' and jobsCount > 0 ? 'badge-padding' }}">
+                                        <a class="center-vertically" href="{{ item["link"] is defined ? item["link"] : HOST~LANG_PARAM~'#'~dropdownLinks|first }}">
                                             <span>
                                                 {{ item["title"] }}
-                                                {{ item["link"] == "#news-jobs" ? ("<span class='badge'>"~jobsCount~"</span>")|raw }}
+                                                {{ item["title"] == "jobs"|bundle ? ("<span class='badge'>"~jobsCount~"</span>")|raw }}
                                             </span>
                                         </a>
                                     {% if item["dropdown"] is defined %}
                                         <ul class="dropdown-menu">
                                             <h2>{{ item["title"] }}</h2>
                                             {% for dropdownItem in item["dropdown"] %}
-                                                {% if dropdownItem != "Jobs" %}<li><a href="{{ HOST~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>{% endif %}
+                                                {% if dropdownItem != "Jobs" %}<li><a href="{{ HOST~LANG_PARAM~'#'~dropdownLinks[loop.index0] }}">{{ dropdownItem }}</a></li>{% endif %}
                                             {% endfor %}
                                         </ul>
                                     {% endif %}
