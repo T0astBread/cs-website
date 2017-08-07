@@ -2,7 +2,7 @@
 include "php/constants.internal.php";
 
 $pathToRoot = "";
-include "php/templating/twig-environment.internal.php";
+include "php/templating/page-renderer.internal.php";
 
-echo render("pages/home.html.twig");
+echo render_page("pages/home.html.twig");
 ?>
