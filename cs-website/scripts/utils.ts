@@ -65,6 +65,8 @@ let getWindowHost = () => (window.location.origin||window.location.protocol + "/
 let convertStringToDBVersionTag = (str: string) =>
 {
 	let tokens = str.split(".");
+	if(tokens.length === 2) tokens = [tokens[0], "000", tokens[1], "000"];
+	if(tokens.length === 3) tokens.push("000");
 	tokens = tokens.map(t =>
 	{
 		while(t.length < 3) t = "0" + t;

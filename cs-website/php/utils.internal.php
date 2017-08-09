@@ -15,7 +15,7 @@ function convert_db_response_to_version_number(int $dbResponse)
     return convert_db_string_response_to_version_number(strval($dbResponse));
 }
 
-function convert_db_string_response_to_version_number(string $dbResponse)
+function convert_db_string_response_to_version_number(string $dbResponse, $useAlternateVersionNumbering = false)
 {
     while(strlen($dbResponse) < 12)
     {
@@ -24,8 +24,10 @@ function convert_db_string_response_to_version_number(string $dbResponse)
 
     $tokens = str_split($dbResponse, 3);
     $assembledStr = "";
-    foreach($tokens as $token)
+    for($i = 0; $i < count($tokens); $i++)
     {
+        if($useAlternateVersionNumbering && ($i === 1 || $i === 3)) continue;
+        $token = $tokens[$i];
         $assembledStr .= preg_replace("/^0{1,2}/", "", $token).".";
     }
 

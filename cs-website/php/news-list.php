@@ -47,7 +47,7 @@ $lang = "de";
 
 $sqlVersionCast = "CAST(news_articles.product_version AS CHAR(12))"; //This is ugly code, but I'm not aware of any workarounds in mysqli
 $sqlQuery =
-"SELECT DISTINCT news_articles.id, {$sqlVersionCast}, news_articles.date, news_article_localizations.title, news_article_localizations.text FROM news_articles, news_article_localizations, news_categories, languages, authors
+"SELECT DISTINCT news_articles.id, {$sqlVersionCast}, news_categories.uses_alternate_version_tagging, news_articles.date, news_article_localizations.title, news_article_localizations.text FROM news_articles, news_article_localizations, news_categories, languages, authors
  WHERE news_articles.active = '1'
  AND news_categories.name = '".$mysqli->real_escape_string($product)."' AND news_articles.category_id = news_categories.id
  AND languages.abbreviation = '".$mysqli->real_escape_string($lang)."' AND news_article_localizations.language_id = languages.id ".
@@ -69,7 +69,7 @@ while($row = $result->fetch_assoc())
     array_push($listItems,
     [
         "id" => $row["id"],
-        "version" => convert_db_string_response_to_version_number($row[$sqlVersionCast]),
+        "version" => convert_db_string_response_to_version_number($row[$sqlVersionCast], $row["uses_alternate_version_tagging"]),
         "date" => $row["date"],
         "title" => $row["title"],
         "textPreview" => $row["text"]
