@@ -1,8 +1,12 @@
 <?php
-include "php/constants.internal.php";
+require_once "php/constants.internal.php";
 
 $pathToRoot = "";
-include "php/templating/page-renderer.internal.php";
+require_once "php/templating/page-renderer.internal.php";
 
-echo render_page("pages/home.html.twig");
+$_GET["product"] = "Allgemein";
+$_GET["limit"] = 7;
+$_GET["offset"] = 0;
+require_once "php/news-list.php";
+echo render_page("pages/home.html.twig", ["newsListLoaded" => ob_get_clean()]);
 ?>

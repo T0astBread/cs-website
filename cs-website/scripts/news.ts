@@ -135,7 +135,7 @@ $(document).ready(() =>
     $(".news-explorer").each((i, exp) =>
     {
         let jqExp = $(exp);
-        loadNewsArticlesIntoNewsExplorer(jqExp);
+        // loadNewsArticlesIntoNewsExplorer(jqExp); //Not needed anymore since news are now initially loaded from the server
         jqExp.find("button.load-more").click(evt => loadNewsArticlesIntoNewsExplorer(jqExp));
 
         jqExp.find(".toggle-additional-filters").click(evt =>

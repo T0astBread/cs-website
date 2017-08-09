@@ -1,8 +1,8 @@
 <?php
-include_once realpath(__DIR__)."/../utils.internal.php";
+require_once realpath(__DIR__)."/../utils.internal.php";
 
 if(!isset($pathToRoot)) respond(510, "The variable pathToRoot must be set before including this file!");
-include $pathToRoot."vendor/autoload.php";
+require_once $pathToRoot."vendor/autoload.php";
 
 $loader = new Twig_Loader_Filesystem($pathToRoot."templates/");
 $loader->addPath($pathToRoot."templates/components/");
@@ -40,7 +40,7 @@ $availableLangs = array_map(function($element)
 }, $availableLangs);
 if(!in_array($lang, $availableLangs)) $lang = "de";
 
-include $pathToRoot."php/lib/XBundle_Extension.php";
+require_once $pathToRoot."php/lib/XBundle_Extension.php";
 $bundleLoader = (new XBundle\Xbundle_Extension($pathToRoot."bundles/"))->loadBundle("{$lang}.bundle");
 $twig->addExtension($bundleLoader);
 

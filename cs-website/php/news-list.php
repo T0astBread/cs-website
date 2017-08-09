@@ -30,7 +30,7 @@ if(isset($_GET["dateTo"])) $dateTo = $_GET["dateTo"];
 
 
 $pathToRoot = "../";
-include "templating/twig-environment.internal.php";
+require_once "templating/twig-environment.internal.php";
 
 
 require_once "db/db.internal.php";
