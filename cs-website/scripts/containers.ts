@@ -4,6 +4,6 @@ $(document).ready(() =>
     {
         let target = $(evt.currentTarget);
         hideComponent(target.closest(".lightbox-outer")[0]);
-        setTimeout(() => hideComponent(target.closest(".overlay")[0]), 650);
+        setTimeout(() => hideComponent(target.closest(".overlay")[0]), 250);
     });
 })
