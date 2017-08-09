@@ -29,6 +29,23 @@ let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criter
     request.send(null);
 }
 
+let updateNewsExplorerHeight = (newsExplorer: JQuery) =>
+{
+    let newsListUl = newsExplorer.find("ul");
+    let loadMoreButton = newsExplorer.find("button.load-more");
+
+    let childrenHeight = 0;
+    newsListUl.children().each((i, elem) =>
+    {
+        childrenHeight += $(elem).height();
+    });
+    console.log(childrenHeight);
+    
+    // if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(0).height(newsListUl[0].scrollHeight);
+    if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(childrenHeight);
+    loadMoreButton.removeAttr("disabled");
+}
+
 let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
 {
     if(newsExplorer.is("[is-loading]")) return;
@@ -51,11 +68,7 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
                 jqElem.closest(".news-list-item").addClass("long-text toggleable");
         });
         
-        if(newsListUl.children("li").length > 0)
-        {
-            if(!newsExplorer.is("[x-keep-size-on-load]")) newsListUl.height(newsListUl[0].scrollHeight);
-            loadMoreButton.removeAttr("disabled");
-        }
+        updateNewsExplorerHeight(newsExplorer);
 
         // $(".news-list-item.long-text[just-loaded]").click(evt => loadNewsTextIntoArticles(parseInt($(evt.currentTarget).attr("x-news-article-id")))).removeAttr("just-loaded");
         rebindToggleListeners();
@@ -136,6 +149,7 @@ $(document).ready(() =>
     {
         let jqExp = $(exp);
         // loadNewsArticlesIntoNewsExplorer(jqExp); //Not needed anymore since news are now initially loaded from the server
+        updateNewsExplorerHeight(jqExp);
         jqExp.find("button.load-more").click(evt => loadNewsArticlesIntoNewsExplorer(jqExp));
 
         jqExp.find(".toggle-additional-filters").click(evt =>
