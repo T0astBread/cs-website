@@ -193,6 +193,7 @@ $(document).ready(() =>
     addOnPageLinkScrollListener(evt =>
     {
         if(scrollToNewsCategory(evt.anchor)) evt.preventScrolling();
+        pushLocationWithHashToHistory(evt.anchor);
     });
     scrollToNewsCategory(window.location.hash);
 });

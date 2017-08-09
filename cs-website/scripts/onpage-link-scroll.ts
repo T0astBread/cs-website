@@ -34,6 +34,12 @@ let smoothScrollTo = (y: number, finishCallback: (() => any)|undefined = undefin
 	}, 800, finishCallback);
 }
 
+let pushLocationWithHashToHistory = (windowLocationHash: string) =>
+{
+	if(history.pushState) history.pushState(null, $("title").html(), window.location.pathname + windowLocationHash);
+	else window.location.hash = windowLocationHash;
+}
+
 $(document).ready(() =>
 {
 	$("a, a *").click(evt =>
@@ -62,8 +68,7 @@ $(document).ready(() =>
 		evt.preventDefault();
 		if(!eventToFire.noScroll) smoothScrollTo(newScrollTop, () =>
 		{
-			if(history.pushState) history.pushState(null, $("title").html(), windowLocationHash);
-			else window.location.hash = windowLocationHash;
+			pushLocationWithHashToHistory(windowLocationHash);
 		});
 		setTimeout(() => fireEventIn(onPageLinkScrollListenersAfter, eventToFire), 800);
 	});
