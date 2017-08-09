@@ -99,7 +99,7 @@ $(document).ready(() =>
 		
 	$("button.slideshow-left, button.slideshow-right").click(evt =>
 	{
-		let buttonClass = evt.target.getAttribute("class");
+		let buttonClass = evt.currentTarget.getAttribute("class");
 		slideOnEvent(evt, buttonClass === "slideshow-left" ? DIRECTION_LEFT : DIRECTION_RIGHT);
 	}).keyup(evt =>
 	{
