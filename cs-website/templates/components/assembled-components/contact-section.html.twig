@@ -18,7 +18,7 @@
         <div>
             <p class="opening-hours">
                 <strong>{{ "openingHours"|bundle }}</strong><br>
-                {{ "openingDays"|bundle }}
+                {{ "openingDays"|bundle }}<br>
                 {% for time in ["Morning", "Afternoon"] %}
                     <span class="opening-time">
                         <span class="time-part">{{ ("openingTimes"~time~"From")|bundle }}</span>

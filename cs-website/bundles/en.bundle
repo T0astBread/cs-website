@@ -54,6 +54,8 @@ openingTimesMorningTo=12.00AM
 openingTimesAfternoonFrom=1.00PM
 openingTimesAfternoonTo=05.00PM
 
+productsSectionHeader=Products
+
 cs-transport
 <article>
     <p>Are you fed up with your paper organisation, confusing spreadsheets or dealing with your tax consultant?</p>

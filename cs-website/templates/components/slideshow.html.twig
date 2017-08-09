@@ -1,5 +1,9 @@
 <div class="slideshow size-limited {{ extraClasses is defined ? extraClasses }}" id="{{ id }}" {{ attributes is defined ? attributes }}>
-    <span class="center-vertically"><button class="slideshow-left">&lt;</button></span>
+    <span class="center-vertically">
+        <button class="slideshow-left">
+            <span class="fa fa-chevron-circle-left"></span>
+        </button>
+    </span>
     <ul>
          {% for panel in panels %}
             <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}" x-anchor-offset="-1">{{ panel["content"]|raw }}</li>
@@ -7,5 +11,9 @@
         {% block panels %}
         {% endblock %}
     </ul>
-    <span class="center-vertically"><button class="slideshow-right">&gt;</button></span>
+    <span class="center-vertically">
+        <button class="slideshow-right">
+            <span class="fa fa-chevron-circle-right"></span>
+        </button>
+    </span>
 </div>

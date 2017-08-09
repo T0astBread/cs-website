@@ -39,6 +39,7 @@ section.invisible
    margin: 0;
    margin-bottom: .75em;
    color: rgb(222,221,58);
+   font-weight: 400;
 }
 
 .titled-section .section-content
@@ -64,9 +65,14 @@ section.invisible
 .fullwidth h1
 {
    font-weight: 400;
-   font-size: 42pt;
+   font-size: 3em;
    padding: 0;
    margin: 0;
+   margin-bottom: .5em;
+   text-align: left;
+   color: rgb(222,221,58);
+   max-width: 1000px;
+   margin: auto;
    margin-bottom: .5em;
 }
 

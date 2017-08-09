@@ -87,13 +87,13 @@ address span.fa
     padding: 0;
     margin: 0;
     position: absolute;
-    left: 10em;
+    /* left: 10em; */
 }
 
 .opening-hours span
 {
     display: inline-block;
-    text-align: right;
+    text-align: left;
 }
 
 .opening-hours .opening-time .delimeter
