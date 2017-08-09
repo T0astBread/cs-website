@@ -7,7 +7,9 @@
             <h4>{{ title }}</h4>
             <div class="preview-wrapper"><div>{{ textPreview|raw }}</div></div>
         </div>
-        <span class="date">{{ date }}</span>
+        {% if date starts with "2" %}
+            <span class="date">{{ date }}</span>
+        {% endif %}
     </div>
     <div class="news-article-container">
         <article>
