@@ -150,6 +150,11 @@ ul.news-list
     transition: height 1s ease;
 }
 
+.news-explorer[x-keep-size-on-load] ul.news-list
+{
+    height: 40rem;
+}
+
 .news-list-item
 {
     padding: 0;

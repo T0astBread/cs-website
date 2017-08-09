@@ -1,13 +1,16 @@
 <?php
+ob_start();
+
 require_once "php/constants.internal.php";
 
 $pathToRoot = "";
 require_once "php/templating/page-renderer.internal.php";
 
-$_GET["product"] = "Allgemein";
-$_GET["limit"] = 7;
+$_GET["product"] = "CS-Transport V6";
+$_GET["limit"] = 50;
 $_GET["offset"] = 0;
 if(!isset($_GET["lang"])) $_GET["lang"] = "de";
 require_once "php/news-list.php";
-echo render_page("pages/home.html.twig", ["newsListLoaded" => ob_get_clean()]);
+$newsLoaded = ob_get_clean();
+echo render_page("pages/home.html.twig", ["selectedProduct" => $_GET["product"], "newsListLoaded" => $newsLoaded]);
 ?>

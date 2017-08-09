@@ -32,7 +32,6 @@ let loadNewsArticles = (finishCallback: (request: XMLHttpRequest) => any, criter
 let updateNewsExplorerHeight = (newsExplorer: JQuery) =>
 {
     let newsListUl = newsExplorer.find("ul");
-    let loadMoreButton = newsExplorer.find("button.load-more");
 
     newsListUl.css("overflow-y", "hidden");
     let childrenHeight = 0;
@@ -86,7 +85,7 @@ let loadNewsArticlesIntoNewsExplorer = (newsExplorer: JQuery) =>
     {
         product: newsExplorer.find(".product-selector").val(),
         offset: newsListUl.children().length,
-        limit: 7,
+        limit: 15,
         versionFrom: newsExplorer.find(".version.from").val(),
         versionTo: newsExplorer.find(".version.to").val(),
         dateFrom: newsExplorer.find(".date.from").val(),
@@ -156,7 +155,7 @@ $(document).ready(() =>
     {
         let jqExp = $(exp);
         // loadNewsArticlesIntoNewsExplorer(jqExp); //Not needed anymore since news are now initially loaded from the server
-        updateNewsExplorerHeight(jqExp);
+        if(!jqExp.is("[x-keep-size-on-load]")) updateNewsExplorerHeight(jqExp);
         jqExp.find("button.load-more").click(evt => loadNewsArticlesIntoNewsExplorer(jqExp));
 
         jqExp.find(".toggle-additional-filters").click(evt =>

@@ -12,7 +12,7 @@ $lang = $_GET["lang"];
 
 if(!is_numeric($limit)) bad_request("The limit must be a number!");
 if($limit < 1) bad_request("At least one element must be requested! (0 < limit < 26)");
-if($limit > 25) bad_request("You can only load a maximum of 25 elements per request! (0 < limit < 26)");
+if($limit > 50) bad_request("You can only load a maximum of 50 elements per request! (0 < limit < 51)");
 
 if(!is_numeric($offset)) bad_request("The offset must be a number!");
 if($offset < 0) bad_request("The offset must be greater than or equal to 0!");

@@ -9,7 +9,7 @@
     {% include "assembled-components/contact-section.html.twig" %}
     {% include "assembled-components/products-section.html.twig" %}
     <hr>
-    {% include "components/news-explorer.html.twig" with {"attributes": "disabled-x-keep-size-on-load", "id": "news", "products": products, "loadedContent": newsListLoaded} %}
+    {% include "components/news-explorer.html.twig" with {"attributes": "x-keep-size-on-load", "id": "news", "products": products, "selectedProduct": selectedProduct, "loadedContent": newsListLoaded} %}
 {% endblock %}
 
 {% set showOverlay = true %}

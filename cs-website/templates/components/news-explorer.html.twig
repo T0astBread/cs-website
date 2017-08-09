@@ -12,7 +12,7 @@
                 <span>{{ "for"|bundle }}</span>
                 <select class="product-selector">
                     {% for product in products %}
-                        <option id="{{ product|identifier("news") }}">{{ product }}</option>
+                        <option id="{{ product|identifier("news") }}" {{ product == selectedProduct ? "selected" }}>{{ product }}</option>
                     {% endfor %}
                 </select>
                 <div class="search center-vertically-children">
