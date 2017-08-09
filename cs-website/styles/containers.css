@@ -271,3 +271,13 @@ section.invisible
     margin: 0;
     font-size: 1.1em;
 }
+
+.lightbox-header .close
+{
+    cursor: pointer;
+}
+
+.lightbox-content
+{
+    padding: 0;
+}
