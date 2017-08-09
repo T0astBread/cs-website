@@ -4,14 +4,15 @@
 
 a
 {
-   color: #37509a;
+   /* color: #37509a; */
+   color: #6c85d4;
    text-decoration: none;
    transition: .25s ease;
 }
 
 a:hover
 {
-    color: #799AFF;
+    color: #799AFF; 
 }
 
 address
