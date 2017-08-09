@@ -1,0 +1,13 @@
+<div class="lightbox-outer center-vertically-children">
+    <div class="lightbox">
+        <div class="lightbox-header flex-two-sided">
+            <h1>{{ ("Lightbox"~title)|bundle }}</h1>
+            <span class="flex-placeholder"></span>
+            <span class="close">╳</span>
+        </div>
+        <div class="lightbox-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>

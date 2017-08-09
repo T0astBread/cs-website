@@ -1,7 +1,7 @@
 {% set HOST = constant("HOST") %}
 {% set LANG_PARAM = "?lang="~lang %}
 {% set styles = (styles is defined ? styles : [])|merge(["frame", "font-awesome.min", "containers", "misc"]) %}
-{% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/jquery.copycss"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/jquery.copycss", "frame", "containers"]) %}
 
 <!DOCTYPE html>
 <html>
@@ -92,19 +92,23 @@
             </div>
         </div>
     </header>
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer>
-            <div id="footer-content">
-                <div id="footer-left">
-                    <span>Computer Steiner GmbH &copy; 2017</span>
-                    <a href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
-                    <a href="{{ HOST }}/downloads/agbs.pdf" target="_blank">{{ "terms"|bundle }}</a>
-                </div>
-                <a id="footer-back-to-top" href="#top">{{ "backToTop"|bundle }}</a>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div id="footer-content">
+            <div id="footer-left">
+                <span>Computer Steiner GmbH &copy; 2017</span>
+                <a href="{{ HOST }}/imprint.php?lang={{ lang }}">{{ "imprint"|bundle }}</a>
+                <a href="{{ HOST }}/downloads/agbs.pdf" target="_blank">{{ "terms"|bundle }}</a>
             </div>
-        </footer>
+            <a id="footer-back-to-top" href="#top">{{ "backToTop"|bundle }}</a>
+        </div>
+    </footer>
+    <div class="overlay">
+        {% block overlay %}
+        {% endblock %}
+    </div>
 </body>
 </html>

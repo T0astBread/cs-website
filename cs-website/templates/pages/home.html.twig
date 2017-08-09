@@ -12,3 +12,7 @@
     <hr>
     {% include "components/news-explorer.html.twig" with {"attributes": "disabled-x-keep-size-on-load", "id": "news", "products": products, "loadedContent": newsListLoaded} %}
 {% endblock %}
+
+{% block overlay %}
+    {% include "components/lightbox.html.twig" %}
+{% endblock %}

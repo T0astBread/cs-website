@@ -72,3 +72,10 @@ let convertStringToDBVersionTag = (str: string) =>
 	});
     return tokens.join("");
 }
+
+let hideComponent = (hideableComponent: Element, hidingTransitionDuration: number = 500) =>
+{
+	let hideable = $(hideableComponent);
+	hideable.addClass("hidden");
+	setTimeout(() => hideable.css("display", "none"), hidingTransitionDuration);
+}

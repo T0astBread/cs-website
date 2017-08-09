@@ -294,3 +294,22 @@ footer #footer-back-to-top
 {
    float: right;
 }
+
+.overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 20;
+    pointer-events: all;
+    transition: opacity .5s ease;
+}
+
+.overlay.hidden
+{
+    opacity: 0;
+    pointer-events: none;
+}
