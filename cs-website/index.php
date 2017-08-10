@@ -12,5 +12,6 @@ $_GET["offset"] = 0;
 if(!isset($_GET["lang"])) $_GET["lang"] = "de";
 require_once "php/news-list.php";
 $newsLoaded = ob_get_clean();
+
 echo render_page("pages/home.html.twig", ["selectedProduct" => $_GET["product"], "newsListLoaded" => $newsLoaded]);
 ?>
