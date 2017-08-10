@@ -1,3 +1,8 @@
+let setLightboxTitle = (lightbox: Element, title: string) =>
+{
+    $(lightbox).find(".lightbox-title").text(title);
+}
+
 $(document).ready(() =>
 {
     $(".lightbox .close").click(evt =>

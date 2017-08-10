@@ -1,11 +1,11 @@
 <div class="lightbox-outer center-vertically-children">
     <div class="lightbox">
         <div class="lightbox-header flex-two-sided">
-            <h1>{{ ("Lightbox"~title)|bundle }}</h1>
+            <h1 class="lightbox-title">{{ title|bundle }}</h1>
             <span class="flex-placeholder"></span>
             <span class="close">╳</span>
         </div>
-        <div class="lightbox-content">
+        <div class="lightbox-content {{ scrollOverflow ? 'scroll-overflow' }} {{ noPadding ? 'no-padding' }}">
             {% block content %}
             {% endblock %}
         </div>

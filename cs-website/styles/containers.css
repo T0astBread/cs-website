@@ -244,6 +244,7 @@ section.invisible
     min-width: 33vw;
     max-width: 80vw;
     min-height: 20vh;
+    max-height: 80vh;
     pointer-events: initial;
     text-align: left;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.33);
@@ -282,8 +283,18 @@ section.invisible
 {
     cursor: pointer;
 }
-
 .lightbox-content
 {
+    min-height: 13vh;
+    max-height: 73vh;
+}
+
+.lightbox-content.no-padding
+{
     padding: 0;
+}
+
+.lightbox-content.scroll-overflow
+{
+    overflow: auto;
 }

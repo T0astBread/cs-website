@@ -1,7 +1,7 @@
 {% extends "page.html.twig" %}
 
 {% set styles = (styles is defined ? styles : [])|merge(["products", "news"]) %}
-{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with", "news", "select", "lib/jquery.visible.min", "welcome"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with", "news", "select", "lib/jquery.visible.min", "welcome", "landing-page"]) %}
 
 {% block content %}
     {% include "assembled-components/welcome.html.twig" %}
@@ -12,8 +12,7 @@
     {% include "components/news-explorer.html.twig" with {"attributes": "x-keep-size-on-load", "id": "news", "products": products, "selectedProduct": selectedProduct, "loadedContent": newsListLoaded} %}
 {% endblock %}
 
-{% set showOverlay = false %}
 
 {% block overlay %}
-    {% include "components/lightbox.html.twig" %}
+    {% include "components/landing-page-container.html.twig" %}
 {% endblock %}

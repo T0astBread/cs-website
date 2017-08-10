@@ -241,3 +241,12 @@ address span.fa
     margin-top: -7%;
     line-height: 1.2em;
 }
+
+#landing-page-container
+{
+    width: 50vw;
+    height: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+}

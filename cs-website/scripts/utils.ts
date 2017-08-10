@@ -81,3 +81,8 @@ let hideComponent = (hideableComponent: Element, hidingTransitionDuration: numbe
 	hideable.addClass("hidden");
 	setTimeout(() => hideable.css("display", "none"), hidingTransitionDuration);
 }
+
+let showComponent = (hideableComponent: Element) =>
+{
+	$(hideableComponent).css("display", "").removeClass("hidden");
+}
