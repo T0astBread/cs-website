@@ -12,7 +12,7 @@
     {% include "components/news-explorer.html.twig" with {"attributes": "x-keep-size-on-load", "id": "news", "products": products, "selectedProduct": selectedProduct, "loadedContent": newsListLoaded} %}
 {% endblock %}
 
-{% set showOverlay = true %}
+{% set showOverlay = false %}
 
 {% block overlay %}
     {% include "components/lightbox.html.twig" %}
