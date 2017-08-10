@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Computer Steiner{{ title is defined ? " >> "~title }}</title>
+    <title>{{ title is defined ? title~" | " }}Computer Steiner</title>
     {% include "components/favicon.html.twig" with {"HOST": HOST} %}
     {% block head %}
     <style>
