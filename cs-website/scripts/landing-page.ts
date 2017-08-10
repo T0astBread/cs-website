@@ -47,7 +47,7 @@ let initLandingPageContainers = () =>
     let landingPage = document.getElementById("landing-page-container") as HTMLIFrameElement;
     landingPage.onload = () =>
     {
-        let rMatch = landingPage.contentDocument.body.innerHTML.match(/<h2>Error 404<\/h2>/);
+        let rMatch = landingPage.contentDocument.body.innerHTML.match(/(<h2>Error 404<\/h2>)|(File Not Found)/);
         if(rMatch && rMatch.length > 0) return;
 
         let jqLandingPage = $(landingPage);
