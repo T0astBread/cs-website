@@ -56,7 +56,7 @@ let initLandingPageContainers = () =>
         let title = landingPage.contentDocument.getElementsByTagName("title")[0];
         if(title) setLightboxTitle(jqLandingPage.closest(".lightbox")[0], title.innerText);
              
-        connectStylesheetsToLandingPage(landingPage, "frame", "misc");
+        if($(landingPage.contentDocument.head).find("meta[name=x-no-default-styles]").length === 0) connectStylesheetsToLandingPage(landingPage, "frame", "misc");
 
         showComponent(jqLandingPage.closest(".overlay")[0]);
     }

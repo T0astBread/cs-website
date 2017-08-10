@@ -287,6 +287,8 @@ section.invisible
 {
     min-height: 13vh;
     max-height: 73vh;
+    min-width: 33vw;
+    max-width: 80vw;
 }
 
 .lightbox-content.no-padding
