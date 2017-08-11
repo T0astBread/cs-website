@@ -1,7 +1,7 @@
 <li class="news-list-item" x-news-article-id="{{ id }}" just-loaded>
     <div class="news-list-item-container">
         <div class="news-list-item-inner">
-            {% if version != "0.0.0.0" %}
+            {% if version != "0.0.0.0" and version != "0.0" %}
                 <span class="version-tag">{{ version }}: </span>
             {% endif %}
             <h4>{{ title }}</h4>
