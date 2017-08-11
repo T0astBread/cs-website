@@ -35,7 +35,7 @@ const bodyScrollingPreventer = (evt: JQueryEventObject) =>
 	let delta = o.wheelDelta||-o.detail;
 
 	if(t.scrollHeight > jqT.height() &&
-		((scrollTop <= 0 && delta > 0) || (-(scrollTop - jqT.height()) <= 0 && delta < 0))) evt.preventDefault();
+		((scrollTop <= 0 && delta > 0) || (scrollTop === (t.scrollHeight - (t as HTMLElement).offsetHeight) && delta < 0))) evt.preventDefault();
 
 	evt.stopPropagation();
 }
