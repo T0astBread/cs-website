@@ -147,6 +147,12 @@ let scrollToNewsCategory = (category: string) =>
     return true;
 }
 
+let convertDate = (date: Date) =>
+{
+    date.setTime(date.getTime() + 24*60*60*1000);
+    return date.toISOString().split("T")[0];
+}
+
 let currentReloadTimeout: number;
 
 $(document).ready(() =>
@@ -168,15 +174,16 @@ $(document).ready(() =>
             $(jqExp.find(".additional-filters input").val("")[0]).change();
         })
 
-        // jqExp.data("datepicker-from", new Pikaday(
-        // {
-        //     field: jqExp.find(".datepicker")[0],
-        //     format: "YYYY-MM-DD"
-        // }));
-        // jqExp.data("datepicker-to", new Pikaday(
-        // {
-        //     field: jqExp.find(".datepicker")[1],
-        // }));
+        jqExp.data("datepicker-from", new Pikaday(
+        {
+            field: jqExp.find(".datepicker")[0],
+            toString: convertDate
+        }));
+        jqExp.data("datepicker-to", new Pikaday(
+        {
+            field: jqExp.find(".datepicker")[1],
+            toString: convertDate
+        }));
 
         jqExp.find(".search").keyup(evt =>
         {

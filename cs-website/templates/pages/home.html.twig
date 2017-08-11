@@ -1,7 +1,7 @@
 {% extends "page.html.twig" %}
 
-{% set styles = (styles is defined ? styles : [])|merge(["products", "news"]) %}
-{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with", "news", "select", "lib/jquery.visible.min", "welcome", "landing-page", "cookies"]) %}
+{% set styles = (styles is defined ? styles : [])|merge(["products", "news", "lib/pikaday"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with", "news", "lib/pikaday", "select", "lib/jquery.visible.min", "welcome", "landing-page", "cookies"]) %}
 
 {% block content %}
     {% include "assembled-components/welcome.html.twig" %}
