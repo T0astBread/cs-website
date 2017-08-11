@@ -1,5 +1,5 @@
 let ghostSelect: JQuery;
-const PADDING_RIGHT = 5;
+const PADDING_RIGHT = 15;
 
 let updateWidthForSelect = (select: Element) =>
 {
