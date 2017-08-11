@@ -44,7 +44,7 @@ let connectStylesheetsToLandingPage = (landingPage: HTMLIFrameElement, ...styles
 
 let checkIfCookieExistsAndPutCookie = () =>
 {
-    let cookie = document.cookie.match(/hasSeenLandingPage/);
+    let cookie = document.cookie.match(/hasSeenLandingPage=true/);
     if(cookie && cookie.length > 0) return true;
 
     let expiryDate = new Date();
@@ -52,7 +52,7 @@ let checkIfCookieExistsAndPutCookie = () =>
     expiryDate.setHours(0);
     expiryDate.setMinutes(0);
     expiryDate.setSeconds(0);
-    document.cookie = "hasSeenLandingPage; expires=" + expiryDate.toUTCString() + ";";
+    document.cookie = "hasSeenLandingPage=true; expires=" + expiryDate.toUTCString() + ";";
     return false;
 }
 

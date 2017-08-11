@@ -251,7 +251,7 @@ main > :first-child
     margin-top: 1rem;
 }
 
-main > :last-child
+main > :not(.floating):last-child
 {
     margin-bottom: 5rem;
 }
