@@ -5,6 +5,8 @@ languageSpecificStyles
 }
 =
 
+viewOnSeperatePage=View on a seperate page
+
 company=Company
 about=About Us
 contact=Contact
@@ -32,7 +34,7 @@ aboutText
 <p>Our software is designed on a modular base, which means that even the basic version offers a wide range of functions needed in daily business. Of course, the software can be upgraded by both – standard modules and individual-made enhancements, which fit especially fit your company’s needs.</p>
 <p>Your investment for the future – individual performance for your business.</p>
 <p>Our customised software solutions are designed to meet your individual needs and grow with your business.</p>
-<p><strong>Take advantage of our 35+ years of experience and know-how!</strong></p>
+<p><strong>Take advantage of our 40 years of experience and know-how!</strong></p>
 =
 
 address
@@ -57,38 +59,34 @@ openingTimesAfternoonTo=05.00PM
 productsSectionHeader=Products
 
 cs-transport
-<article>
-    <p>Are you fed up with your paper organisation, confusing spreadsheets or dealing with your tax consultant?</p>
-    <p>Wouldn’t you prefer to have all relevant information of your customers, offers, orders, deadlines, etc. at a glance without being afraid of data loss or wrongly assigned data?</p>
-    <p><strong>CS-TRANSPORT</strong> offers you specialised solutions for your individual requirements, which are successfully used by more than 500 companies all over Europe, including Austria, Germany, Switzerland, Slovenia, the Czech Republic, Slovakia and Hungary.</p>
-    <p>Our software covers a lot of business areas even in its basic version and can be enhanced by both standard modules and tailor-made extensions to fit your company’s needs.</p>
-    <p>Since 1978, <strong>CS-TRANSPORT</strong> has been developed, sold, maintained and supported by Computer Steiner.</p>
-    <p>Your advantage: <strong>Whatever concern or request you have – You get everything from one source.</strong></p>
-    <p><strong>Take advantage of our 30 years of experience and our know-how, which has made us the #1 software partner in the transportation industry and become one of our 500+ pleased and content customers.</strong></p>
-</article>
+<p>Are you fed up with your paper organisation, confusing spreadsheets or dealing with your tax consultant?</p>
+<p>Wouldn’t you prefer to have all relevant information of your customers, offers, orders, deadlines, etc. at a glance without being afraid of data loss or wrongly assigned data?</p>
+<p><strong>CS-TRANSPORT</strong> offers you specialised solutions for your individual requirements, which are successfully used by more than 500 companies all over Europe, including Austria, Germany, Switzerland, Slovenia, the Czech Republic, Slovakia and Hungary.</p>
+<p>Our software covers a lot of business areas even in its basic version and can be enhanced by both standard modules and tailor-made extensions to fit your company’s needs.</p>
+<p>Since 1978, <strong>CS-TRANSPORT</strong> has been developed, sold, maintained and supported by Computer Steiner.</p>
+<p>Your advantage: <strong>Whatever concern or request you have – You get everything from one source.</strong></p>
+<p><strong>Take advantage of our 30 years of experience and our know-how, which has made us the #1 software partner in the transportation industry and become one of our 500+ pleased and content customers.</strong></p>
 =
 
-cs-bus
-<article>
-    <p>Are you fed up with your paper organisation or confusing spreadsheets?</p>
-    <p>Wouldn’t you prefer to have all relevant information of your customers, offers / orders, bookings, appointments / dates as well as route and vehicle dispositions, etc. at a glance without being afraid of data loss or wrongly assigned data?</p>
-    <p><strong>CS-BUS</strong> offers you specialised solutions for your individual requirements, which are successfully used by numerous companies at home and abroad.</p>
-    <p>Our software covers a lot of business areas even in its basic version and can be enhanced by both standard modules and tailor-made extensions to fit your company’s needs.</p>
-    <p><strong>Your advantage: Development, Installation, Training and Support from one source!</strong></p>
-    <p><strong>CS-BUS – THE powerful software for bus tour operators and travel organisations.</strong></p>
-</article>
+cs-bus-1
+<p>Are you fed up with your paper organisation or confusing spreadsheets?</p>
+<p>Wouldn’t you prefer to have all relevant information of your customers, offers / orders, bookings, appointments / dates as well as route and vehicle dispositions, etc. at a glance without being afraid of data loss or wrongly assigned data?</p>
+<p><strong>CS-BUS</strong> offers you specialised solutions for your individual requirements, which are successfully used by numerous companies at home and abroad.</p>
+<p>Our software covers a lot of business areas even in its basic version and can be enhanced by both standard modules and tailor-made extensions to fit your company’s needs.</p>
+<p><strong>Your advantage: Development, Installation, Training and Support from one source!</strong></p>
+<p><strong>CS-BUS – THE powerful software for bus tour operators and travel organisations.</strong></p>
 =
 
 cs-routing
-<article>
-    <p>Route planners are available ten a penny, but you’re looking for a route planner, which is made for the needs of a transport or bus company? </p>
-    <p>A software, which calculates the route optimized for trucks and busses with an up to date map?</p>
-    <p>A software, which delivers reliable results concerning distance, duration, costs, route guide and toll – and all that on a fair price? </p>
-    <p>While most route planners are targeting on cars, <strong>CS-ROUTING</strong> was developed ONLY for the transportation industry. That’s why features like driving bans for trucks, toll calculation for all of Europe, CO2 emissions, etc., are already on board with the basic range of our software. </p>
-    <p>Furthermore, you can see the GPS-position of your trucks and busses on the map – no matter which or how many different telematic systems you are using – your scheduling department has a simultaneous view on all your different vehicles! </p>
-    <p><strong>CS-ROUTING is offering these and several other benefits!</strong></p>
-</article>
+<p>Route planners are available ten a penny, but you’re looking for a route planner, which is made for the needs of a transport or bus company? </p>
+<p>A software, which calculates the route optimized for trucks and busses with an up to date map?</p>
+<p>A software, which delivers reliable results concerning distance, duration, costs, route guide and toll – and all that on a fair price? </p>
+<p>While most route planners are targeting on cars, <strong>CS-ROUTING</strong> was developed ONLY for the transportation industry. That’s why features like driving bans for trucks, toll calculation for all of Europe, CO2 emissions, etc., are already on board with the basic range of our software. </p>
+<p>Furthermore, you can see the GPS-position of your trucks and busses on the map – no matter which or how many different telematic systems you are using – your scheduling department has a simultaneous view on all your different vehicles! </p>
+<p><strong>CS-ROUTING is offering these and several other benefits!</strong></p>
 =
+
+readMore=Read More
 
 searchPlaceholder=Search...
 additionalFilters=Additional Filters

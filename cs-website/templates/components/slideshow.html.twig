@@ -5,8 +5,13 @@
         </button>
     </span>
     <ul>
-         {% for panel in panels %}
-            <li {{ panel["id"] is defined ? "id="~panel["id"] }} class="slideshow-panel center-vertically {% if loop.first %}visible{% endif %}" x-anchor-offset="-1">{{ panel["content"]|raw }}</li>
+        {% set visiblePanel = visiblePanel is defined ? visiblePanel : 0 %}
+        {% for panel in panels %}
+            <li {{ panel["id"] is defined ? "id="~panel["id"] }}
+                class="slideshow-panel center-vertically {% if visiblePanel == loop.index0 %}visible{% endif %}"
+                x-anchor-offset="-1">
+                {{ panel["content"]|raw }}
+            </li>
         {% endfor %} 
         {% block panels %}
         {% endblock %}

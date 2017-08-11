@@ -1,0 +1,8 @@
+{% extends "page.html.twig" %}
+
+{% set styles = (styles is defined ? styles : [])|merge(["containers", "products"]) %}
+{% set scripts = (scripts is defined ? scripts : [])|merge(["lib/jquery-closest-descendent", "slideshow", "slide-with", "products"]) %}
+
+{% block content %}
+{% include "assembled-components/products-section.html.twig" with {"visiblePanel": visiblePanel} %}
+{% endblock %}

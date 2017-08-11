@@ -1,17 +1,20 @@
-<section class="products invisible">
+<section class="products">
     <div class="fullwidth">
-        <h1>{{ "productsSectionHeader"|bundle }}</h1>
-        {% include "components/slideshow.html.twig" with {"id": "products", "panels": [
+        <h1>{{ "productsSectionHeader"|bundle }}
+            {# {% include "components/seperate-page-link.html.twig" %} #}
+        </h1>
+        {% include "components/slideshow.html.twig" with {"id": "products", "visiblePanel": visiblePanel, "panels": [
             {"id": "cs-transport", "content": "<img src='"~HOST~"/images/transport.png'>"},
             {"id": "cs-routing", "content": "<img src='"~HOST~"/images/routing.png'>"},
             {"id": "cs-bus", "content": "<img src='"~HOST~"/images/bus.png'>"}
         ]} %}
     </div>
     <div class="size-limited">
-        {% include "components/slide-with.html.twig" with {"slideshowId": "products", "panels": [
-            {"content": "cs-transport"|bundle|raw},
-            {"content": "cs-routing"|bundle|raw},
-            {"content": "cs-bus"|bundle|raw}
+        {% set bus2 = "cs-bus-2"|bundle|raw %}
+        {% include "components/slide-with.html.twig" with {"slideshowId": "products", "visiblePanel": visiblePanel, "panels": [
+            {"content": include("components/products-article.html.twig", {"content": "cs-transport"|bundle|raw, "id": "cs-transport"})},
+            {"content": include("components/products-article.html.twig", {"content": "cs-routing"|bundle|raw, "id": "cs-routing"})},
+            {"content": include("components/products-article.html.twig", {"content": "cs-bus-1"|bundle|raw~(bus2 != "cs-bus-2" ? "<img src="~HOST~"/images/mobile.png alt=CS-Mobile>"~bus2), "id": "cs-bus"})}
         ]} %}
     </div>
 </section>

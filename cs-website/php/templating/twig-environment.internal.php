@@ -25,7 +25,7 @@ $include = new Twig_Function("include", function($templateName, $variables)
 
 $twig = new Twig_Environment($loader);
 $twig->addFilter($identifierFilter);
-$twig->addFunction($include);
+// $twig->addFunction($include);
 
 
 $lang = isset($_GET["lang"]) ? $_GET["lang"] : "de";
