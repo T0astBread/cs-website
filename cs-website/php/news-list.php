@@ -58,6 +58,7 @@ $sqlQuery =
  (isset($dateTo) ? "AND news_articles.date < CAST('".$mysqli->real_escape_string($dateTo)."' AS DATE)" : "").
  (isset($query) ? "AND (news_article_localizations.title LIKE {$query} OR news_article_localizations.text LIKE {$query} OR news_articles.product_version LIKE {$versionQuery} OR news_articles.date LIKE {$query})" : "").
 "AND news_article_localizations.article_id = news_articles.id
+ ORDER BY news_articles.date DESC, news_articles.id DESC
  LIMIT ".$mysqli->real_escape_string($limit)." OFFSET ".$mysqli->real_escape_string($offset);
 
 $lang = $actualLang;
