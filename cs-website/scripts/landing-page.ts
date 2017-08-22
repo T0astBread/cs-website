@@ -59,7 +59,7 @@ let checkIfCookieExistsAndPutCookie = () =>
 let checkIfLandingPageExists = (landingPage: HTMLIFrameElement) =>
 {
     let rMatch = landingPage.contentDocument.body.innerHTML.match(/(<h2>Error 404<\/h2>)|(File Not Found)/);
-    return rMatch === null || rMatch.length > 0;
+    return rMatch === null || rMatch.length === 0;
 }
 
 let getShowMeta = (landingPageHead: JQuery) =>
