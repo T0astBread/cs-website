@@ -4,7 +4,7 @@
 {% set scripts = (scripts is defined ? scripts : [])|merge(["utils", "onpage-link-scroll", "lib/jquery.copycss", "frame", "containers"]) %}
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ lang }}">
 <head>
     <meta charset="utf-8">
     <title>{{ title is defined ? title~" | " }}Computer Steiner</title>
