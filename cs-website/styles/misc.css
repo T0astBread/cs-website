@@ -276,8 +276,10 @@ address span.fa
     bottom: 0;
     left: 0;
     z-index: 30;
+    box-sizing: border-box;
     width: 100vw;
     /* height: 2em; */
+    padding-right: 17px;
     transition: opacity .5s ease;
     opacity: 1;
 }
@@ -289,6 +291,7 @@ address span.fa
 
 #cookie-bar
 {
+    box-sizing: border-box;
     height: 100%;
     background-color: white;
     padding: .5rem;
