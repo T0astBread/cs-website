@@ -119,12 +119,14 @@ address span.fa
 #welcome .slide-with
 {
     max-width: none;
+    max-height: 40vh;
     margin: 0;
     /* margin-bottom: 3em; */
 }
 
 #welcome .slide-with .slideshow-panel
 {
+    bottom: 0;
     transition-duration: 1.5s;
 }
 
@@ -134,6 +136,12 @@ address span.fa
     width: auto; */
     width: 100vw;
     height: auto;
+}
+
+#welcome .fullwidth
+{
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #welcome p, #welcome h1
