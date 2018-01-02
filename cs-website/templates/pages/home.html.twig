@@ -1,6 +1,7 @@
 {% extends "page.html.twig" %}
 
-{% set styles = (styles is defined ? styles : [])|merge(["products", "news", "lib/pikaday"]) %}
+{% set pageName = "home" %}
+
 {% set scripts = (scripts is defined ? scripts : [])|merge(["slideshow", "lib/jquery-closest-descendent", "slide-with", "news", "lib/pikaday", "select", "lib/jquery.visible.min", "welcome", "landing-page", "cookies"]) %}
 
 {% set description = "homeDescription"|bundle %}

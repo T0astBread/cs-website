@@ -1,0 +1,5 @@
+{% set styles = ["frame", "font-awesome.min", "containers", "misc"]|merge(styles) %}
+
+{% for style in styles %}
+{{ source("@styles/" ~ style ~ ".css") }}
+{% endfor %}

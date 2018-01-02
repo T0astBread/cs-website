@@ -8,6 +8,8 @@ $loader = new Twig_Loader_Filesystem($pathToRoot."templates/");
 $loader->addPath($pathToRoot."templates/components/");
 $loader->addPath($pathToRoot."templates/components/assembled-components");
 $loader->addPath($pathToRoot."templates/pages/");
+$loader->addPath($pathToRoot."templates/resources/");
+$loader->addPath($pathToRoot."styles", "styles");
 
 $identifierFilter = new Twig_SimpleFilter("identifier", function($string, $group = "")
 {
