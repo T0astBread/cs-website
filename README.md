@@ -1,7 +1,9 @@
 # cs-website
 
 ## What is this thing?
-This is a website for a company I'm working for. Their current website can be found at http://computer-steiner.com
+This is a website for a company I'm working for. Their current website can be found at https://www.computer-steiner.com (which may or may not be a descendant of what's in this repo).
+
+The site seems to be broken now if no `Referer` header is sent in HTTP requests for it. (Which is not my fault.) This applies when navigating away from GitHub so links on this page won't work. A workaround is to search for "Computer Steiner", then visit the site from the search results.
 
 ## Why does it have this weird project architecture?
 Because it's a Visual Studio 2017 project. I don't like it either but it was a requirement. You can, however, use any text editor to make changes to it.
